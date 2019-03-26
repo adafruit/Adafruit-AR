@@ -29,6 +29,16 @@
       disableMainThreadChecker = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D516FDAC222DB2D2004D151B"
+               BuildableName = "Adafruit QR Tests.xctest"
+               BlueprintName = "Adafruit QR Tests"
+               ReferencedContainer = "container:Adafruit AR.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

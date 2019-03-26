@@ -1,4 +1,4 @@
-//Newly replaced from Github- Test
+// Newly replaced from Github- Test
 //  QRViewController.swift
 //  Adafruit AR
 //
@@ -12,6 +12,9 @@ import ARKit
 import AVFoundation
 
 class QRViewController: UIViewController, ARSCNViewDelegate {
+    
+    //test will be in the view did load
+    
     
     // AR Objects
 
@@ -71,6 +74,15 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     var neoStopText = SCNNode()
     var neoSwitch = Bool()
     var neoVideo = SCNNode()
+    
+    //For PyPortal Model
+    var pyNode = SCNNode()
+    var pyLabel = SCNNode()
+    
+    var pyLabelDescription = SCNNode()
+    var pyPlayText = SCNNode()
+    var pyStopText = SCNNode()
+    var pyVidSwitch = Bool()
     
     //For Button Textures
     var colorArray = [UIColor]()
@@ -175,10 +187,20 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     var grandCentralPlayer = AVPlayer()
     var grandCentralPlayerNode = SKVideoNode()
     
+    // Variables for PyPortal Product Video
+    var pyVideo = SCNNode()
+    var pyPlayer = AVPlayer()
+    var pyPlayerNode = SKVideoNode()
+    
+    
     // URL's for Product Videos
     let crickitVideoURL = URL(string: "https://s3.amazonaws.com/adafruit-ar/video/product_videos/crickit.mp4")
+    
     let hallowingVideoURL = URL(string: "https://s3.amazonaws.com/adafruit-ar/video/product_videos/hallowing.mp4")
+    
     let cpxVidURL = URL(string: "https://s3.amazonaws.com/adafruit-ar/video/product_videos/cpx.mp4")
+    
+    let pyVidURL = URL(string: "https://s3.amazonaws.com/adafruit-ar/video/product_videos/pyportal.mp4")
     
     // Transitions
     var fadeOut = SCNAction()
@@ -205,8 +227,6 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     
     // Highlight Nodes in NeoTrellis
     func highlightNode(_ node: SCNNode) {
-        
-        node.highlight()
 
         cubeArray = cubeArray.filter { $0 != node }
         
@@ -214,7 +234,6 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
             print("Cubes are dehighlighted expect one")
             cube.dehighlight()
             cube.geometry?.firstMaterial?.diffuse.contents = UIColor.lightGray
-            
         }
         
         cubeArray = [cubeNode1, cubeNode2, cubeNode3, cubeNode4, cubeNode5, cubeNode6, cubeNode7, cubeNode8, cubeNode9, cubeNode10,cubeNode11,cubeNode12, cubeNode13, cubeNode14, cubeNode15, cubeNode16, cubeNode17, cubeNode18, cubeNode19, cubeNode20, cubeNode21, cubeNode22, cubeNode23, cubeNode24, cubeNode25, cubeNode26, cubeNode27, cubeNode28, cubeNode29, cubeNode30,cubeNode31,cubeNode32]
@@ -222,7 +241,7 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     }
     
     
-    // Random Color Function for NeoTrellis Seqencer
+    // Random Color Function for NeoTrellis
     func randomColor(_ node: SCNNode){
         
         let material = SCNMaterial()
@@ -332,6 +351,8 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
         fadeIn = SCNAction.fadeIn(duration: 0.0001)
         
         boolArray = [nodeLit1, nodeLit2, nodeLit3, nodeLit4, nodeLit5, nodeLit6, nodeLit7, nodeLit8, nodeLit9, nodeLit11,nodeLit12, nodeLit12, nodeLit13, nodeLit14, nodeLit15, nodeLit16, nodeLit17, nodeLit18, nodeLit19, nodeLit20, nodeLit21, nodeLit22, nodeLit23, nodeLit24, nodeLit25, nodeLit26, nodeLit27, nodeLit28, nodeLit29, nodeLit30, nodeLit31, nodeLit32]
+
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -565,14 +586,102 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
+    
+    //For PyPortal Promo Video Playback
+    func playPyVideo() {
+        
+        pyPlayer = AVPlayer(url: pyVidURL!)
+        pyPlayerNode = SKVideoNode(avPlayer: pyPlayer)
+        
+        // flip video upside down
+        pyPlayerNode.yScale = -1
+        pyPlayerNode.name = "PyplayerNode"
+        
+        // create SKScene and set player node on it
+        spriteKitScene = SKScene(size: CGSize(width: AspectRatio.width + 300, height: AspectRatio.height + 300))
+        
+        spriteKitScene.scaleMode = .aspectFill
+        
+        pyPlayerNode.position = CGPoint(x: spriteKitScene.size.width/2, y: spriteKitScene.size.height/2)
+        
+        pyPlayerNode.size = spriteKitScene.size
+        
+        spriteKitScene.addChild(pyPlayerNode)
+        
+        
+        pyVideo.geometry?.firstMaterial?.diffuse.contents = spriteKitScene
+        pyVideo.geometry?.firstMaterial?.isDoubleSided = true
+        
+        pyPlayerNode.play()
+        
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: pyPlayer.currentItem, queue: nil)
+        { notification in
+            
+            self.pyPlayer.seek(to: kCMTimeZero)
+            self.pyPlayer.play()
+        }
+    }
+    
+
+    
     //Gesture Recognizers & Actions
     func registerTapRecognizer() {
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
         let tapGestureRecognizer =  UITapGestureRecognizer (target:self ,action : #selector (tapped))
+      //  let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+        //let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+
         self.qrSceneView.addGestureRecognizer(tapGestureRecognizer)
         self.qrSceneView.addGestureRecognizer(pinchGestureRecognizer)
-        
+
     }
+
+
+    
+    
+    
+    
+    
+    
+    
+//    //1. Get The Current Rotation From The Gesture
+//    let rotation = Float(gesture.rotation)
+
+//    //2. If The Gesture State Has Changed Set The Nodes EulerAngles.y
+//    if gesture.state == .changed{
+//    isRotating = true
+//    currentNode.eulerAngles.y = currentAngleY + rotation
+//    }
+
+//    //3. If The Gesture Has Ended Store The Last Angle Of The Cube
+
+//    if(gesture.state == .ended) {
+//    currentAngleY = currentNode.eulerAngles.y
+//    isRotating = false
+//    }
+    
+    
+    
+  
+    
+    
+    
+    
+    /// - Parameter gesture: UIRotationGestureRecognizer
+  
+    
+
+//   @objc func handleSwipe(_ gestureRecognize: UISwipeGestureRecognizer) {
+//        
+//        if (gestureRecognize.direction == .left) {
+//        
+//        }
+//        
+//        else if (gestureRecognize.direction == .right) {
+//        
+//        }
+//    }
+    
     
     //Tap Gesture
     @objc func tapped(sender: UITapGestureRecognizer) {
@@ -1419,6 +1528,56 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
                     
                 }
                     
+                else if (node.name) == "Pyportal Learn Guide"{
+                    
+                    
+                    let alert = UIAlertController(title: "Leaving Adafruit AR", message: "Would you like to visit the PyPortal Learn Guide?", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "I Don't Like Nice Things", style: .default, handler: nil))
+                    
+                    alert.addAction(UIAlertAction(title: "Lets Go!", style: .default, handler: { (nil) in
+                        
+                        if let url = URL(string: "https://learn.adafruit.com/adafruit-pyportal") {
+                            UIApplication.shared.open(url, options: [:])
+                        }
+                    }))
+                    
+                    present(alert, animated: true, completion: nil)
+                    
+                    print("Launching PyPortal Guide...")
+                }
+                    
+                else if (node.name) == "pyVideoLabel" {
+                    
+                    
+                    if pyVidSwitch == false {
+                        print("Test1")
+                        
+                        pyPlayText.isHidden = true
+                        pyStopText.isHidden = false
+                        pyLabelDescription.isHidden = true
+                        pyVideo.isHidden = false
+                        playPyVideo()
+                        pyVidSwitch = true
+                        
+                    } else if pyVidSwitch == true {
+                        print("Test2")
+                        pyPlayText.isHidden = false
+                        pyStopText.isHidden = true
+                        pyLabelDescription.isHidden = false
+                        self.pyPlayer.seek(to: kCMTimeZero)
+                        pyPlayerNode.pause()
+                        pyVideo.geometry?.firstMaterial?.diffuse.contents = nil
+                        
+                        
+                        pyVidSwitch = false
+                        pyVideo.isHidden = true
+                    }
+              
+                
+                }
+                    
+                    
                 else {
                     print("Nothing Detected.")
                 }
@@ -1426,6 +1585,51 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
             }
         }
     }
+    
+//
+//    @objc func rotate(sender: UILongPressGestureRecognizer) {
+//        let sceneView = sender.view as! ARSCNView
+//        let holdLocation = sender.location(in: sceneView)
+//        let hitTest = sceneView.hitTest(holdLocation)
+//
+//        if !hitTest.isEmpty {
+//
+//            if sender.state == .began {
+//
+//                if videoWasLoadedToScene == true {
+//
+//                    exitVideoNode()
+//
+//                    fadeInAllLetters()
+//
+//                } else if videoWasLoadedToScene == false {
+//
+//                    let rotation = SCNAction.rotateBy(x: 0, y: CGFloat(360.degreesToRadians), z: 0, duration: 2)
+//
+//                    let forever = SCNAction.repeatForever(rotation)
+//
+//                    adabotNode.runAction(forever)
+//
+//                }
+//
+//            } else if sender.state == .ended {
+//
+//                adabotNode.removeAllActions()
+//            }
+//        }
+//    }
+    
+    @objc func handlePinch(_ pinchRecognize: UIPinchGestureRecognizer) {
+        
+        let scale = Float(pinchRecognize.scale / 10)
+        let currentScale = pyNode.scale.x
+        let newScale = scale / currentScale
+        self.pyNode.scale.x = newScale
+        self.pyNode.scale.y = newScale
+        self.pyNode.scale.z = newScale
+    }
+    
+    
     
   
     //Pinch Gesture
@@ -1445,7 +1649,7 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
             crickitNode.runAction(pinchAction)
             halloWingNode.runAction(pinchAction)
             cpxNode.runAction(pinchAction)
-           
+            pyNode.runAction(pinchAction)
             sender.scale = 1.0
             
         }
@@ -1840,6 +2044,66 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
                 
                 sampleMask.isHidden = true
                 
+            case "pyportal":
+                
+                let scale: Float = 6.5
+                
+                let labelScale: Float = 4
+                
+                let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+                
+                plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
+                
+                let planeNode = SCNNode(geometry: plane)
+                
+                planeNode.eulerAngles.x = -.pi / 2
+                
+                let pyLabelScene = SCNScene(named: "art.scnassets/PyportalLabel.scn")!
+                
+                for child in pyLabelScene.rootNode.childNodes {
+                    pyLabel.addChildNode(child)
+                }
+                
+                pyLabel.position = SCNVector3Zero
+                
+                pyLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+                
+                let pyScene = SCNScene(named: "art.scnassets/pyPortal.dae")!
+                
+                for child in pyScene.rootNode.childNodes {
+                    pyNode.addChildNode(child)
+                }
+                
+                pyNode.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+                
+                pyNode.eulerAngles.x = 0
+                
+                pyNode.scale = SCNVector3(x: scale, y: scale, z: scale)
+                
+                pyVideo = pyLabel.childNode(withName: "py video", recursively: true)!
+                
+                pyLabelDescription =  pyLabel.childNode(withName: "pyLabel", recursively: true)!
+                
+                pyPlayText = pyLabel.childNode(withName: "PPlay video", recursively: true)!
+                
+                pyStopText = pyLabel.childNode(withName: "PStop video", recursively: true)!
+                
+                pyVideo.isHidden = true
+                
+                pyStopText.isHidden = true
+                
+                pyVidSwitch = false
+                
+                planeNode.addChildNode(pyLabel)
+                
+                planeNode.addChildNode(pyNode)
+                
+                node.addChildNode(planeNode)
+                
+                self.scanLabel.isHidden = true
+                
+                sampleMask.isHidden = true
+
             default:
                 break
             }
@@ -1850,5 +2114,26 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
         
     }
 
+    var productsLoaded = Int()
+    var productsOutOfStock = Int()
+    
+    
+    func functionToTest() {
+         productsLoaded = 0
+         productsOutOfStock = 0
+        
+         aFuctionForReaction()
+    
+    
+    }
+    
+    
+    func aFuctionForReaction(){
+        productsLoaded = productsLoaded + 1
+        productsOutOfStock = productsLoaded * 5
+    }
+    
+
 }
+
 

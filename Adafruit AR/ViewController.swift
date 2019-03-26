@@ -48,7 +48,8 @@
     var LetterNodeN = SCNNode()
     var LetterNodeO = SCNNode()
     var LetterNodeP = SCNNode()
-   
+    var LetterNodeQ = SCNNode()
+    
     var focusOfTheHead = SCNNode()
     let letterNode = SCNNode()
     var currentNode: SCNNode?
@@ -84,6 +85,8 @@
     var sphereN = SCNNode()
     var sphereO = SCNNode()
     var sphereP = SCNNode()
+    var sphereQ = SCNNode()
+    
     
     var colorArray = [UIColor]()
     
@@ -276,7 +279,7 @@
       
       colorArray = [UIColor.blue, UIColor.red, UIColor.yellow, UIColor.purple, UIColor.orange, UIColor.green, UIColor.magenta, UIColor.cyan]
      
-      randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, addLetterN, self.addLetterO,self.addLetterP]
+      randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, addLetterN, self.addLetterO,self.addLetterP,self.addLetterQ]
       
       playAndLoadIntro()
       
@@ -417,7 +420,7 @@
         setupFocusSquare()
         placementLabel.isHidden = false
         removeAllAnimationsForLetters()
-        randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, self.addLetterN,self.addLetterO, self.addLetterP ]
+        randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, self.addLetterN,self.addLetterO, self.addLetterP,self.addLetterQ]
       
       }
       else {
@@ -815,7 +818,7 @@
         clearAllLetters()
         
         print("Letter Array is empty & all cleared out")
-        randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, self.addLetterN, self.addLetterO,self.addLetterP]
+        randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, self.addLetterN, self.addLetterO,self.addLetterP,self.addLetterQ]
       
       } else {
         

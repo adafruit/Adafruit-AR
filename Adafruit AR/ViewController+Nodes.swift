@@ -149,6 +149,9 @@ extension ViewController {
     LetterNodeP = adabotNode.childNode(withName: "LetterP", recursively: true)!
     LetterNodeP.isHidden = true
     
+    LetterNodeQ = adabotNode.childNode(withName: "LetterQ", recursively: true)!
+    LetterNodeQ.isHidden = true
+    
     videoNode = adabotNode.childNode(withName: "plane", recursively: true)!
     videoNode.isHidden = true
   
@@ -167,7 +170,7 @@ extension ViewController {
     let letterRotation = Rotation(time: 5)
     
     LetterNodeA.scale = SCNVector3(x: scale, y: scale, z: scale)
-    let scaleAction = SCNAction.scale(to: CGFloat(0.06), duration: 1.5)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 1.5)
     scaleAction.timingMode = .linear
     
     // Use a custom timing function
@@ -196,13 +199,13 @@ extension ViewController {
     
     LetterNodeB.isHidden = false
     
-    let scale: Float = 0.0009
+    let scale: Float = 0.00009
     
     let letterRotation = Rotation(time: 5)
     
     LetterNodeB.scale = SCNVector3(x: scale, y: scale, z: scale)
     
-    let scaleAction = SCNAction.scale(to: CGFloat(0.07), duration: 1.3)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 1.3)
     
     scaleAction.timingMode = .linear
     
@@ -239,13 +242,13 @@ extension ViewController {
     
     LetterNodeC.isHidden = false
     
-    let scale: Float = 0.009
+    let scale: Float = 0.0009
     
     let letterRotation = Rotation(time: 5)
     
     LetterNodeC.scale = SCNVector3(x: scale, y: scale, z: scale)
     
-    let scaleAction = SCNAction.scale(to: CGFloat(6), duration: 1.5)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 1.5)
     
     scaleAction.timingMode = .linear
     
@@ -274,13 +277,13 @@ extension ViewController {
     
     LetterNodeD.isHidden = false
     
-    let scale: Float = 0.0007
+    let scale: Float = 0.00007
     
     let letterRotation = Rotation(time: 5)
     
     LetterNodeD.scale = SCNVector3(x: scale, y: scale, z: scale)
     
-    let scaleAction = SCNAction.scale(to: CGFloat(0.5), duration: 1.5)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 1.5)
     
     scaleAction.timingMode = .linear
     
@@ -319,7 +322,7 @@ extension ViewController {
     
     LetterNodeF.scale = SCNVector3(x: scale, y: scale, z: scale)
     
-    let scaleAction = SCNAction.scale(to: CGFloat(7), duration: 1.5)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 1.5)
     
     scaleAction.timingMode = .linear
     
@@ -352,13 +355,13 @@ extension ViewController {
     
     LetterNodeG.isHidden = false
     
-    let scale: Float = 0.00004
+    let scale: Float = 0.0004
     
     let letterRotation = Rotation(time: 5)
     
     LetterNodeG.scale = SCNVector3(x: scale, y: scale, z: scale)
     
-    let scaleAction = SCNAction.scale(to: CGFloat(7), duration: 1.5)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.5), duration: 1.5)
     
     scaleAction.timingMode = .linear
     
@@ -389,13 +392,13 @@ extension ViewController {
     
     LetterNodeH.isHidden = false
     
-    let scale: Float = 0.00006
+    let scale: Float = 0.000006
     
     let letterRotation = Rotation(time: 5)
     
     LetterNodeH.scale = SCNVector3(x: scale, y: scale, z: scale)
     
-    let scaleAction = SCNAction.scale(to: CGFloat(7), duration: 2)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 2)
     
     scaleAction.timingMode = .linear
     
@@ -463,12 +466,12 @@ extension ViewController {
     
     LetterNodeJ.isHidden = false
     
-    let scale: Float = 0.00007
+    let scale: Float = 0.000007
     let letterRotation = Rotation(time: 5)
     
     LetterNodeJ.scale = SCNVector3(x: scale, y: scale, z: scale)
     
-    let scaleAction = SCNAction.scale(to: CGFloat(7), duration: 1.5)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 1.5)
     
     scaleAction.timingMode = .linear
     
@@ -499,13 +502,13 @@ extension ViewController {
     
     LetterNodeK.isHidden = false
     
-    let scale: Float = 0.0006
+    let scale: Float = 0.00006
     
     let letterRotation = Rotation(time: 5)
     
     LetterNodeK.scale = SCNVector3(x: scale, y: scale, z: scale)
     
-    let scaleAction = SCNAction.scale(to: CGFloat(5.5), duration: 2)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 2)
     
     scaleAction.timingMode = .linear
     
@@ -537,12 +540,12 @@ extension ViewController {
     
     LetterNodeL.isHidden = false
     
-    let scale: Float = 0.0004
+    let scale: Float = 0.00004
     let letterRotation = Rotation(time: 5)
     
     LetterNodeL.scale = SCNVector3(x: scale, y: scale, z: scale)
     
-    let scaleAction = SCNAction.scale(to: CGFloat(5.5), duration: 1.5)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.5), duration: 1.5)
     
     scaleAction.timingMode = .linear
     
@@ -574,12 +577,12 @@ extension ViewController {
     
     LetterNodeM.isHidden = false
     
-    let scale: Float = 0.08
+    let scale: Float = 0.00008
     let letterRotation = Rotation(time: 5)
     
     LetterNodeM.scale = SCNVector3(x: scale, y: scale, z: scale)
     
-    let scaleAction = SCNAction.scale(to: CGFloat(5.6), duration: 2.5)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 2.5)
     
     scaleAction.timingMode = .linear
     
@@ -610,10 +613,10 @@ extension ViewController {
     
     LetterNodeN.isHidden = false
     
-    let scale: Float = 0.0009
+    let scale: Float = 0.00009
     let letterRotation = Rotation(time: 5)
     LetterNodeN.scale = SCNVector3(x: scale, y: scale, z: scale)
-    let scaleAction = SCNAction.scale(to: CGFloat(6.2), duration: 2.5)
+    let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 2.5)
     scaleAction.timingMode = .linear
     
     // Use a custom timing function
@@ -646,7 +649,7 @@ extension ViewController {
         let letterRotation = Rotation(time: 5)
         LetterNodeO.scale = SCNVector3(x: scale, y: scale, z: scale)
         
-        let scaleAction = SCNAction.scale(to: CGFloat(0.6), duration: 2.5)
+        let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 2.5)
         scaleAction.timingMode = .linear
         
         // Use a custom timing function
@@ -679,7 +682,7 @@ extension ViewController {
         let letterRotation = Rotation(time: 5)
         LetterNodeP.scale = SCNVector3(x: scale, y: scale, z: scale)
         
-        let scaleAction = SCNAction.scale(to: CGFloat(0.6), duration: 2.5)
+        let scaleAction = SCNAction.scale(to: CGFloat(0.06), duration: 2.5)
         scaleAction.timingMode = .linear
         
         // Use a custom timing function
@@ -705,6 +708,39 @@ extension ViewController {
         
     }
     
+    func addLetterQ() {
+        
+        LetterNodeQ.isHidden = false
+        
+        let scale: Float = 0.0009
+        let letterRotation = Rotation(time: 5)
+        LetterNodeQ.scale = SCNVector3(x: scale, y: scale, z: scale)
+        
+        let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 2.5)
+        scaleAction.timingMode = .linear
+        
+        // Use a custom timing function
+        scaleAction.timingFunction = { (p: Float) in
+            return self.easeOutElastic(p)
+        }
+        
+        randomColor(LetterNodeQ)
+        LetterNodeQ.name = "LetterQ"
+        
+        LetterNodeQ.runAction(letterRotation, forKey: "rotation")
+        LetterNodeQ.runAction(scaleAction)
+        
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            
+            self.animateLetterToParent(to: self.sphereQ.position, node: self.LetterNodeQ)
+            
+        })
+        
+        print("Letter Q - was loaded into the sceneView")
+        
+    }
     
     
     
@@ -836,6 +872,9 @@ extension ViewController {
     
     sphereP = adabotNode.childNode(withName: "Sphere15", recursively: true)!
     sphereP.isHidden = true
+    
+    sphereQ = adabotNode.childNode(withName: "Sphere16", recursively: true)!
+    sphereQ.isHidden = true
     
   }
   

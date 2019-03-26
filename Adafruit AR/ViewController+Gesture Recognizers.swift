@@ -32,8 +32,6 @@ extension ViewController {
     
     let hitResults = sceneView.hitTest(view.center, types: .existingPlaneUsingExtent)
     
-    let currentTouchPoint = sender.location(in: self.sceneView)
-    
     if !hitResults.isEmpty && nodeLoadedtoCurrentScene == false  {
       print("Surface Touched")
       clearScene()
@@ -181,6 +179,13 @@ extension ViewController {
                 fadeOutAllLetters()
                 print("Letter P was tapped.")
             
+        }else if (node.name) == "LetterQ"{
+            
+            playVideo(URL(string: "https://s3.amazonaws.com/adafruit-ar/video/circuit_playground/q_is_for_quartz.mp4")!)
+            
+            fadeOutAllLetters()
+            print("Letter Q was tapped.")
+            
             
         }else if (SKVideoNode).self == SKVideoNode.self {
         
@@ -288,7 +293,7 @@ extension ViewController {
     self.LetterNodeN.runAction(fadeOut, forKey: "fadeOut")
     self.LetterNodeO.runAction(fadeOut, forKey: "fadeOut")
     self.LetterNodeP.runAction(fadeOut, forKey: "fadeOut")
-    
+    self.LetterNodeQ.runAction(fadeOut, forKey: "fadeOut")
   }
   
   
@@ -312,6 +317,8 @@ extension ViewController {
     LetterNodeN.runAction(longerFadeIn, forKey: "fadeIn2")
     LetterNodeO.runAction(longerFadeIn, forKey: "fadeIn2")
     LetterNodeP.runAction(longerFadeIn, forKey: "fadeIn2")
+    LetterNodeQ.runAction(longerFadeIn, forKey: "fadeIn2")
+    
   }
   
   
@@ -332,7 +339,7 @@ extension ViewController {
     LetterNodeN.removeAction(forKey: "fadeOut")
     LetterNodeO.removeAction(forKey: "fadeOut")
     LetterNodeP.removeAction(forKey: "fadeOut")
-    
+    LetterNodeQ.removeAction(forKey: "fadeOut")
     
     LetterNodeA.removeAction(forKey: "fadeIn")
     LetterNodeB.removeAction(forKey: "fadeIn")
@@ -349,6 +356,7 @@ extension ViewController {
     LetterNodeN.removeAction(forKey: "fadeIn")
     LetterNodeO.removeAction(forKey: "fadeIn")
     LetterNodeP.removeAction(forKey: "fadeIn")
+    LetterNodeQ.removeAction(forKey: "fadeIn")
     
   }
   
