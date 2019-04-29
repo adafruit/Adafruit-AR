@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		298FD3F62270B4D9007E2F4C /* QRViewController+GestureRec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298FD3F52270B4D9007E2F4C /* QRViewController+GestureRec.swift */; };
+		298FD3F82270B7A5007E2F4C /* QRViewController+Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298FD3F72270B7A5007E2F4C /* QRViewController+Video.swift */; };
 		D515BADA21FF5826001E7079 /* Highlight SCNNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D515BAD921FF5826001E7079 /* Highlight SCNNode.swift */; };
 		D516FDB0222DB2D2004D151B /* Adafruit_QR_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D516FDAF222DB2D2004D151B /* Adafruit_QR_Tests.swift */; };
 		D54801CE217E12E700170412 /* hallowing_eye.mov in Resources */ = {isa = PBXBuildFile; fileRef = D54801CB217E118B00170412 /* hallowing_eye.mov */; };
@@ -60,6 +62,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		298FD3F52270B4D9007E2F4C /* QRViewController+GestureRec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QRViewController+GestureRec.swift"; sourceTree = "<group>"; };
+		298FD3F72270B7A5007E2F4C /* QRViewController+Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QRViewController+Video.swift"; sourceTree = "<group>"; };
 		D515BAD921FF5826001E7079 /* Highlight SCNNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Highlight SCNNode.swift"; sourceTree = "<group>"; };
 		D516FD8A222482DC004D151B /* Adafruit ARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adafruit ARTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D516FDAD222DB2D2004D151B /* Adafruit QR Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adafruit QR Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,15 +171,17 @@
 				D5F2F4E5208E190D00B0790B /* ViewController.swift */,
 				D58A102B20FE6C39003B0E93 /* ViewController+Nodes.swift */,
 				D55B075C20FF934B0066976C /* ViewController+Audio.swift */,
-				D56ED487213EEC94000E62F0 /* QRViewController.swift */,
-				D5ABE2902146BB2A00AB8237 /* RootPageViewController.swift */,
 				D55B075A20FF8DD40066976C /* ViewController+Gesture Recognizers.swift */,
+				D515BAD921FF5826001E7079 /* Highlight SCNNode.swift */,
+				D56ED487213EEC94000E62F0 /* QRViewController.swift */,
+				298FD3F52270B4D9007E2F4C /* QRViewController+GestureRec.swift */,
+				298FD3F72270B7A5007E2F4C /* QRViewController+Video.swift */,
 				D55F682E20BF2CA3005219D9 /* FocusSquare.swift */,
 				D55F682F20BF2CA4005219D9 /* Utilities.swift */,
 				D55B076020FF99230066976C /* WorldPosition.swift */,
 				D56ED485213EE255000E62F0 /* MainViewController.swift */,
-				D515BAD921FF5826001E7079 /* Highlight SCNNode.swift */,
 				D583C69C215BF2DB00256EB1 /* pageThree.swift */,
+				D5ABE2902146BB2A00AB8237 /* RootPageViewController.swift */,
 				D54E995A20E155DF0021A2E5 /* Extensions.swift */,
 				D5F2F4E3208E190D00B0790B /* art.scnassets */,
 				D5F2F4E7208E190D00B0790B /* Main.storyboard */,
@@ -366,9 +372,11 @@
 				D55B075D20FF934B0066976C /* ViewController+Audio.swift in Sources */,
 				D583C69D215BF2DB00256EB1 /* pageThree.swift in Sources */,
 				D55B076120FF99230066976C /* WorldPosition.swift in Sources */,
+				298FD3F62270B4D9007E2F4C /* QRViewController+GestureRec.swift in Sources */,
 				D515BADA21FF5826001E7079 /* Highlight SCNNode.swift in Sources */,
 				D56ED488213EEC94000E62F0 /* QRViewController.swift in Sources */,
 				D55B075B20FF8DD40066976C /* ViewController+Gesture Recognizers.swift in Sources */,
+				298FD3F82270B7A5007E2F4C /* QRViewController+Video.swift in Sources */,
 				D55F683120BF2CA4005219D9 /* Utilities.swift in Sources */,
 				D5F2F4E2208E190D00B0790B /* AppDelegate.swift in Sources */,
 				D58A102C20FE6C39003B0E93 /* ViewController+Nodes.swift in Sources */,
@@ -540,7 +548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -593,7 +601,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
