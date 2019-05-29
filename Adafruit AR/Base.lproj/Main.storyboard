@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TV4-si-PBW">
-    <device id="ipad11_0rounded" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TV4-si-PBW">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="2cU-fx-wlI" customClass="QRViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g5D-Fh-qu3">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWL-fP-Q4m">
-                                <rect key="frame" x="-44" y="0.0" width="922" height="1208"/>
+                                <rect key="frame" x="-44" y="0.0" width="502" height="896"/>
                             </arscnView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QR Code Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjb-dT-HnP">
                                 <rect key="frame" x="16" y="51" width="161" height="31"/>
@@ -30,7 +30,7 @@
                                 <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpe-cv-516">
-                                <rect key="frame" x="779" y="51" width="35" height="30"/>
+                                <rect key="frame" x="359" y="51" width="35" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="HomeIcon">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,14 +40,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxt-9f-ehL">
-                                <rect key="frame" x="781" y="96" width="31" height="31"/>
+                                <rect key="frame" x="361" y="96" width="31" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="torchAction:" destination="2cU-fx-wlI" eventType="touchUpInside" id="aTK-N7-y1S"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJF-SR-1Br">
-                                <rect key="frame" x="780" y="142" width="33" height="33"/>
+                                <rect key="frame" x="360" y="142" width="33" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="?mark_icon"/>
                                 <connections>
@@ -55,22 +55,22 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HH5-el-Qp1">
-                                <rect key="frame" x="289" y="521" width="256" height="55"/>
+                                <rect key="frame" x="143" y="391" width="128" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lp0-H7-A8R">
-                                <rect key="frame" x="0.0" y="-23" width="834" height="1240"/>
+                                <rect key="frame" x="0.0" y="-23" width="414" height="942"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wpv-DE-6SP">
-                                    <rect key="frame" x="0.0" y="0.0" width="834" height="1240"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="942"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ucj-ev-k2Q">
-                                            <rect key="frame" x="-3" y="0.0" width="838" height="1238"/>
+                                            <rect key="frame" x="-3" y="0.0" width="418" height="940"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="z2w-BT-na7">
-                                                <rect key="frame" x="0.0" y="0.0" width="838" height="1238"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="418" height="940"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                             <vibrancyEffect>
@@ -175,15 +175,15 @@
             <objects>
                 <viewController id="vvW-nO-QUQ" customClass="BoardViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cTq-J8-T1c">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UH8-jw-YWj">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VS0-h9-CUy">
-                                <rect key="frame" x="46" y="103" width="35" height="30"/>
+                                <rect key="frame" x="22" y="77" width="35" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="HomeIcon">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -209,7 +209,7 @@
             <objects>
                 <viewController storyboardIdentifier="oneVC" id="xz2-3d-SKg" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kVI-hv-JTR">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adafruit AR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXA-oS-Fcu">
@@ -221,7 +221,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Adabot-Mode-icon-512px" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-7B-Svr">
-                                <rect key="frame" x="64" y="365" width="703" height="464"/>
+                                <rect key="frame" x="32" y="274" width="349" height="348"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIv-ru-hfz">
@@ -246,11 +246,11 @@
             <objects>
                 <viewController storyboardIdentifier="twoVC" id="p3Z-Jb-TF3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zdv-4q-pNS">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="test1" translatesAutoresizingMaskIntoConstraints="NO" id="5i7-wJ-8X2">
-                                <rect key="frame" x="82" y="199" width="667" height="441"/>
+                                <rect key="frame" x="41" y="149" width="331" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adabot" translatesAutoresizingMaskIntoConstraints="NO" id="fSX-bs-tx0">
@@ -258,7 +258,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4z-Yk-nql">
-                                <rect key="frame" x="36" y="666" width="762" height="446"/>
+                                <rect key="frame" x="18" y="500" width="378" height="334"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Meet Adabot, your personal robot assistant! 
@@ -289,11 +289,11 @@ Hit the Letters icon to reveal letters that will play videos of Circuit Playgrou
             <objects>
                 <viewController storyboardIdentifier="threeVC" id="LE7-Yd-1BJ" customClass="pageThree" customModule="Adafruit_AR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HPO-9H-aZH">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxB-7h-VYD">
-                                <rect key="frame" x="227" y="1032" width="380" height="62"/>
+                                <rect key="frame" x="113" y="774" width="188" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -311,7 +311,7 @@ Hit the Letters icon to reveal letters that will play videos of Circuit Playgrou
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbb-c5-i7W">
-                                <rect key="frame" x="36" y="726" width="762" height="275"/>
+                                <rect key="frame" x="18" y="545" width="378" height="206"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">While in QR mode, scan your QR Code to display 3D Adafruit products in AR.
@@ -322,7 +322,7 @@ You can also scan QR Codes to visit the Adafruit website! </string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="QR-Mode-icon-512px" translatesAutoresizingMaskIntoConstraints="NO" id="n19-Bk-a29">
-                                <rect key="frame" x="105" y="187" width="622" height="411"/>
+                                <rect key="frame" x="52" y="140" width="309" height="309"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -352,77 +352,109 @@ You can also scan QR Codes to visit the Adafruit website! </string>
             <objects>
                 <viewController storyboardIdentifier="Main" id="TV4-si-PBW" customClass="MainViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Za-QD-T4W">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose a feature:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyh-Lt-Vgl">
-                                <rect key="frame" x="205" y="206" width="425" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4v-di-Acz">
-                                <rect key="frame" x="342" y="234" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4v-di-Acz">
+                                <rect key="frame" x="132.33333333333331" y="155" width="149.33333333333331" height="149.33333333333337"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="i4v-di-Acz" secondAttribute="height" multiplier="1:1" id="GOQ-tj-cVV"/>
+                                </constraints>
                                 <state key="normal" image="Adabot-Mode-icon-512px"/>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="presentation" modalTransitionStyle="flipHorizontal" id="XGC-UV-bv7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NU1-NZ-3YS">
-                                <rect key="frame" x="347" y="759" width="129" height="129"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="QR-Mode-icon-512px"/>
-                                <connections>
-                                    <segue destination="2cU-fx-wlI" kind="presentation" modalTransitionStyle="flipHorizontal" id="nhd-am-G0o"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf5-5J-Hvr">
-                                <rect key="frame" x="267" y="159" width="300" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf5-5J-Hvr" userLabel="Version Label">
+                                <rect key="frame" x="169.66666666666663" y="96" width="75" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Crv-CA-c1G"/>
+                                    <constraint firstAttribute="width" constant="75" id="mld-fB-mmo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adafruit AR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="hrz-cZ-enL">
-                                <rect key="frame" x="85" y="90" width="664" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adafruit AR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="hrz-cZ-enL" userLabel="Title Label">
+                                <rect key="frame" x="107" y="46" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7Vm-T1-J6i"/>
+                                    <constraint firstAttribute="width" constant="200" id="Tnq-jz-oem"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan Board" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69X-ph-JvD">
-                                <rect key="frame" x="359" y="640" width="105" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Board Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69X-ph-JvD" userLabel="Board Label">
+                                <rect key="frame" x="117" y="530.33333333333337" width="180" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="YDO-Dj-dEZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan your QR Code" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JoM-op-FvU">
-                                <rect key="frame" x="326" y="896" width="183" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet Adabot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPs-fe-Oq7" userLabel="Adabot Label">
+                                <rect key="frame" x="117" y="312.33333333333331" width="180" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="vbi-ic-tFI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meet Adabot in AR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPs-fe-Oq7">
-                                <rect key="frame" x="330" y="392" width="175" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71S-tN-o8i">
-                                <rect key="frame" x="341" y="500" width="140" height="125"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71S-tN-o8i" userLabel="Board Icon">
+                                <rect key="frame" x="132.33333333333331" y="373" width="149.33333333333331" height="149.33333333333337"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="71S-tN-o8i" secondAttribute="height" multiplier="1:1" id="Rge-Dd-gQ4"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="Circuit_Playground1-mask2"/>
                                 <connections>
                                     <segue destination="vvW-nO-QUQ" kind="presentation" modalTransitionStyle="flipHorizontal" id="Ekl-WB-CCK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan QR Code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JoM-op-FvU" userLabel="QR Label">
+                                <rect key="frame" x="117" y="748.33333333333337" width="180" height="27.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Lkf-ET-bM9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NU1-NZ-3YS" userLabel="QR Icon">
+                                <rect key="frame" x="132.33333333333331" y="591" width="149.33333333333331" height="149.33333333333337"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NU1-NZ-3YS" secondAttribute="height" multiplier="1:1" id="0uH-dD-LiF"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="QR-Mode-icon-512px"/>
+                                <connections>
+                                    <segue destination="2cU-fx-wlI" kind="presentation" modalTransitionStyle="flipHorizontal" id="nhd-am-G0o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.15781691670417786" green="0.67801815271377563" blue="0.93185180425643921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="71S-tN-o8i" firstAttribute="height" secondItem="3Za-QD-T4W" secondAttribute="height" multiplier="1:6" id="0DG-FU-ADz"/>
+                            <constraint firstItem="JoM-op-FvU" firstAttribute="centerX" secondItem="3Za-QD-T4W" secondAttribute="centerX" id="1sR-BO-ACN"/>
+                            <constraint firstItem="NU1-NZ-3YS" firstAttribute="height" secondItem="3Za-QD-T4W" secondAttribute="height" multiplier="1:6" id="482-5d-a7R"/>
+                            <constraint firstItem="i4v-di-Acz" firstAttribute="centerX" secondItem="3Za-QD-T4W" secondAttribute="centerX" id="7aN-av-zeJ"/>
+                            <constraint firstItem="GPs-fe-Oq7" firstAttribute="top" secondItem="i4v-di-Acz" secondAttribute="bottom" constant="8" id="DlR-iY-hb6"/>
+                            <constraint firstItem="GPs-fe-Oq7" firstAttribute="centerX" secondItem="3Za-QD-T4W" secondAttribute="centerX" id="Dlf-qm-xTg"/>
+                            <constraint firstItem="i4v-di-Acz" firstAttribute="height" secondItem="3Za-QD-T4W" secondAttribute="height" multiplier="1:6" id="Eyw-lY-kPh"/>
+                            <constraint firstItem="Xf5-5J-Hvr" firstAttribute="centerX" secondItem="3Za-QD-T4W" secondAttribute="centerX" id="FTP-8B-wRs"/>
+                            <constraint firstItem="hrz-cZ-enL" firstAttribute="centerX" secondItem="3Za-QD-T4W" secondAttribute="centerX" id="KJp-Wc-5jQ"/>
+                            <constraint firstItem="71S-tN-o8i" firstAttribute="centerX" secondItem="3Za-QD-T4W" secondAttribute="centerX" id="PKS-Am-Qpf"/>
+                            <constraint firstItem="hrz-cZ-enL" firstAttribute="top" secondItem="AW5-us-1F3" secondAttribute="top" constant="2" id="Xol-1g-MK3"/>
+                            <constraint firstItem="69X-ph-JvD" firstAttribute="centerX" secondItem="3Za-QD-T4W" secondAttribute="centerX" id="ZLE-kE-o4R"/>
+                            <constraint firstItem="NU1-NZ-3YS" firstAttribute="top" secondItem="69X-ph-JvD" secondAttribute="bottom" constant="32.670000000000002" id="bVC-Fr-Ncx"/>
+                            <constraint firstItem="Xf5-5J-Hvr" firstAttribute="top" secondItem="hrz-cZ-enL" secondAttribute="bottom" id="h4u-CL-BuE"/>
+                            <constraint firstItem="NU1-NZ-3YS" firstAttribute="centerX" secondItem="3Za-QD-T4W" secondAttribute="centerX" id="hjr-20-NQQ"/>
+                            <constraint firstItem="71S-tN-o8i" firstAttribute="top" secondItem="GPs-fe-Oq7" secondAttribute="bottom" constant="32.670000000000002" id="nRR-Zn-byS"/>
+                            <constraint firstItem="i4v-di-Acz" firstAttribute="top" secondItem="Xf5-5J-Hvr" secondAttribute="bottom" constant="39" id="nzO-Ka-SOZ"/>
+                            <constraint firstItem="JoM-op-FvU" firstAttribute="top" secondItem="NU1-NZ-3YS" secondAttribute="bottom" constant="8" id="r3Y-xA-JwT"/>
+                            <constraint firstItem="69X-ph-JvD" firstAttribute="top" secondItem="71S-tN-o8i" secondAttribute="bottom" constant="8" id="xxi-vL-Mg6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AW5-us-1F3"/>
                     </view>
                     <connections>
@@ -435,29 +467,29 @@ You can also scan QR Codes to visit the Adafruit website! </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBP-Oc-3Qf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="775.5395683453238" y="-1303.5175879396984"/>
+            <point key="canvasLocation" x="775.36231884057975" y="-1303.7946428571429"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KUk-eV-fls">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MgE-aG-4qB">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLI-mV-Wox">
-                                <rect key="frame" x="737" y="1099" width="66" height="66"/>
+                                <rect key="frame" x="317" y="801" width="66" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <action selector="toggleAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="x1v-Ne-U66"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w89-iZ-RSu">
-                                <rect key="frame" x="394" y="1110" width="44" height="44"/>
+                                <rect key="frame" x="185" y="812" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
@@ -469,14 +501,14 @@ You can also scan QR Codes to visit the Adafruit website! </string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOVE AROUND TO SCAN A SURFACE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBD-LG-gQT">
-                                <rect key="frame" x="6" y="129" width="822" height="26"/>
+                                <rect key="frame" x="6" y="149" width="402" height="26"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5S-6N-62f">
-                                <rect key="frame" x="31" y="1099" width="66" height="66"/>
+                                <rect key="frame" x="31" y="801" width="66" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.4488220363" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -494,7 +526,7 @@ You can also scan QR Codes to visit the Adafruit website! </string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="498-ob-xo5">
-                                <rect key="frame" x="783" y="35" width="38" height="38"/>
+                                <rect key="frame" x="363" y="35" width="38" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="?mark_icon"/>
                                 <connections>
@@ -502,16 +534,16 @@ You can also scan QR Codes to visit the Adafruit website! </string>
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5y3-JG-2nO">
-                                <rect key="frame" x="-44" y="0.0" width="922" height="1194"/>
+                                <rect key="frame" x="-44" y="0.0" width="502" height="896"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vNn-B3-qK9">
-                                    <rect key="frame" x="0.0" y="0.0" width="922" height="1194"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="502" height="896"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OXl-Y7-eBQ">
-                                            <rect key="frame" x="-3" y="0.0" width="926" height="1192"/>
+                                            <rect key="frame" x="-3" y="0.0" width="506" height="894"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="s49-hZ-IeE">
-                                                <rect key="frame" x="0.0" y="0.0" width="926" height="1192"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="506" height="894"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                             <vibrancyEffect>
@@ -554,7 +586,7 @@ You can also scan QR Codes to visit the Adafruit website! </string>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x0S-5Z-H4u">
-                            <rect key="frame" x="324" y="318" width="42" height="33"/>
+                            <rect key="frame" x="324" y="304" width="42" height="33"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <state key="normal" title="Done"/>
                             <connections>
@@ -562,13 +594,13 @@ You can also scan QR Codes to visit the Adafruit website! </string>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adafruit AR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiD-Yf-XKO">
-                            <rect key="frame" x="298" y="113" width="93" height="23.5"/>
+                            <rect key="frame" x="298" y="113" width="93" height="23.666666666666657"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Df6-iJ-WjG" userLabel="help text">
-                            <rect key="frame" x="188" y="166" width="313.5" height="167"/>
+                            <rect key="frame" x="187.99999999999997" y="166" width="313.33333333333326" height="167"/>
                             <string key="text">• Look around a surface until the yellow focus 
    corners form a square.
 • Tap the square to add Adabot.
@@ -582,7 +614,7 @@ You can also scan QR Codes to visit the Adafruit website! </string>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_adafruit_logo" translatesAutoresizingMaskIntoConstraints="NO" id="wo0-AE-5XX" userLabel="logo">
-                            <rect key="frame" x="224.5" y="14" width="240" height="95"/>
+                            <rect key="frame" x="224.66666666666663" y="14" width="240" height="95"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="95" id="AAp-4a-csh"/>
                                 <constraint firstAttribute="width" constant="240" id="IUs-bR-lt7"/>
@@ -612,25 +644,25 @@ You can also scan QR Codes to visit the Adafruit website! </string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP A LETTER TO PLAY A CIRCRUIT PLAYGROUND VIDEO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF6-4V-xFK">
-                            <rect key="frame" x="13" y="47" width="228" height="30.5"/>
+                            <rect key="frame" x="13" y="67" width="228" height="30.333333333333329"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP THE VIDEO TO STOP " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPn-8Y-U3u">
-                            <rect key="frame" x="13" y="104" width="228" height="16.5"/>
+                            <rect key="frame" x="13" y="124.00000000000001" width="228" height="16.666666666666671"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRESS AND HOLD EITHER THE VIDEO OR ADABOT TO EXIT A VIDEO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbN-i4-Sa7">
-                            <rect key="frame" x="13" y="141" width="229" height="33"/>
+                            <rect key="frame" x="13" y="161" width="229" height="33"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JT-x0-hGz">
-                            <rect key="frame" x="79" y="213" width="96" height="29"/>
+                            <rect key="frame" x="79" y="199" width="96" height="29"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="Done"/>
                             <connections>
@@ -660,17 +692,17 @@ You can also scan QR Codes to visit the Adafruit website! </string>
         </scene>
     </scenes>
     <resources>
-        <image name="?mark_icon" width="64" height="64"/>
+        <image name="?mark_icon" width="92.160003662109375" height="92.160003662109375"/>
         <image name="Adabot-Mode-icon-512px" width="512" height="512"/>
-        <image name="Circuit_Playground1-mask2" width="612" height="576"/>
+        <image name="Circuit_Playground1-mask2" width="512" height="512"/>
         <image name="HomeIcon" width="512" height="512"/>
         <image name="QR-Mode-icon-512px" width="512" height="512"/>
-        <image name="adabot" width="480" height="774"/>
-        <image name="info_adafruit_logo" width="280" height="105"/>
-        <image name="letters-icon" width="40" height="40"/>
+        <image name="adabot" width="115.19999694824219" height="185.75999450683594"/>
+        <image name="info_adafruit_logo" width="403.20001220703125" height="151.19999694824219"/>
+        <image name="letters-icon" width="512" height="512"/>
         <image name="test1" width="1050" height="1050"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pYP-7V-B9Y"/>
+        <segue reference="dpc-io-64V"/>
     </inferredMetricsTieBreakers>
 </document>
