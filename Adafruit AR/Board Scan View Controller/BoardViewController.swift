@@ -92,7 +92,78 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     let squareLayer = CAShapeLayer()
     var toggleButtonSelected = false
     
+    var promptShown = false
 
+    
+
+    @IBOutlet weak var visualBoardEffectView: UIVisualEffectView!
+    var effect: UIVisualEffect!
+    
+    @IBOutlet weak var scanLabel: UILabel!
+    
+    @IBOutlet weak var boardInfoButton: UIButton!
+    
+
+    @IBAction func boardInfoAction(_ sender: Any) {
+    animateIn()
+    }
+    
+    @IBOutlet weak var boardSceneView: ARSCNView!
+    
+    
+    
+    @IBAction func dismissBoardIconPopup(_ sender: Any) {
+    
+        animateOut()
+        visualBoardEffectView.isUserInteractionEnabled = false
+        //visualBoardEffectView.effect = nil
+        
+        //promptShown = true
+    }
+    
+    @IBOutlet weak var boardItemView: UIView!
+    
+    
+    
+    
+    func animateIn() {
+        self.view.addSubview(boardItemView)
+        boardItemView.center = self.view.center
+        boardItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        boardItemView.alpha =  0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.visualBoardEffectView.effect = self.effect
+            self.boardItemView.alpha = 1
+            self.boardItemView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    
+    func animateOut() {
+        UIView.animate(withDuration: 1, animations: {
+            
+            self.boardItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.boardItemView.alpha = 0
+            self.visualBoardEffectView.effect = nil
+        }) { (success:Bool) in
+            
+            for subview in self.visualBoardEffectView.subviews {
+                if subview is UIVisualEffectView {
+                    subview.removeFromSuperview()
+                }
+            }
+        }
+    }
+    
+    
+    
+    func easeOutElastic(_ t: Float) -> Float {
+        let p: Float = 0.3
+        let result = pow(2.0, -10.0 * t) * sin((t - p / 4.0) * (2.0 * Float.pi) / p) + 1.0
+        return result
+    }
+    
     func displayWebView(on rootNode: SCNNode, xOffset: CGFloat) {
         // Xcode yells at us about the deprecation of UIWebView in iOS 12.0, but there is currently
         // a bug that does now allow us to use a WKWebView as a texture for our webViewNode
@@ -122,7 +193,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
             )
         }
     }
-
+    
     func displayDetailView(on rootNode: SCNNode, xOffset: CGFloat) {
         let detailPlane = SCNPlane(width: xOffset, height: xOffset * 1.4)
         detailPlane.cornerRadius = 0.25
@@ -143,14 +214,6 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
             .moveBy(x: 0, y: 0, z: -0.05, duration: 0.2)
             ])
         )
-    }
-
-    @IBOutlet weak var boardSceneView: ARSCNView!
-    
-    func easeOutElastic(_ t: Float) -> Float {
-        let p: Float = 0.3
-        let result = pow(2.0, -10.0 * t) * sin((t - p / 4.0) * (2.0 * Float.pi) / p) + 1.0
-        return result
     }
     
     override func viewDidLoad() {
@@ -190,7 +253,29 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         maskLayer.addSublayer(squareLayer)
         
         sampleMask.layer.mask = maskLayer
+   
+    
+        effect = visualBoardEffectView.effect
+    
+//        //Removes the effect that was applied
+        visualBoardEffectView.effect = nil
+        
+        animateIn()
     }
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -234,6 +319,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         //This node is used to place the Plane used to plant the AR models
         let node = SCNNode()
         
+       
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
@@ -318,7 +404,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 node.addChildNode(planeNode)
                 
                 DispatchQueue.main.async {
-               //   self.scanLabel.isHidden = true
+                    self.scanLabel.isHidden = true
                     self.sampleMask.isHidden = true
                     
                 }
@@ -396,34 +482,34 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 pySpeakerInfo.isHidden = true
             
                 // Create a plane geometry to visualize the initial position of the detected image
-                let mainPlane = SCNPlane(width: physicalWidth, height: physicalHeight)
-
-                // This bit is important. It helps us create occlusion so virtual things stay hidden behind the detected image
-                mainPlane.firstMaterial?.colorBufferWriteMask = .alpha
-
-                // Create a SceneKit root node with the plane geometry to attach to the scene graph
-                // This node will hold the virtual UI in place
-                let mainNode = SCNNode(geometry: mainPlane)
-                mainNode.eulerAngles.x = -.pi / 2
-                mainNode.renderingOrder = -1
-                mainNode.opacity = 1
-
-                // Add the plane visualization to the scene
-                node.addChildNode(mainNode)
-
-
-                // Introduce virtual content
-                // self.displayDetailView(on: pyStaneAloneLabel, xOffset: physicalWidth + 10)
-
-                // Animate the WebView to the right
-                self.displayWebView(on: pyStandAloneLabel, xOffset: physicalWidth + 7)
+//                let mainPlane = SCNPlane(width: physicalWidth, height: physicalHeight)
+//
+//                // This bit is important. It helps us create occlusion so virtual things stay hidden behind the detected image
+//                mainPlane.firstMaterial?.colorBufferWriteMask = .alpha
+//
+//                // Create a SceneKit root node with the plane geometry to attach to the scene graph
+//                // This node will hold the virtual UI in place
+//                let mainNode = SCNNode(geometry: mainPlane)
+//                mainNode.eulerAngles.x = -.pi / 2
+//                mainNode.renderingOrder = -1
+//                mainNode.opacity = 1
+//
+//                // Add the plane visualization to the scene
+//                node.addChildNode(mainNode)
+//
+//
+//                // Introduce virtual content
+//                // self.displayDetailView(on: pyStaneAloneLabel, xOffset: physicalWidth + 10)
+//
+//                // Animate the WebView to the right
+//                self.displayWebView(on: pyStandAloneLabel, xOffset: physicalWidth + 7)
                 
                 planeNode.addChildNode(pyStandAloneLabel)
                 
                 node.addChildNode(planeNode)
                 
                 DispatchQueue.main.async {
-            //        self.scanLabel.isHidden = true
+                    self.scanLabel.isHidden = true
                     self.sampleMask.isHidden = true
                     
                 }
@@ -435,10 +521,14 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 break
             }
     
-            }
-
+            
+        }
     return node
 }
+    
+
+
+
 
 
 }
