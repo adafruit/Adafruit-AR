@@ -21,8 +21,8 @@ class RootPageViewController: UIPageViewController, UIPageViewControllerDataSour
     let vc1 = sb.instantiateViewController(withIdentifier: "oneVC")
     let vc2 = sb.instantiateViewController(withIdentifier: "twoVC")
     let vc3 = sb.instantiateViewController(withIdentifier: "threeVC")
-    
-    return [vc1, vc2, vc3]
+    let vc4 = sb.instantiateViewController(withIdentifier: "fourVC")
+    return [vc1, vc2, vc3, vc4]
     
   }()
   
@@ -57,13 +57,16 @@ class RootPageViewController: UIPageViewController, UIPageViewControllerDataSour
     pageControl.tintColor = UIColor.lightGray
     pageControl.currentPageIndicatorTintColor = UIColor.white
     pageControl.pageIndicatorTintColor = UIColor.lightGray
+    
     self.view.addSubview(pageControl)
+    
   }
   
   
   func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
     let pageContentViewController = pageViewController.viewControllers![0]
     pageControl.currentPage = viewControllerList.index(of: pageContentViewController)!
+    print("Page Check: \(pageControl.currentPage)")
   }
   
   
