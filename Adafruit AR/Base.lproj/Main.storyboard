@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--QR Mode-->
         <scene sceneID="FL3-fY-ama">
             <objects>
-                <viewController id="2cU-fx-wlI" customClass="QRViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2cU-fx-wlI" userLabel="QR Mode" customClass="QRViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g5D-Fh-qu3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWL-fP-Q4m">
                                 <rect key="frame" x="-44" y="0.0" width="463" height="812"/>
                             </arscnView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QR Code Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjb-dT-HnP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QR Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjb-dT-HnP">
                                 <rect key="frame" x="16" y="51" width="161" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="19"/>
@@ -29,8 +29,15 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpe-cv-516">
-                                <rect key="frame" x="320" y="51" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxt-9f-ehL" userLabel="Flashlight Button">
+                                <rect key="frame" x="319" y="144" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="torchAction:" destination="2cU-fx-wlI" eventType="touchUpInside" id="aTK-N7-y1S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpe-cv-516">
+                                <rect key="frame" x="319" y="44" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="HomeIcon">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,15 +46,8 @@
                                     <segue destination="TV4-si-PBW" kind="presentation" modalTransitionStyle="flipHorizontal" id="lDk-c2-68K"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxt-9f-ehL">
-                                <rect key="frame" x="322" y="96" width="31" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="torchAction:" destination="2cU-fx-wlI" eventType="touchUpInside" id="aTK-N7-y1S"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJF-SR-1Br">
-                                <rect key="frame" x="321" y="142" width="33" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJF-SR-1Br" userLabel="Info Button">
+                                <rect key="frame" x="319" y="94" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="?mark_icon"/>
                                 <connections>
@@ -60,24 +60,11 @@
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lp0-H7-A8R">
-                                <rect key="frame" x="0.0" y="-23" width="375" height="858"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lp0-H7-A8R">
+                                <rect key="frame" x="0.0" y="786" width="375" height="49"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wpv-DE-6SP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="858"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ucj-ev-k2Q">
-                                            <rect key="frame" x="-3" y="0.0" width="379" height="856"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="z2w-BT-na7">
-                                                <rect key="frame" x="0.0" y="0.0" width="379" height="856"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                            <vibrancyEffect>
-                                                <blurEffect style="light"/>
-                                            </vibrancyEffect>
-                                        </visualEffectView>
-                                    </subviews>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -166,12 +153,12 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </objects>
-            <point key="canvasLocation" x="2167" y="-1298"/>
+            <point key="canvasLocation" x="2165.5999999999999" y="-1298.2758620689656"/>
         </scene>
-        <!--Board View Controller-->
+        <!--Board Info Mode-->
         <scene sceneID="nSQ-gb-evL">
             <objects>
-                <viewController id="vvW-nO-QUQ" customClass="BoardViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vvW-nO-QUQ" userLabel="Board Info Mode" customClass="BoardViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cTq-J8-T1c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,9 +167,9 @@
                                 <rect key="frame" x="-7" y="-5" width="390" height="821"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VS0-h9-CUy">
-                                <rect key="frame" x="312" y="44" width="54" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VS0-h9-CUy" userLabel="Home Button">
+                                <rect key="frame" x="319" y="44" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="HomeIcon">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -197,9 +184,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.51961151541095896" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1b-X6-ClA">
-                                <rect key="frame" x="316" y="97" width="49" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1b-X6-ClA" userLabel="Info Button">
+                                <rect key="frame" x="319" y="94" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="?mark_icon"/>
                                 <connections>
                                     <action selector="boardInfoAction:" destination="vvW-nO-QUQ" eventType="touchUpInside" id="xvV-c2-2p3"/>
@@ -218,19 +205,6 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="Yk8-9c-YvN">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="816"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CGc-bV-002">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="815"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="clL-In-pSd">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="815"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                            <vibrancyEffect>
-                                                <blurEffect style="light"/>
-                                            </vibrancyEffect>
-                                        </visualEffectView>
-                                    </subviews>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -238,29 +212,21 @@
                                 <rect key="frame" x="43" y="271" width="292" height="269"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Board Info Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55N-T1-Xey">
-                                        <rect key="frame" x="67" y="47" width="168" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi5-NN-nXJ">
+                                        <rect key="frame" x="31" y="50" width="240" height="154"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1C-lF-kjR">
-                                        <rect key="frame" x="97" y="89" width="108" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan your Adafruit board to display component info in AR!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi5-NN-nXJ">
-                                        <rect key="frame" x="31" y="125" width="240" height="79"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">Scan your Adafruit board to display component info in AR!
+
+Works with:
+• Circuit Playground Express
+• PyPortal
++ more to come</string>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2B-8a-P4h">
-                                        <rect key="frame" x="123" y="212" width="46" height="37"/>
+                                        <rect key="frame" x="123" y="217" width="46" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
                                         <state key="normal" title="Done">
@@ -270,6 +236,13 @@
                                             <action selector="dismissBoardIconPopup:" destination="vvW-nO-QUQ" eventType="touchUpInside" id="EI8-IR-QZZ"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Board Info Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55N-T1-Xey">
+                                        <rect key="frame" x="31" y="8" width="240" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.33678779009999998" green="0.66869717839999998" blue="0.9098311067" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <userDefinedRuntimeAttributes>
@@ -292,12 +265,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kqJ-3F-tXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2167" y="-591"/>
+            <point key="canvasLocation" x="2165.5999999999999" y="-591.13300492610836"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding p1-->
         <scene sceneID="sWd-JV-Aqa">
             <objects>
-                <viewController storyboardIdentifier="oneVC" id="xz2-3d-SKg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="oneVC" id="xz2-3d-SKg" userLabel="Onboarding p1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kVI-hv-JTR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,10 +312,10 @@
             </objects>
             <point key="canvasLocation" x="-2665" y="-1301"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding p2-->
         <scene sceneID="gqd-MU-J8n">
             <objects>
-                <viewController storyboardIdentifier="twoVC" id="p3Z-Jb-TF3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="twoVC" id="p3Z-Jb-TF3" userLabel="Onboarding p2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zdv-4q-pNS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -398,10 +371,10 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
             </objects>
             <point key="canvasLocation" x="-1865" y="-1301"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding p3-->
         <scene sceneID="tgD-zM-h32">
             <objects>
-                <viewController storyboardIdentifier="threeVC" id="8Ju-7z-dYQ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="threeVC" id="8Ju-7z-dYQ" userLabel="Onboarding p3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bpi-hr-fH6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -453,10 +426,10 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
             </objects>
             <point key="canvasLocation" x="-987" y="-1301"/>
         </scene>
-        <!--Page Three-->
+        <!--Onboarding p3-->
         <scene sceneID="F4f-4A-C9P">
             <objects>
-                <viewController storyboardIdentifier="fourVC" id="LE7-Yd-1BJ" customClass="pageThree" customModule="Adafruit_AR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="fourVC" id="LE7-Yd-1BJ" userLabel="Onboarding p3" customClass="pageThree" customModule="Adafruit_AR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HPO-9H-aZH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -530,10 +503,10 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
             </objects>
             <point key="canvasLocation" x="-3446" y="-1304"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Mode Slection-->
         <scene sceneID="fpm-m4-xnb">
             <objects>
-                <viewController storyboardIdentifier="Main" id="TV4-si-PBW" customClass="MainViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="TV4-si-PBW" userLabel="Mode Slection" customClass="MainViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Za-QD-T4W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -652,10 +625,10 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
             </objects>
             <point key="canvasLocation" x="775.36231884057975" y="-1303.7946428571429"/>
         </scene>
-        <!--View Controller-->
+        <!--Adabot Mode-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" userLabel="Adabot Mode" customClass="ViewController" customModule="Adafruit_AR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KUk-eV-fls">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -664,6 +637,14 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="811"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </arscnView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOVE AROUND TO SCAN A SURFACE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBD-LG-gQT">
+                                <rect key="frame" x="7" y="173" width="363" height="25.666666666666657"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLI-mV-Wox">
                                 <rect key="frame" x="278" y="716" width="66" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
@@ -683,13 +664,6 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
                                     <action selector="recordToggle:" destination="BV1-FR-VrT" eventType="touchUpInside" id="t2f-nu-cGL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOVE AROUND TO SCAN A SURFACE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBD-LG-gQT">
-                                <rect key="frame" x="6" y="149" width="363" height="26"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5S-6N-62f">
                                 <rect key="frame" x="31" y="716" width="66" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -700,20 +674,20 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
                                     <action selector="alphButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="7F2-Un-A6y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZt-j6-9yz">
-                                <rect key="frame" x="23" y="37" width="45" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="498-ob-xo5">
+                                <rect key="frame" x="319" y="94" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Info" image="?mark_icon"/>
+                                <connections>
+                                    <action selector="infoAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OIm-1j-JoR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZt-j6-9yz">
+                                <rect key="frame" x="319" y="44" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Home" image="HomeIcon"/>
                                 <connections>
                                     <segue destination="TV4-si-PBW" kind="presentation" modalTransitionStyle="flipHorizontal" id="A8j-vO-tW6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="498-ob-xo5">
-                                <rect key="frame" x="324" y="35" width="38" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="?mark_icon"/>
-                                <connections>
-                                    <action selector="infoAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="OIm-1j-JoR"/>
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5y3-JG-2nO">
@@ -721,19 +695,6 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vNn-B3-qK9">
                                     <rect key="frame" x="0.0" y="0.0" width="463" height="812"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OXl-Y7-eBQ">
-                                            <rect key="frame" x="-3" y="0.0" width="467" height="810"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="s49-hZ-IeE">
-                                                <rect key="frame" x="0.0" y="0.0" width="467" height="810"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                            <vibrancyEffect>
-                                                <blurEffect style="light"/>
-                                            </vibrancyEffect>
-                                        </visualEffectView>
-                                    </subviews>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -741,12 +702,12 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="5y3-JG-2nO" secondAttribute="bottom" id="4JL-oC-YeK"/>
-                            <constraint firstItem="cBD-LG-gQT" firstAttribute="top" secondItem="B6J-0k-EaY" secondAttribute="top" constant="105" id="4MJ-2d-iDB"/>
+                            <constraint firstItem="cBD-LG-gQT" firstAttribute="top" secondItem="B6J-0k-EaY" secondAttribute="top" constant="129" id="4MJ-2d-iDB"/>
                             <constraint firstItem="5y3-JG-2nO" firstAttribute="trailing" secondItem="B6J-0k-EaY" secondAttribute="trailing" constant="44" id="7h3-T8-gvp"/>
                             <constraint firstItem="5y3-JG-2nO" firstAttribute="leading" secondItem="B6J-0k-EaY" secondAttribute="leading" constant="-44" id="Mp4-wN-sqU"/>
                             <constraint firstItem="5y3-JG-2nO" firstAttribute="top" secondItem="KUk-eV-fls" secondAttribute="top" id="gnf-nn-GdG"/>
-                            <constraint firstItem="cBD-LG-gQT" firstAttribute="leading" secondItem="KUk-eV-fls" secondAttribute="leading" constant="6" id="hTZ-H3-Uwo"/>
-                            <constraint firstAttribute="trailing" secondItem="cBD-LG-gQT" secondAttribute="trailing" constant="6" id="oop-zx-lgu"/>
+                            <constraint firstItem="cBD-LG-gQT" firstAttribute="leading" secondItem="KUk-eV-fls" secondAttribute="leading" constant="7" id="hTZ-H3-Uwo"/>
+                            <constraint firstAttribute="trailing" secondItem="cBD-LG-gQT" secondAttribute="trailing" constant="5" id="oop-zx-lgu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B6J-0k-EaY"/>
                     </view>
@@ -778,8 +739,8 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
                                 <action selector="dismissPopup:" destination="BV1-FR-VrT" eventType="touchUpInside" id="GeX-mQ-uKl"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adafruit AR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiD-Yf-XKO">
-                            <rect key="frame" x="298" y="113" width="93" height="23.666666666666657"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adabot Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiD-Yf-XKO">
+                            <rect key="frame" x="289.66666666666669" y="113" width="109.66666666666669" height="24"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -812,15 +773,14 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
                         <constraint firstItem="Df6-iJ-WjG" firstAttribute="top" secondItem="rfW-ZP-ZId" secondAttribute="top" constant="166" id="16P-oW-2pK"/>
                         <constraint firstItem="wo0-AE-5XX" firstAttribute="centerX" secondItem="rfW-ZP-ZId" secondAttribute="centerX" id="23J-yX-NBq"/>
                         <constraint firstItem="YVo-5B-s8h" firstAttribute="bottom" secondItem="x0S-5Z-H4u" secondAttribute="bottom" constant="20" id="8Su-N2-nF8"/>
-                        <constraint firstItem="YVo-5B-s8h" firstAttribute="trailing" secondItem="TiD-Yf-XKO" secondAttribute="trailing" constant="298" id="Kyi-rh-fY2"/>
                         <constraint firstItem="wo0-AE-5XX" firstAttribute="top" secondItem="rfW-ZP-ZId" secondAttribute="top" constant="14" id="NFG-EG-Ekn"/>
                         <constraint firstItem="Df6-iJ-WjG" firstAttribute="centerX" secondItem="rfW-ZP-ZId" secondAttribute="centerX" id="UC5-fa-kcG"/>
                         <constraint firstItem="Df6-iJ-WjG" firstAttribute="centerX" secondItem="rfW-ZP-ZId" secondAttribute="centerX" id="Yu4-kR-bGx"/>
+                        <constraint firstItem="TiD-Yf-XKO" firstAttribute="centerX" secondItem="rfW-ZP-ZId" secondAttribute="centerX" id="eqB-EY-Gkw"/>
                         <constraint firstItem="YVo-5B-s8h" firstAttribute="trailing" secondItem="x0S-5Z-H4u" secondAttribute="trailing" constant="323" id="mU7-Fx-5if"/>
                         <constraint firstItem="x0S-5Z-H4u" firstAttribute="leading" secondItem="YVo-5B-s8h" secondAttribute="leading" constant="324" id="rqh-gd-I3r"/>
                         <constraint firstItem="TiD-Yf-XKO" firstAttribute="top" secondItem="wo0-AE-5XX" secondAttribute="bottom" constant="4" id="xEk-En-Rct"/>
                         <constraint firstAttribute="bottom" secondItem="wo0-AE-5XX" secondAttribute="bottom" constant="282" id="xiH-M3-Z6k"/>
-                        <constraint firstItem="TiD-Yf-XKO" firstAttribute="leading" secondItem="YVo-5B-s8h" secondAttribute="leading" constant="298" id="z1B-OA-n0g"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="YVo-5B-s8h"/>
                     <userDefinedRuntimeAttributes>
@@ -885,7 +845,7 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
                     </userDefinedRuntimeAttributes>
                 </view>
             </objects>
-            <point key="canvasLocation" x="2169" y="-2183"/>
+            <point key="canvasLocation" x="2168.8000000000002" y="-2183.497536945813"/>
         </scene>
     </scenes>
     <resources>

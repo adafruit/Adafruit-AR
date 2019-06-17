@@ -417,7 +417,7 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
         registerTapRecognizer()
         
         // For ShadowOverlay & Transparent Square
-        touchLightButton.setBackgroundImage(UIImage(named: "moon.png"), for: .normal)
+        touchLightButton.setBackgroundImage(UIImage(named: "flash-on-icon.png"), for: .normal)
         
         sampleMask.frame = self.view.frame
         
@@ -536,9 +536,9 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
                 
                 if toggleButtonSelected == true {
                     device.torchMode = .on
-                    touchLightButton.setBackgroundImage(UIImage(named: "Sun.png"), for: .normal)
+                    touchLightButton.setBackgroundImage(UIImage(named: "flash-off-icon.png"), for: .normal)
                 } else {
-                    touchLightButton.setBackgroundImage(UIImage(named: "moon.png"), for: .normal)
+                    touchLightButton.setBackgroundImage(UIImage(named: "flash-on-icon.png"), for: .normal)
                     device.torchMode = .off
                 }
                 
