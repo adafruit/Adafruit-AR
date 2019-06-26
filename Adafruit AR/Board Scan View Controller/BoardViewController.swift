@@ -96,7 +96,6 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     
     //TEST
     let testLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-    var testLabelView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
 
     @IBOutlet weak var visualBoardEffectView: UIVisualEffectView!
     var effect: UIVisualEffect!
@@ -232,8 +231,6 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         testLabel.clipsToBounds = true
         testLabel.layer.backgroundColor = UIColor.clear.cgColor
         testLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-        testLabelView.backgroundColor = .black
-        testLabelView.addSubview(testLabel)
         
         // Set the view's delegate
         boardSceneView.delegate = self
