@@ -93,8 +93,10 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     var toggleButtonSelected = false
     
     var promptShown = false
-
     
+    //TEST
+    let testLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+    var testLabelView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
 
     @IBOutlet weak var visualBoardEffectView: UIVisualEffectView!
     var effect: UIVisualEffect!
@@ -221,6 +223,18 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         
         let scene = SCNScene()
         
+        //TEST
+        testLabel.textAlignment = .center
+        testLabel.text = "This is a UILabel"
+        testLabel.backgroundColor = .blue
+        testLabel.textColor = .white
+        testLabel.cornerRadius = 10
+        testLabel.clipsToBounds = true
+        testLabel.layer.backgroundColor = UIColor.clear.cgColor
+        testLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        testLabelView.backgroundColor = .black
+        testLabelView.addSubview(testLabel)
+        
         // Set the view's delegate
         boardSceneView.delegate = self
         
@@ -262,20 +276,6 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         
         animateIn()
     }
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -323,13 +323,11 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         
         if let imageAnchor = anchor as? ARImageAnchor {
             
-            let physicalWidth = imageAnchor.referenceImage.physicalSize.width
-            let physicalHeight = imageAnchor.referenceImage.physicalSize.height
+//            let physicalWidth = imageAnchor.referenceImage.physicalSize.width
+//            let physicalHeight = imageAnchor.referenceImage.physicalSize.height
             
             
             switch imageAnchor.referenceImage.name {
-                
-                
                 
             case "cpx":
                 
@@ -353,6 +351,14 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 
                 cpxStandAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
                 
+                //TEST
+                let testPlane = SCNPlane(width: 0.1, height: 0.05)
+                testPlane.firstMaterial?.diffuse.contents = testLabel
+                testPlane.firstMaterial?.blendMode = .alpha
+                let testNode = SCNNode(geometry: testPlane)
+                planeNode.addChildNode(testNode)
+                
+                
                 //For Interactive Test
                 
                 //NeoPixels
@@ -361,6 +367,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 neoPixelInfo = cpxStandAloneLabel.childNode(withName: "neopixel_Info", recursively: true)!
                 
                 neoPixelInfo.isHidden = true
+                
                 
                 //ATSAMD21
                 ATSButton = cpxStandAloneLabel.childNode(withName: "ATSAMD21_Micro_button", recursively: true)!
