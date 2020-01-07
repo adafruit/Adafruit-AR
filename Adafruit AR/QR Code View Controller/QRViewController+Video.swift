@@ -3,7 +3,8 @@
 //  Adafruit AR
 //
 //  Created by Trevor B on 4/24/19.
-//  Copyright © 2019 Vanguard Logic LLC. All rights reserved.
+//  Copyright © 2019 Adafruit. All rights reserved.
+
 //
 
 import AVFoundation
@@ -151,6 +152,52 @@ extension QRViewController {
             self.cpxPlayer.play()
         }
     }
+    
+    
+    
+    
+    
+    
+    func play4HCPXVideo() {
+        
+        KcpxPlayer = AVPlayer(url: cpxVidURL!)
+        KcpxPlayerNode = SKVideoNode(avPlayer: KcpxPlayer)
+        
+        // flip video upside down
+        KcpxPlayerNode.yScale = -1
+        KcpxPlayerNode.name = "CPXplayerNode"
+        
+        // create SKScene and set player node on it
+        spriteKitScene = SKScene(size: CGSize(width: AspectRatio.width + 300, height: AspectRatio.height + 300))
+        
+        spriteKitScene.scaleMode = .aspectFill
+        
+        KcpxPlayerNode.position = CGPoint(x: spriteKitScene.size.width/2, y: spriteKitScene.size.height/2)
+        
+        KcpxPlayerNode.size = spriteKitScene.size
+        
+        spriteKitScene.addChild(KcpxPlayerNode)
+        
+        
+        KcpxVideo.geometry?.firstMaterial?.diffuse.contents = spriteKitScene
+        KcpxVideo.geometry?.firstMaterial?.isDoubleSided = true
+        
+        KcpxPlayerNode.play()
+        
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: KcpxPlayer.currentItem, queue: nil)
+        { notification in
+            
+            self.KcpxPlayer.seek(to: kCMTimeZero)
+            self.KcpxPlayer.play()
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
     
     func playPyVideo() {
         

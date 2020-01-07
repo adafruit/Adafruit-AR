@@ -3,8 +3,8 @@
 //  Adafruit AR
 //
 //  Created by Trevor B on 5/20/19.
-//  Copyright © 2019 Vanguard Logic LLC. All rights reserved.
-//
+//  Copyright © 2019 Adafruit. All rights reserved.
+
 
 import UIKit
 import SceneKit
@@ -15,13 +15,21 @@ import AVFoundation
 
 class BoardViewController: UIViewController, ARSCNViewDelegate {
     
-
-    //Funtion Array for CPX Interactive Buttons
+    
+    //Test
+    var cpxLayers = SCNNode()
+    var cpxCopperTop = SCNNode()
+    var cpxSolderPaste = SCNNode()
+    var cpxSolderMask = SCNNode()
+    var cpxProfile = SCNNode()
+    
+    
+    
+    //Funtion Array for PyPortal Interactive Buttons
     var PyButtons = [SCNNode]()
     var PyDisplays = [SCNNode]()
     var pyStandAloneLabel = SCNNode()
     
-    //Funtion Array for Py Interactive Buttons
     
     var pyATSButton = SCNNode()
     var pyATSInfo = SCNNode()
@@ -56,7 +64,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     var CPXDisplays = [SCNNode]()
     //CPX Interative model
     
-    //Circuit Playground Interaction Test
+    //Circuit Playground
     var neoPixelButton = SCNNode()
     var neoPixelInfo = SCNNode()
     var cpxNeoPixelSwitch = false
@@ -83,6 +91,69 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     
     var cpxStandAloneLabel = SCNNode()
     
+    //Funtion Array for PyPortal Interactive Buttons
+    var PygamerButtons = [SCNNode]()
+    var PygamerDisplays = [SCNNode]()
+    var pygamerStandAloneLabel = SCNNode()
+    
+    var pygamerATSButton = SCNNode()
+    var pygamerATSInfo = SCNNode()
+    var pygamerATSSwitch = false
+    
+    var pygamerIC2Button = SCNNode()
+    var pygamerIC2Info = SCNNode()
+    var pygamerIC2Switch = false
+    
+    var pygamerSensorButton = SCNNode()
+    var pygamerSensorInfo = SCNNode()
+    var pygamerSensorSwitch = false
+    
+    var pygamerSpeakerButton = SCNNode()
+    var pygamerSpeakerInfo = SCNNode()
+    var pygamerSpeakerSwitch = false
+    
+    var pygamerDAButton = SCNNode()
+    var pygamerDAInfo = SCNNode()
+    var pygamerDASwitch = false
+    
+    var pygamerAccelerometerButton = SCNNode()
+    var pygamerAccelerometerInfo = SCNNode()
+    var pygamerAccelerometerSwitch = false
+    
+    var pygamerFeatherButton = SCNNode()
+    var pygamerFeatherInfo = SCNNode()
+    var pygamerFeatherSwitch = false
+    
+    var pygamerJSTButton = SCNNode()
+    var pygamerJSTInfo = SCNNode()
+    var pygamerJSTSwitch = false
+    
+    
+    //Node Array for PyGamer-Front Buttons
+    
+    var pygamerFrontButtons = [SCNNode]()
+    var pygamerFrontDisplays = [SCNNode]()
+    var pygamerFrontStandAloneLabel = SCNNode()
+    
+    var TFTDisplay = SCNNode()
+    var TFTDisplayInfo = SCNNode()
+    var TFTDisplaySwitch = false
+    
+    var analogStick = SCNNode()
+    var analogStickDisplay = SCNNode()
+    var analogStickSwitch = false
+    
+    var pyNeopixels = SCNNode()
+    var pyNeopixelsDisplay = SCNNode()
+    var pyNeopixelsSwitch = false
+    
+    var pyButtons = SCNNode()
+    var pyButtonsDisplay = SCNNode()
+    var pyButtonsSwitch = false
+    
+    var fourHCPX = SCNNode()
+    
+    
     var fadeOut = SCNAction()
     var fadeIn = SCNAction()
     
@@ -97,6 +168,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     
 
     @IBOutlet weak var visualBoardEffectView: UIVisualEffectView!
+    
     var effect: UIVisualEffect!
     
     @IBOutlet weak var scanLabel: UILabel!
@@ -257,7 +329,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     
         effect = visualBoardEffectView.effect
     
-//        //Removes the effect that was applied
+        //Removes the effect that was applied
         visualBoardEffectView.effect = nil
         
         animateIn()
@@ -333,8 +405,15 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 
             case "cpx":
                 
-                let labelScale: Float = 0.03
+//                var cpxLayers = SCNNode()
+//                var cpxCopperTop = SCNNode()
+//                var cpxSolderPaste = SCNNode()
+//                var cpxSolderMask = SCNNode()
+//                var cpxProfile = SCNNode()
                 
+                
+                let labelScale: Float = 0.03
+                let silkscreenLabel: Float = 0.02
                 let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
                 
                 plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
@@ -344,6 +423,30 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 planeNode.eulerAngles.x = -.pi / 2
                 
                 let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/CPX_Displays.scn")!
+                
+                let cpx_copper_bottom = SCNScene(named: "art.scnassets/CPX_Copper-Bottom.scn")!
+                
+                
+                
+                
+                for i in cpx_copper_bottom.rootNode.childNodes{
+                    cpxLayers.addChildNode(i)
+                }
+                
+                
+                
+                cpxLayers.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+                cpxLayers.scale = SCNVector3(x: silkscreenLabel, y: silkscreenLabel, z: silkscreenLabel)
+                
+                cpxSolderPaste = cpxLayers.childNode(withName: "cpx_solder_paste", recursively: true)!
+                
+                cpxSolderMask = cpxLayers.childNode(withName: "cpx_solder_mask", recursively: true)!
+                
+                cpxCopperTop = cpxLayers.childNode(withName: "cpx_copper_top", recursively: true)!
+                
+                cpxProfile = cpxLayers.childNode(withName: "cpx_profile", recursively: true)!
+                
+                
                 
                 for child in circuitPlaygroundLabelScene.rootNode.childNodes {
                     cpxStandAloneLabel.addChildNode(child)
@@ -399,7 +502,64 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 
                 micInfo.isHidden = true
                 
+                cpxSolderPaste.opacity = 0
+                cpxCopperTop.opacity = 0
+                cpxProfile.opacity = 0
+                cpxSolderMask.opacity = 0
+                
+                
+                cpxProfile.runAction(.sequence([
+                    .wait(duration: 2),
+                    .fadeOpacity(to: 1, duration: 1),
+                    .moveBy(x: 0, y: 0, z: 0.5, duration: 0.5),
+                    .wait(duration: 2),
+                    .fadeOpacity(to: 1, duration: 0.8),
+                    ])
+                )
+                
+                cpxCopperTop.runAction(.sequence([
+                    .wait(duration: 4),
+                    .fadeOpacity(to: 0.8, duration: 1),
+                    .moveBy(x: 0, y: 0, z: 0.5, duration: 0.5)
+                    ])
+                )
+                
+                cpxSolderPaste.runAction(.sequence([
+                    .wait(duration: 6),
+                    .fadeOpacity(to: 1, duration: 1),
+                    .moveBy(x: 0, y: 0, z: 0.7, duration: 0.5),
+                    .wait(duration: 2),
+                    .fadeOpacity(to: 0.7, duration: 0.8),
+                    ])
+                )
+                
+                
+                cpxSolderMask.runAction(.sequence([
+                    .wait(duration: 8),
+                    .fadeOpacity(to: 1, duration: 1),
+                    .moveBy(x: 0, y: 0, z: 0.9, duration: 0.5),
+                    .wait(duration: 2),
+                    .fadeOpacity(to: 0.8, duration: 0.8),
+                    ])
+                )
+
+               
+                
+                
+                
+                
+                planeNode.addChildNode(cpxLayers)
                 planeNode.addChildNode(cpxStandAloneLabel)
+                
+                
+                
+                
+                cpxLayers.runAction(.sequence([
+                    .wait(duration: 2),
+                    .fadeOpacity(to: 1, duration: 1)
+                    ])
+                )
+                
                 
                 node.addChildNode(planeNode)
                 
@@ -513,6 +673,285 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                     self.sampleMask.isHidden = true
                     
                 }
+                
+                
+                
+                
+                 case "pygamer":
+                    
+                    print("Recognize Meow")
+                    let labelScale: Float = 0.03
+                    
+                    let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+                    
+                    plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
+                    
+                    let planeNode = SCNNode(geometry: plane)
+                    
+                    planeNode.eulerAngles.x = -.pi / 2
+                    
+                    let pygamerLabelScene = SCNScene(named: "art.scnassets/Pygamer_Display.scn")!
+                    
+                    for child in pygamerLabelScene.rootNode.childNodes {
+                        pygamerStandAloneLabel.addChildNode(child)
+                    }
+                    
+                    pygamerStandAloneLabel.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+                    
+                    pygamerStandAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+                    
+                    //ATSAMD21
+                    pygamerATSButton = pygamerStandAloneLabel.childNode(withName: "pygamer_ATSAMD_Button", recursively: true)!
+                    
+                    pygamerATSInfo = pygamerStandAloneLabel.childNode(withName: "pygamer_ATSAMD_Display", recursively: true)!
+                    
+                    pygamerATSInfo.isHidden = true
+                    
+                    
+                    pygamerIC2Button = pygamerStandAloneLabel.childNode(withName: "pygamer_IC2_Button", recursively: true)!
+                    
+                    pygamerIC2Info = pygamerStandAloneLabel.childNode(withName: "pygamer_IC2_Display", recursively: true)!
+                    
+                    pygamerIC2Info.isHidden = true
+                    
+                    
+                    pygamerSensorButton = pygamerStandAloneLabel.childNode(withName: "pygamer_Sensor_Button", recursively: true)!
+                    
+                    pygamerSensorInfo = pygamerStandAloneLabel.childNode(withName: "pygamer_Sensor_Display", recursively: true)!
+                    
+                    pygamerSensorInfo.isHidden = true
+                    
+                    
+                    pygamerDAButton = pygamerStandAloneLabel.childNode(withName: "pygamer_D_A_Button", recursively: true)!
+                    
+                    pygamerDAInfo = pygamerStandAloneLabel.childNode(withName: "pygamer_D_A_Display", recursively: true)!
+                    
+                    pygamerDAInfo.isHidden = true
+                    
+                    
+                    pygamerAccelerometerButton = pygamerStandAloneLabel.childNode(withName: "pygamer_Accelerometer_Button", recursively: true)!
+                    
+                    pygamerAccelerometerInfo = pygamerStandAloneLabel.childNode(withName: "pygamer_Accelerometer_Display", recursively: true)!
+                    
+                    pygamerAccelerometerInfo.isHidden = true
+                    
+                    
+                    pygamerFeatherButton = pygamerStandAloneLabel.childNode(withName: "pygamer_Feather_Button", recursively: true)!
+                    
+                    pygamerFeatherInfo = pygamerStandAloneLabel.childNode(withName: "pygamer_Feather_Display", recursively: true)!
+                    
+                    pygamerFeatherInfo.isHidden = true
+                    
+                    
+                    pygamerSpeakerButton = pygamerStandAloneLabel.childNode(withName: "pygamer_Speaker_Button", recursively: true)!
+                    
+                    pygamerSpeakerInfo = pygamerStandAloneLabel.childNode(withName: "pygamer_Speaker_Display", recursively: true)!
+                    
+                    pygamerSpeakerInfo.isHidden = true
+                    
+                    
+                    pygamerJSTButton = pygamerStandAloneLabel.childNode(withName: "pygamer_JST_Button", recursively: true)!
+                    
+                    pygamerJSTInfo = pygamerStandAloneLabel.childNode(withName: "pygamer_JST_Display", recursively: true)!
+                    
+                    pygamerJSTInfo.isHidden = true
+                    
+     
+                    planeNode.addChildNode(pygamerStandAloneLabel)
+                    
+                    node.addChildNode(planeNode)
+                    
+                    DispatchQueue.main.async {
+                        self.scanLabel.isHidden = true
+                        self.sampleMask.isHidden = true
+                        
+                }
+                
+                
+                
+            case "CPB":
+
+                let labelScale: Float = 0.03
+
+                let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+
+                plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
+
+                let planeNode = SCNNode(geometry: plane)
+
+                planeNode.eulerAngles.x = -.pi / 2
+
+                let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/CPX_Displays.scn")!
+
+                for child in circuitPlaygroundLabelScene.rootNode.childNodes {
+                    cpxStandAloneLabel.addChildNode(child)
+                }
+
+                cpxStandAloneLabel.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+
+                cpxStandAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+
+                //For Interactive Test
+
+                //NeoPixels
+                neoPixelButton = cpxStandAloneLabel.childNode(withName: "neopixel_Button", recursively: true)!
+
+                neoPixelInfo = cpxStandAloneLabel.childNode(withName: "neopixel_Info", recursively: true)!
+
+                neoPixelInfo.isHidden = true
+
+                //ATSAMD21
+                ATSButton = cpxStandAloneLabel.childNode(withName: "ATSAMD21_Micro_button", recursively: true)!
+
+                ATSInfo = cpxStandAloneLabel.childNode(withName: "ATSAMD_info", recursively: true)!
+
+
+                ATSInfo.isHidden = true
+
+
+                //Croc/Alligator Clip Pads
+                crocButton = cpxStandAloneLabel.childNode(withName: "Croc_Button", recursively: true)!
+
+                crocInfo = cpxStandAloneLabel.childNode(withName: "Croc_info", recursively: true)!
+
+                crocInfo.isHidden = true
+
+                //Temperature Sensor
+                temperatureButton = cpxStandAloneLabel.childNode(withName: "temp_button", recursively: true)!
+
+                temperatureDisplay = cpxStandAloneLabel.childNode(withName: "temp_info", recursively: true)!
+
+                temperatureDisplay.isHidden = true
+
+                //Speaker
+                speakButton = cpxStandAloneLabel.childNode(withName: "speaker_button", recursively: true)!
+
+                speakInfo = cpxStandAloneLabel.childNode(withName: "speaker_info", recursively: true)!
+
+                speakInfo.isHidden = true
+
+                //Mic
+                micButton = cpxStandAloneLabel.childNode(withName: "mic_button", recursively: true)!
+
+                micInfo = cpxStandAloneLabel.childNode(withName: "mic_info", recursively: true)!
+
+                micInfo.isHidden = true
+
+                planeNode.addChildNode(cpxStandAloneLabel)
+
+                node.addChildNode(planeNode)
+
+                DispatchQueue.main.async {
+                    self.scanLabel.isHidden = true
+                    self.sampleMask.isHidden = true
+
+                }
+                
+                
+                
+                
+                
+                
+            case "pygamer-front":
+                
+                print("Recognize Meow")
+                let labelScale: Float = 0.03
+                
+                let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+                
+                plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
+                
+                let planeNode = SCNNode(geometry: plane)
+                
+                planeNode.eulerAngles.x = -.pi / 2
+                
+                let pygamerFrontLabelScene = SCNScene(named: "art.scnassets/PygamerFrontDisplay.scn")!
+                
+                for child in pygamerFrontLabelScene.rootNode.childNodes {
+                    pygamerFrontStandAloneLabel.addChildNode(child)
+                }
+                
+                pygamerFrontStandAloneLabel.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+                
+                pygamerFrontStandAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+                
+                //ATSAMD21
+                pyButtons = pygamerFrontStandAloneLabel.childNode(withName: "pygamer_Buttons", recursively: true)!
+                
+                pyButtonsDisplay = pygamerFrontStandAloneLabel.childNode(withName: "pygamer_Buttons_Display", recursively: true)!
+                
+                pyButtonsDisplay.isHidden = true
+                
+                
+                pyNeopixels = pygamerFrontStandAloneLabel.childNode(withName: "pygamer_NeoPixel_Button", recursively: true)!
+                
+                pyNeopixelsDisplay = pygamerFrontStandAloneLabel.childNode(withName: "pygamer_NeoPixel_Display", recursively: true)!
+                
+                pyNeopixelsDisplay.isHidden = true
+                
+                
+                analogStick = pygamerFrontStandAloneLabel.childNode(withName: "pygamer_Analog_Button", recursively: true)!
+                
+                analogStickDisplay = pygamerFrontStandAloneLabel.childNode(withName: "pygamer_Analog_Display", recursively: true)!
+                
+                analogStickDisplay.isHidden = true
+                
+                
+                TFTDisplay = pygamerFrontStandAloneLabel.childNode(withName: "pygamer_TFT_Button", recursively: true)!
+                
+                TFTDisplayInfo = pygamerFrontStandAloneLabel.childNode(withName: "pygamer_TFT_Display", recursively: true)!
+                
+                TFTDisplayInfo.isHidden = true
+                
+                
+                
+                planeNode.addChildNode(pygamerFrontStandAloneLabel)
+                
+                node.addChildNode(planeNode)
+                
+                DispatchQueue.main.async {
+                    self.scanLabel.isHidden = true
+                    self.sampleMask.isHidden = true
+                    
+                }
+                
+                
+                
+            case "clover":
+                
+                print("Recognize Meow")
+                
+                let labelScale: Float = 0.04
+                
+                let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+                
+                plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
+                
+                let planeNode = SCNNode(geometry: plane)
+                
+                planeNode.eulerAngles.x = -.pi / 2
+                
+                let fourHScene = SCNScene(named: "art.scnassets/4HInfo.scn")!
+                
+                for child in fourHScene.rootNode.childNodes {
+                    fourHCPX.addChildNode(child)
+                }
+                
+                fourHCPX.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+                
+                fourHCPX.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+                
+                
+                planeNode.addChildNode(fourHCPX)
+                
+                node.addChildNode(planeNode)
+                
+                DispatchQueue.main.async {
+                    self.scanLabel.isHidden = true
+                    self.sampleMask.isHidden = true
+                    
+                }
+                
                 
                 
                 

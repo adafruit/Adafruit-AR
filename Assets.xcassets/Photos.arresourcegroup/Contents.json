@@ -5,6 +5,15 @@
   },
   "resources" : [
     {
+      "filename" : "4HQRcode.arreferenceimage"
+    },
+    {
+      "filename" : "clover.arreferenceimage"
+    },
+    {
+      "filename" : "CPB.arreferenceimage"
+    },
+    {
       "filename" : "CPX-QRCode_v2.arreferenceimage"
     },
     {
@@ -24,6 +33,15 @@
     },
     {
       "filename" : "portal2.arreferenceimage"
+    },
+    {
+      "filename" : "pygamer-1.arreferenceimage"
+    },
+    {
+      "filename" : "pygamer-front.arreferenceimage"
+    },
+    {
+      "filename" : "pygamer.arreferenceimage"
     },
     {
       "filename" : "pyportal.arreferenceimage"

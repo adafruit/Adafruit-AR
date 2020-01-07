@@ -3,7 +3,8 @@
 //  Adafruit AR
 //
 //  Created by Trevor B on 4/24/19.
-//  Copyright © 2019 Vanguard Logic LLC. All rights reserved.
+//  Copyright © 2019 Adafruit. All rights reserved.
+
 //
 
 import UIKit
@@ -512,6 +513,418 @@ extension BoardViewController {
                     
                 }
                     
+                 else if (node.name) == "pygamer_Sensor_Button" {
+                    
+                    if pygamerSensorSwitch == false {
+                        
+                        setPygamer(Button: pygamerSensorButton, Display: pygamerSensorInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pygamerSensorInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pygamerSensorButton.geometry!.firstMaterial?.transparency = 0.9
+                        
+                        pygamerSensorInfo.runAction(scaleAction)
+                        
+                        pygamerSensorSwitch = true
+                        
+                    } else {
+                        
+                        pygamerSensorButton.geometry!.firstMaterial?.transparency = 0.2
+                        pygamerSensorInfo.removeAllActions()
+                        pygamerSensorInfo.isHidden = true
+                        pygamerSensorSwitch = false
+                    }
+                    
+                 }
+                    
+                 else if (node.name) == "pygamer_Accelerometer_Button" {
+                    
+                    if pygamerAccelerometerSwitch == false {
+                        
+                        setPygamer(Button: pygamerAccelerometerButton, Display: pygamerAccelerometerInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pygamerAccelerometerInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pygamerAccelerometerButton.geometry!.firstMaterial?.transparency = 0.9
+                        
+                        pygamerAccelerometerInfo.runAction(scaleAction)
+                        
+                        pygamerAccelerometerSwitch = true
+                        
+                    } else {
+                        
+                        pygamerAccelerometerButton.geometry!.firstMaterial?.transparency = 0.2
+                        pygamerAccelerometerInfo.removeAllActions()
+                        pygamerAccelerometerInfo.isHidden = true
+                        pygamerAccelerometerSwitch = false
+                    }
+                    
+                 }
+                    
+                 else if (node.name) == "pygamer_ATSAMD_Button" {
+                    
+                    if pygamerATSSwitch == false {
+                        
+                        setPygamer(Button: pygamerATSButton, Display: pygamerATSInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pygamerATSInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.8), duration: 1.6)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pygamerATSButton.geometry!.firstMaterial?.transparency = 0.9
+                        
+                        pygamerATSInfo.runAction(scaleAction)
+                        
+                        pygamerATSSwitch = true
+                        
+                    } else {
+                        
+                        pygamerATSButton.geometry!.firstMaterial?.transparency = 0.2
+                        pygamerATSInfo.removeAllActions()
+                        pygamerATSInfo.isHidden = true
+                        pygamerATSSwitch = false
+                    }
+                    
+                 }
+                    
+                 else if (node.name) == "pygamer_Speaker_Button" {
+                    
+                    if pygamerSpeakerSwitch == false {
+                        
+                        setPygamer(Button: pygamerSpeakerButton, Display: pygamerSpeakerInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pygamerSpeakerInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        
+                        
+                        pygamerSpeakerInfo.runAction(scaleAction)
+                        
+                        pygamerSpeakerSwitch = true
+                        
+                    } else {
+                        
+                        pygamerSpeakerButton.geometry!.firstMaterial?.transparency = 0.2
+                        pygamerSpeakerInfo.removeAllActions()
+                        pygamerSpeakerInfo.isHidden = true
+                        pygamerSpeakerSwitch = false
+                    }
+                    
+                 }
+                    
+                 else if (node.name) == "pygamer_Feather_Button" {
+                    
+                    if pygamerFeatherSwitch == false {
+                        
+                        setPygamer(Button: pygamerFeatherButton, Display: pygamerFeatherInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pygamerFeatherInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.8), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pygamerFeatherInfo.runAction(scaleAction)
+                        
+                        pygamerFeatherSwitch = true
+                        
+                    } else {
+                        
+                        pygamerFeatherButton.geometry!.firstMaterial?.transparency = 0.2
+                        pygamerFeatherInfo.removeAllActions()
+                        pygamerFeatherInfo.isHidden = true
+                        pygamerFeatherSwitch = false
+                    }
+                    
+                 }
+                    
+                    
+                 else if (node.name) == "pygamer_IC2_Button" {
+                    
+                    if pygamerIC2Switch == false {
+                        
+                        setPygamer(Button: pygamerIC2Button, Display: pygamerIC2Info)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pygamerIC2Info.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.7), duration: 1.5
+                        )
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pygamerIC2Info.runAction(scaleAction)
+                        
+                        pygamerIC2Switch = true
+                        
+                    } else {
+                        
+                        pygamerIC2Button.geometry!.firstMaterial?.transparency = 0.2
+                        pygamerIC2Info.removeAllActions()
+                        pygamerIC2Info.isHidden = true
+                        pygamerIC2Switch = false
+                    }
+                    
+                 }
+                    
+                    
+                 else if (node.name) == "pygamer_D_A_Button" {
+                    
+                    if pygamerDASwitch == false {
+                        
+                        setPygamer(Button: pygamerDAButton, Display: pygamerDAInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pygamerDAInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.8), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pygamerDAInfo.runAction(scaleAction)
+                        
+                        pygamerDASwitch = true
+                        
+                    } else {
+                        
+                        pygamerDAButton.geometry!.firstMaterial?.transparency = 0.2
+                        pygamerDAInfo.removeAllActions()
+                        pygamerDAInfo.isHidden = true
+                        pygamerDASwitch = false
+                    }
+                    
+                 }
+                    
+                 else if (node.name) == "pygamer_JST_Button" {
+                    
+                    if pygamerJSTSwitch == false {
+                        
+                        setPygamer(Button: pygamerJSTButton, Display: pygamerJSTInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pygamerJSTInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pygamerJSTInfo.runAction(scaleAction)
+                        
+                        pygamerJSTSwitch = true
+                        
+                    } else {
+                        
+                        pygamerJSTButton.geometry!.firstMaterial?.transparency = 0.2
+                        pygamerJSTInfo.removeAllActions()
+                        pygamerJSTInfo.isHidden = true
+                        pygamerJSTSwitch = false
+                    }
+                    
+                 }
+                    
+                    
+                 else if (node.name) == "pygamer_Buttons" {
+                    
+                    if pyButtonsSwitch == false {
+                        
+                        setFrontPygamer(Button: pyButtons, Display: pyButtonsDisplay)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pyButtonsDisplay.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pyButtonsDisplay.runAction(scaleAction)
+                        
+                        pyButtonsSwitch = true
+                        
+                    } else {
+                        
+                        pyButtons.geometry!.firstMaterial?.transparency = 0.2
+                        pyButtonsDisplay.removeAllActions()
+                        pyButtonsDisplay.isHidden = true
+                        pyButtonsSwitch = false
+                    }
+                    
+                 }
+                    
+                  
+                    
+                 else if (node.name) == "pygamer_NeoPixel_Button" {
+                    
+                    if pyNeopixelsSwitch == false {
+                        
+                        setFrontPygamer(Button: pyNeopixels, Display: pyNeopixelsDisplay)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pyNeopixelsDisplay.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pyNeopixelsDisplay.runAction(scaleAction)
+                        
+                        pyNeopixelsSwitch = true
+                        
+                    } else {
+                        
+                        pyNeopixels.geometry!.firstMaterial?.transparency = 0.2
+                        pyNeopixelsDisplay.removeAllActions()
+                        pyNeopixelsDisplay.isHidden = true
+                        pyNeopixelsSwitch = false
+                    }
+                    
+                 }
+                    
+                 else if (node.name) == "pygamer_TFT_Button" {
+                    
+                    if TFTDisplaySwitch == false {
+                        
+                        setFrontPygamer(Button: TFTDisplay, Display: TFTDisplayInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        TFTDisplayInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        TFTDisplayInfo.runAction(scaleAction)
+                        
+                        TFTDisplaySwitch = true
+                        
+                    } else {
+                        
+                        TFTDisplay.geometry!.firstMaterial?.transparency = 0.2
+                        TFTDisplayInfo.removeAllActions()
+                        TFTDisplayInfo.isHidden = true
+                        TFTDisplaySwitch = false
+                    }
+                    
+                 }
+                    
+                    
+                 else if (node.name) == "pygamer_Analog_Button" {
+                    
+                    if analogStickSwitch == false {
+                        
+                        setFrontPygamer(Button: analogStick, Display: analogStickDisplay)
+                        
+                        let scale: Float = 0.0007
+                        
+                        analogStickDisplay.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        analogStickDisplay.runAction(scaleAction)
+                        
+                        analogStickSwitch = true
+                        
+                    } else {
+                        
+                        analogStick.geometry!.firstMaterial?.transparency = 0.2
+                        analogStickDisplay.removeAllActions()
+                        analogStickDisplay.isHidden = true
+                        analogStickSwitch = false
+                    }
+                    
+                 }
+                    
+                    
                     
                     
                     
@@ -550,23 +963,7 @@ extension BoardViewController {
         
         CPXButtons = [ATSButton, micButton, crocButton, temperatureButton, speakButton,neoPixelButton]
         CPXDisplays = [crocInfo, speakInfo, ATSInfo, temperatureDisplay,micInfo, neoPixelInfo]
-        
-        
-//        //Circuit Playground Interaction Test
-//        cpxNeoPixelSwitch = false
-//        
-//        cpxATSSwitch = false
-//        
-//        cpxCrocSwitch = false
-//        
-//        cpxTempSwitch = false
-//        
-//        cpxSpeakSwitch = false
-//        
-//        cpxMicSwitch = false
-        
-        
-        
+
     }
     
     func setPy(Button: SCNNode, Display: SCNNode) {
@@ -596,22 +993,68 @@ extension BoardViewController {
         
         PyButtons = [pyATSButton, pySensorButton, pyDAButton, pySpeakerButton, pyWifiButton, pyIC2Button, pyConnectorButton]
         PyDisplays = [pyATSInfo, pySpeakerInfo, pyDAInfo, pyWifiInfo, pySensorInfo, pyConnectorInfo, pyIC2Info]
+
+    }
+   
+    func setPygamer(Button: SCNNode, Display: SCNNode) {
         
+        print("\(Button.name ?? "") was pressed and " + "\(Display.name ?? "") was displayed")
         
+        Button.isHidden = false
         
-//        pyATSSwitch = false
-//
-//        pyIC2Switch = false
-//
-//        pySensorSwitch = false
-//
-//        pySpeakerSwitch = false
-//
-//        pyDASwitch = false
-//
-//        pyWifiSwitch = false
-//
-//        pyConnectorSwitch = false
+        Button.geometry!.firstMaterial?.transparency = 0.9
+        
+        Display.isHidden = false
+        
+        PygamerButtons = PygamerButtons.filter { $0 != Button }
+        
+        PygamerDisplays = PygamerDisplays.filter { $0 != Display }
+        
+        PygamerButtons.forEach { button in
+            
+            button.geometry!.firstMaterial?.transparency = 0.2
+        }
+        
+        PygamerDisplays.forEach { display in
+            
+            display.isHidden = true
+            
+        }
+        
+        PygamerButtons = [pygamerATSButton, pygamerSensorButton, pygamerDAButton, pygamerSpeakerButton, pygamerAccelerometerButton, pygamerIC2Button, pygamerFeatherButton, pygamerJSTButton]
+        
+        PygamerDisplays = [pygamerATSInfo, pygamerSpeakerInfo, pygamerDAInfo, pygamerAccelerometerInfo, pygamerSensorInfo, pygamerFeatherInfo, pygamerIC2Info, pygamerJSTInfo]
+        
+    }
+    
+    func setFrontPygamer(Button: SCNNode, Display: SCNNode) {
+        
+        print("\(Button.name ?? "") was pressed and " + "\(Display.name ?? "") was displayed")
+        
+        Button.isHidden = false
+        
+        Button.geometry!.firstMaterial?.transparency = 0.9
+        
+        Display.isHidden = false
+        
+        pygamerFrontButtons = pygamerFrontButtons.filter { $0 != Button }
+        
+        pygamerFrontDisplays = pygamerFrontDisplays.filter { $0 != Display }
+        
+        pygamerFrontButtons.forEach { button in
+            
+            button.geometry!.firstMaterial?.transparency = 0.2
+        }
+        
+        pygamerFrontDisplays.forEach { display in
+            
+            display.isHidden = true
+            
+        }
+        
+        pygamerFrontButtons = [pyButtons, TFTDisplay, analogStick, pyNeopixels]
+        
+        pygamerFrontDisplays = [pyButtonsDisplay, TFTDisplayInfo, analogStickDisplay, pyNeopixelsDisplay]
         
     }
     

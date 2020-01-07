@@ -120,6 +120,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29176F0E22CA35B100AA827D /* Adabot View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D5F2F4E5208E190D00B0790B /* ViewController.swift */,
+				D55B075A20FF8DD40066976C /* ViewController+Gesture Recognizers.swift */,
+				D58A102B20FE6C39003B0E93 /* ViewController+Nodes.swift */,
+				D55B075C20FF934B0066976C /* ViewController+Audio.swift */,
+			);
+			path = "Adabot View Controller";
+			sourceTree = "<group>";
+		};
 		291E63D9227C6E0E00F77AB5 /* QR Code View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,14 +153,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		291E63DB227CA33700F77AB5 /* Pages */ = {
+		291E63DB227CA33700F77AB5 /* Onboarding Pages */ = {
 			isa = PBXGroup;
 			children = (
 				D56ED485213EE255000E62F0 /* MainViewController.swift */,
 				D583C69C215BF2DB00256EB1 /* pageThree.swift */,
 				D5ABE2902146BB2A00AB8237 /* RootPageViewController.swift */,
 			);
-			path = Pages;
+			path = "Onboarding Pages";
 			sourceTree = "<group>";
 		};
 		29F7FDE62295B25600F15B0E /* Board Scan View Controller */ = {
@@ -213,14 +224,11 @@
 			isa = PBXGroup;
 			children = (
 				D5F2F4E1208E190D00B0790B /* AppDelegate.swift */,
-				D5F2F4E5208E190D00B0790B /* ViewController.swift */,
-				D58A102B20FE6C39003B0E93 /* ViewController+Nodes.swift */,
-				D55B075C20FF934B0066976C /* ViewController+Audio.swift */,
-				D55B075A20FF8DD40066976C /* ViewController+Gesture Recognizers.swift */,
+				29176F0E22CA35B100AA827D /* Adabot View Controller */,
 				29F7FDE62295B25600F15B0E /* Board Scan View Controller */,
 				291E63D9227C6E0E00F77AB5 /* QR Code View Controller */,
 				291E63DA227C8E9800F77AB5 /* Resources */,
-				291E63DB227CA33700F77AB5 /* Pages */,
+				291E63DB227CA33700F77AB5 /* Onboarding Pages */,
 				D5F2F4E3208E190D00B0790B /* art.scnassets */,
 				D5F2F4E7208E190D00B0790B /* Main.storyboard */,
 			);
