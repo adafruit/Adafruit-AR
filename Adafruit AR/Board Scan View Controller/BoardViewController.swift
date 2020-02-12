@@ -165,7 +165,6 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     
     var promptShown = false
 
-    
 
     @IBOutlet weak var visualBoardEffectView: UIVisualEffectView!
     
@@ -175,15 +174,12 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var boardInfoButton: UIButton!
     
-
     @IBAction func boardInfoAction(_ sender: Any) {
     animateIn()
     }
     
     @IBOutlet weak var boardSceneView: ARSCNView!
-    
-    
-    
+
     @IBAction func dismissBoardIconPopup(_ sender: Any) {
     
         animateOut()
@@ -334,21 +330,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         
         animateIn()
     }
-    
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -403,7 +385,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 
                 
                 
-            case "cpx":
+          /*  case "cpx":
                 
 //                var cpxLayers = SCNNode()
 //                var cpxCopperTop = SCNNode()
@@ -568,7 +550,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                     self.sampleMask.isHidden = true
                     
                 }
-
+*/
             case "portal2":
               
                 print("Recognize Meow")
@@ -781,7 +763,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
 
                 planeNode.eulerAngles.x = -.pi / 2
 
-                let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/CPX_Displays.scn")!
+                let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/CPB_Displays.scn")!
 
                 for child in circuitPlaygroundLabelScene.rootNode.childNodes {
                     cpxStandAloneLabel.addChildNode(child)
@@ -854,7 +836,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 
             case "pygamer-front":
                 
-                print("Recognize Meow")
+                
                 let labelScale: Float = 0.03
                 
                 let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
@@ -952,8 +934,75 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                     
                 }
                 
+                case "clue-ref":
+                
+                print("Recognize Meow")
+                
+                let labelScale: Float = 0.04
+                
+                let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+                
+                plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
+                
+                let planeNode = SCNNode(geometry: plane)
+                
+                planeNode.eulerAngles.x = -.pi / 2
+                
+                let fourHScene = SCNScene(named: "art.scnassets/4HInfo.scn")!
+                
+                for child in fourHScene.rootNode.childNodes {
+                    fourHCPX.addChildNode(child)
+                }
+                
+                fourHCPX.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+                
+                fourHCPX.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
                 
                 
+                planeNode.addChildNode(fourHCPX)
+                
+                node.addChildNode(planeNode)
+                
+                DispatchQueue.main.async {
+                    self.scanLabel.isHidden = true
+                    self.sampleMask.isHidden = true
+                    
+                }
+                
+                case "clue_back-ref":
+                
+                print("Recognize Meow")
+                
+                let labelScale: Float = 0.04
+                
+                let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+                
+                plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
+                
+                let planeNode = SCNNode(geometry: plane)
+                
+                planeNode.eulerAngles.x = -.pi / 2
+                
+                let fourHScene = SCNScene(named: "art.scnassets/4HInfo.scn")!
+                
+                for child in fourHScene.rootNode.childNodes {
+                    fourHCPX.addChildNode(child)
+                }
+                
+                fourHCPX.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+                
+                fourHCPX.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+                
+                
+                planeNode.addChildNode(fourHCPX)
+                
+                node.addChildNode(planeNode)
+                
+                DispatchQueue.main.async {
+                    self.scanLabel.isHidden = true
+                    self.sampleMask.isHidden = true
+                    
+                }
                 
                 
             default:
@@ -965,9 +1014,5 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     return node
 }
     
-
-
-
-
 
 }

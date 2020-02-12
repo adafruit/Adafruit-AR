@@ -86,7 +86,7 @@ extension BoardViewController {
                         
                     } else {
                         
-                        neoPixelButton.geometry!.firstMaterial?.transparency = 0.2
+                        neoPixelButton.geometry!.firstMaterial?.transparency = 0.5
                         neoPixelInfo.removeAllActions()
                         neoPixelInfo.isHidden = true
                         cpxNeoPixelSwitch = false
@@ -115,7 +115,7 @@ extension BoardViewController {
                         
                     } else {
                         
-                        ATSButton.geometry!.firstMaterial?.transparency = 0.2
+                        ATSButton.geometry!.firstMaterial?.transparency = 0.5
                         ATSInfo.removeAllActions()
                         ATSInfo.isHidden = true
                         cpxATSSwitch = false
@@ -150,7 +150,7 @@ extension BoardViewController {
                         
                     } else {
                         
-                        crocButton.geometry!.firstMaterial?.transparency = 0.2
+                        crocButton.geometry!.firstMaterial?.transparency = 0.5
                         crocInfo.removeAllActions()
                         crocInfo.isHidden = true
                         cpxCrocSwitch = false
@@ -187,7 +187,7 @@ extension BoardViewController {
                         
                     } else {
                         
-                        temperatureButton.geometry!.firstMaterial?.transparency = 0.2
+                        temperatureButton.geometry!.firstMaterial?.transparency = 0.5
                         temperatureDisplay.removeAllActions()
                         temperatureDisplay.isHidden = true
                         cpxTempSwitch = false
@@ -222,7 +222,7 @@ extension BoardViewController {
                         
                     } else {
                         
-                        speakButton.geometry!.firstMaterial?.transparency = 0.2
+                        speakButton.geometry!.firstMaterial?.transparency = 0.5
                         speakInfo.removeAllActions()
                         speakInfo.isHidden = true
                         cpxSpeakSwitch = false
@@ -259,7 +259,7 @@ extension BoardViewController {
                         
                     } else {
                         
-                        micButton.geometry!.firstMaterial?.transparency = 0.2
+                        micButton.geometry!.firstMaterial?.transparency = 0.5
                         micInfo.removeAllActions()
                         micInfo.isHidden = true
                         cpxMicSwitch = false
