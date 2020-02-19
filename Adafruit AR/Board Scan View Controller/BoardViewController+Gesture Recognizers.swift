@@ -86,7 +86,7 @@ extension BoardViewController {
                         
                     } else {
                         
-                        neoPixelButton.geometry!.firstMaterial?.transparency = 0.5
+                        neoPixelButton.geometry!.firstMaterial?.transparency = 0.3
                         neoPixelInfo.removeAllActions()
                         neoPixelInfo.isHidden = true
                         cpxNeoPixelSwitch = false
@@ -115,7 +115,7 @@ extension BoardViewController {
                         
                     } else {
                         
-                        ATSButton.geometry!.firstMaterial?.transparency = 0.5
+                        ATSButton.geometry!.firstMaterial?.transparency = 0.3
                         ATSInfo.removeAllActions()
                         ATSInfo.isHidden = true
                         cpxATSSwitch = false
@@ -924,7 +924,222 @@ extension BoardViewController {
                     
                  }
                     
+                    else if (node.name) == "ClueTFT_button" {
+                                       
+                                       if clueTFTSwitch == false {
+                                           
+                                           setClueUI(Button: clueTFTButton, Display: clueTFTInfo)
+                                           
+                                           let scale: Float = 0.0007
+                                           
+                                           clueTFTInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                                           
+                                           let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                                           
+                                           scaleAction.timingMode = .linear
+                                           
+                                           // Use a custom timing function
+                                           scaleAction.timingFunction = { (p: Float) in
+                                               return self.easeOutElastic(p)
+                                           }
+                                           
+                                           clueTFTButton.geometry!.firstMaterial?.transparency = 0.9
+                                           
+                                           clueTFTInfo.runAction(scaleAction)
+                                           
+                                           clueTFTSwitch = true
+                                           
+                                       } else {
+                                           
+                                           clueTFTButton.geometry!.firstMaterial?.transparency = 0.3
+                                           clueTFTInfo.removeAllActions()
+                                           clueTFTInfo.isHidden = true
+                                           clueTFTSwitch = false
+                                       }
+                                       
+                                    }
+                                       
+                                    else if (node.name) == "ClueNeopixel_button" {
+                                       
+                                       if clueNeopixelSwitch == false {
+                                           
+                                           setClueUI(Button: clueNeopixelButton, Display: clueNeopixelInfo)
+                                           
+                                           let scale: Float = 0.0007
+                                           
+                                           clueNeopixelInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                                           
+                                           let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                                           
+                                           scaleAction.timingMode = .linear
+                                           
+                                           // Use a custom timing function
+                                           scaleAction.timingFunction = { (p: Float) in
+                                               return self.easeOutElastic(p)
+                                           }
+                                           
+                                           clueNeopixelButton.geometry!.firstMaterial?.transparency = 0.9
+                                           
+                                           clueNeopixelInfo.runAction(scaleAction)
+                                           
+                                           clueNeopixelSwitch = true
+                                           
+                                       } else {
+                                           
+                                           clueNeopixelButton.geometry!.firstMaterial?.transparency = 0.3
+                                           clueNeopixelInfo.removeAllActions()
+                                           clueNeopixelInfo.isHidden = true
+                                           clueNeopixelSwitch = false
+                                       }
+                                       
+                                    }
+                                       
+                                    else if (node.name) == "ClueNordic_button" {
+                                       
+                                       if clueNordicSwitch == false {
+                                           
+                                           setClueUI(Button: clueNordicButton, Display: clueNordicInfo)
+                                           
+                                           let scale: Float = 0.0007
+                                           
+                                           clueNordicInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                                           
+                                           let scaleAction = SCNAction.scale(to: CGFloat(0.8), duration: 1.6)
+                                           
+                                           scaleAction.timingMode = .linear
+                                           
+                                           // Use a custom timing function
+                                           scaleAction.timingFunction = { (p: Float) in
+                                               return self.easeOutElastic(p)
+                                           }
+                                           
+                                           clueNordicButton.geometry!.firstMaterial?.transparency = 0.9
+                                           
+                                           clueNordicInfo.runAction(scaleAction)
+                                           
+                                           clueNordicSwitch = true
+                                           
+                                       } else {
+                                           
+                                           clueNordicButton.geometry!.firstMaterial?.transparency = 0.3
+                                           clueNordicInfo.removeAllActions()
+                                           clueNordicInfo.isHidden = true
+                                           clueNordicSwitch = false
+                                       }
+                                       
+                                    }
+                                       
+                                    
                     
+                    
+                                    else if (node.name) == "ClueSpeaker_button" {
+                                       
+                                       if clueSpeakerSwitch == false {
+                                           
+                                           setClueUI(Button: clueSpeakerButton, Display: clueSpeakerInfo)
+                                           
+                                           let scale: Float = 0.0007
+                                           
+                                           clueSpeakerInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                                           
+                                           let scaleAction = SCNAction.scale(to: CGFloat(0.8), duration: 1.8)
+                                           
+                                           scaleAction.timingMode = .linear
+                                           
+                                           // Use a custom timing function
+                                           scaleAction.timingFunction = { (p: Float) in
+                                               return self.easeOutElastic(p)
+                                           }
+                                           
+                                        
+                                           clueSpeakerButton.geometry!.firstMaterial?.transparency = 0.9
+
+                                        
+                                           clueSpeakerInfo.runAction(scaleAction)
+                                           
+                                           clueSpeakerSwitch = true
+                                           
+                                       } else {
+                                           
+                                           clueSpeakerButton.geometry!.firstMaterial?.transparency = 0.3
+                                           clueSpeakerInfo.removeAllActions()
+                                           clueSpeakerInfo.isHidden = true
+                                           clueSpeakerSwitch = false
+                                       }
+                                       
+                                    }
+                                       
+                                       
+                                    else if (node.name) == "ClueUSB_button" {
+                                       
+                                       if clueUSBSwitch == false {
+                                           
+                                           setClueUI(Button: clueUSBButton, Display: clueUSBInfo)
+                                           
+                                           let scale: Float = 0.0007
+                                           
+                                           clueUSBInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                                           
+                                           let scaleAction = SCNAction.scale(to: CGFloat(0.7), duration: 1.5
+                                           )
+                                           
+                                           scaleAction.timingMode = .linear
+                                           
+                                           // Use a custom timing function
+                                           scaleAction.timingFunction = { (p: Float) in
+                                               return self.easeOutElastic(p)
+                                           }
+                                           
+                                           clueUSBButton.geometry!.firstMaterial?.transparency = 0.9
+                                        
+                                           clueUSBInfo.runAction(scaleAction)
+                                           
+                                           clueUSBSwitch = true
+                                           
+                                       } else {
+                                           
+                                           clueUSBButton.geometry!.firstMaterial?.transparency = 0.3
+                                           clueUSBInfo.removeAllActions()
+                                           clueUSBInfo.isHidden = true
+                                           clueUSBSwitch = false
+                                       }
+                                       
+                                    }
+                                       
+                                    else if (node.name) == "ClueGA_button" {
+                                       
+                                       if clueGASwitch == false {
+                                           
+                                           setClueUI(Button: clueGAButton, Display: clueGAInfo)
+                                           
+                                           let scale: Float = 0.0007
+                                           
+                                           clueGAInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                                           
+                                           let scaleAction = SCNAction.scale(to: CGFloat(0.9), duration: 1.8)
+                                           
+                                           scaleAction.timingMode = .linear
+                                           
+                                           // Use a custom timing function
+                                           scaleAction.timingFunction = { (p: Float) in
+                                               return self.easeOutElastic(p)
+                                           }
+                                           
+                                           clueGAButton.geometry!.firstMaterial?.transparency = 0.9
+                                           
+                                           clueGAInfo.runAction(scaleAction)
+                                           
+                                           clueGASwitch = true
+                                           
+                                       } else {
+                                           
+                                           clueGAButton.geometry!.firstMaterial?.transparency = 0.3
+                                           clueGAInfo.removeAllActions()
+                                           clueGAInfo.isHidden = true
+                                           clueGASwitch = false
+                                       }
+                                       
+                                    }
                     
                     
                     
@@ -938,7 +1153,7 @@ extension BoardViewController {
     
     func setCpxUI(Button: SCNNode, Display: SCNNode) {
         
-        print("\(Button.name ?? "") was pressed and " + "\(Display.name ?? "") was displayed")
+        print("\(Button.name ?? "") was pressed and " + "\(Display.name ?? "") was displayed for CPX/CPB")
         
         Button.isHidden = false
         
@@ -952,7 +1167,7 @@ extension BoardViewController {
         
         CPXButtons.forEach { button in
             
-            button.geometry!.firstMaterial?.transparency = 0.2
+            button.geometry!.firstMaterial?.transparency = 0.4
         }
         
         CPXDisplays.forEach { display in
@@ -963,6 +1178,36 @@ extension BoardViewController {
         
         CPXButtons = [ATSButton, micButton, crocButton, temperatureButton, speakButton,neoPixelButton]
         CPXDisplays = [crocInfo, speakInfo, ATSInfo, temperatureDisplay,micInfo, neoPixelInfo]
+
+    }
+    
+    func setClueUI(Button: SCNNode, Display: SCNNode) {
+        
+        print("\(Button.name ?? "") was pressed and " + "\(Display.name ?? "") was displayed")
+        
+        Button.isHidden = false
+        
+        Button.geometry!.firstMaterial?.transparency = 0.9
+        
+        Display.isHidden = false
+        
+        clueButtons = clueButtons.filter { $0 != Button }
+        
+        clueDisplays = clueDisplays.filter { $0 != Display }
+        
+        clueButtons.forEach { button in
+            
+            button.geometry!.firstMaterial?.transparency = 0.3
+        }
+        
+        clueDisplays.forEach { display in
+            
+            display.isHidden = true
+            
+        }
+        
+        clueButtons = [clueTFTButton, clueNeopixelButton, clueNordicButton, clueGAButton, clueSpeakerButton, clueUSBButton]
+        clueDisplays = [clueTFTInfo, clueNeopixelInfo, clueNordicInfo, clueGAInfo,clueSpeakerInfo, clueUSBInfo]
 
     }
     

@@ -154,6 +154,36 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     var fourHCPX = SCNNode()
     
     
+    //CLUE!!
+    
+    var clueDisplays = [SCNNode]()
+    var clueButtons = [SCNNode]()
+    var clueStandAloneLabel = SCNNode()
+    
+    var clueTFTButton = SCNNode()
+    var clueTFTInfo = SCNNode()
+    var clueTFTSwitch = false
+    
+    var clueNeopixelButton = SCNNode()
+    var clueNeopixelInfo = SCNNode()
+    var clueNeopixelSwitch = false
+    
+    var clueNordicButton = SCNNode()
+    var clueNordicInfo = SCNNode()
+    var clueNordicSwitch = false
+    
+    var clueGAButton = SCNNode()
+    var clueGAInfo = SCNNode()
+    var clueGASwitch = false
+    
+    var clueSpeakerButton = SCNNode()
+    var clueSpeakerInfo = SCNNode()
+    var clueSpeakerSwitch = false
+    
+    var clueUSBButton = SCNNode()
+    var clueUSBInfo = SCNNode()
+    var clueUSBSwitch = false
+    
     var fadeOut = SCNAction()
     var fadeIn = SCNAction()
     
@@ -971,7 +1001,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 
                 case "clue_back-ref":
                 
-                print("Recognize Meow")
+                
                 
                 let labelScale: Float = 0.04
                 
@@ -983,18 +1013,59 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 
                 planeNode.eulerAngles.x = -.pi / 2
                 
-                let fourHScene = SCNScene(named: "art.scnassets/4HInfo.scn")!
+                let fourHScene = SCNScene(named: "art.scnassets/CLUE_Displays.scn")!
                 
                 for child in fourHScene.rootNode.childNodes {
-                    fourHCPX.addChildNode(child)
+                    clueStandAloneLabel.addChildNode(child)
                 }
                 
-                fourHCPX.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+                clueStandAloneLabel.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
                 
-                fourHCPX.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+                clueStandAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+                
+                clueTFTButton = clueStandAloneLabel.childNode(withName: "ClueTFT_button", recursively: true)!
+                
+                clueTFTInfo = clueStandAloneLabel.childNode(withName: "ClueTFT_info", recursively: true)!
+                
+                clueTFTInfo.isHidden = true
                 
                 
-                planeNode.addChildNode(fourHCPX)
+                clueNeopixelButton = clueStandAloneLabel.childNode(withName: "ClueNeopixel_button", recursively: true)!
+                
+                clueNeopixelInfo = clueStandAloneLabel.childNode(withName: "ClueNeopixel_info", recursively: true)!
+                
+                clueNeopixelInfo.isHidden = true
+                
+                
+                clueNordicButton = clueStandAloneLabel.childNode(withName: "ClueNordic_button", recursively: true)!
+                
+                clueNordicInfo = clueStandAloneLabel.childNode(withName: "ClueNordic_info", recursively: true)!
+                
+                clueNordicInfo.isHidden = true
+                
+                
+                clueGAButton = clueStandAloneLabel.childNode(withName: "ClueGA_button", recursively: true)!
+                
+                clueGAInfo = clueStandAloneLabel.childNode(withName: "ClueGA_info", recursively: true)!
+                
+                clueGAInfo.isHidden = true
+                
+                
+                clueSpeakerButton = clueStandAloneLabel.childNode(withName: "ClueSpeaker_button", recursively: true)!
+                
+                clueSpeakerInfo = clueStandAloneLabel.childNode(withName: "ClueSpeaker_info", recursively: true)!
+                
+                clueSpeakerInfo.isHidden = true
+                
+                
+                clueUSBButton = clueStandAloneLabel.childNode(withName: "ClueUSB_button", recursively: true)!
+                
+                clueUSBInfo = clueStandAloneLabel.childNode(withName: "ClueUSB_info", recursively: true)!
+                
+                clueUSBInfo.isHidden = true
+                 
+
+                planeNode.addChildNode(clueStandAloneLabel)
                 
                 node.addChildNode(planeNode)
                 

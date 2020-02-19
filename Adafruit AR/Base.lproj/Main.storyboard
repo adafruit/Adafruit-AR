@@ -209,14 +209,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bi5-NN-nXJ">
-                                        <rect key="frame" x="26" y="44" width="240" height="176"/>
+                                        <rect key="frame" x="26" y="44" width="250" height="176"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text">Scan your Adafruit board to display component info in AR!
 
 Works with:
-• Circuit Playground Express
-• PyPortal
-• PyGamer
+• Circuit Playground Bluefruit
+• CLUE
 + more to come</string>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -244,7 +243,7 @@ Works with:
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kqJ-3F-tXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2164" y="-591.87192118226608"/>
+            <point key="canvasLocation" x="2164" y="-592.35382308845578"/>
         </scene>
         <!--Onboarding p1-->
         <scene sceneID="sWd-JV-Aqa">
@@ -829,6 +828,6 @@ Hit the Letters icon to reveal letters that will play videos from Circuit Playgr
         <image name="test1" width="1050" height="1050"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="A8j-vO-tW6"/>
+        <segue reference="pYP-7V-B9Y"/>
     </inferredMetricsTieBreakers>
 </document>
