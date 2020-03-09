@@ -50,6 +50,9 @@
     var LetterNodeO = SCNNode()
     var LetterNodeP = SCNNode()
     var LetterNodeQ = SCNNode()
+    var LetterNodeR = SCNNode()
+    var LetterNodeS = SCNNode()
+    
     
     var focusOfTheHead = SCNNode()
     let letterNode = SCNNode()
@@ -87,7 +90,8 @@
     var sphereO = SCNNode()
     var sphereP = SCNNode()
     var sphereQ = SCNNode()
-    
+    var sphereR = SCNNode()
+    var sphereS = SCNNode()
     
     var colorArray = [UIColor]()
     
@@ -280,7 +284,7 @@
       
       colorArray = [UIColor.blue, UIColor.red, UIColor.yellow, UIColor.purple, UIColor.orange, UIColor.green, UIColor.magenta, UIColor.cyan]
      
-      randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, addLetterN, self.addLetterO,self.addLetterP,self.addLetterQ]
+      randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, addLetterN, self.addLetterO,self.addLetterP,self.addLetterQ,self.addLetterR, self.addLetterS]
       
       playAndLoadIntro()
       
@@ -421,7 +425,7 @@
         setupFocusSquare()
         placementLabel.isHidden = false
         removeAllAnimationsForLetters()
-        randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, self.addLetterN,self.addLetterO, self.addLetterP,self.addLetterQ]
+        randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, self.addLetterN,self.addLetterO, self.addLetterP,self.addLetterQ, self.addLetterR,self.addLetterS]
       
       }
       else {
@@ -570,6 +574,18 @@
             $0.removeFromParentNode()
         }
         
+        LetterNodeQ.childNodes.forEach {
+            $0.removeFromParentNode()
+        }
+        
+        LetterNodeR.childNodes.forEach {
+            $0.removeFromParentNode()
+        }
+        
+        LetterNodeS.childNodes.forEach {
+            $0.removeFromParentNode()
+        }
+        
       adabotNode.childNodes.forEach {
         $0.removeFromParentNode()
       }
@@ -650,6 +666,21 @@
         }
         
         LetterNodeP.childNodes.forEach {
+            $0.removeAllActions()
+            $0.removeFromParentNode()
+        }
+        
+        LetterNodeQ.childNodes.forEach {
+            $0.removeAllActions()
+            $0.removeFromParentNode()
+        }
+        
+        LetterNodeR.childNodes.forEach {
+            $0.removeAllActions()
+            $0.removeFromParentNode()
+        }
+        
+        LetterNodeS.childNodes.forEach {
             $0.removeAllActions()
             $0.removeFromParentNode()
         }
@@ -819,7 +850,7 @@
         clearAllLetters()
         
         print("Letter Array is empty & all cleared out")
-        randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, self.addLetterN, self.addLetterO,self.addLetterP,self.addLetterQ]
+        randomFunc = [self.addLetterA, self.addLetterB, self.addLetterC, self.addLetterD, self.addLetterF, self.addLetterG, self.addLetterH, self.addLetterI, self.addLetterJ,self.addLetterK,self.addLetterL,self.addLetterM, self.addLetterN, self.addLetterO,self.addLetterP,self.addLetterQ, self.addLetterR,self.addLetterS]
       
       } else {
         

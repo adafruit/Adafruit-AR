@@ -153,6 +153,12 @@ extension ViewController {
     LetterNodeQ = adabotNode.childNode(withName: "LetterQ", recursively: true)!
     LetterNodeQ.isHidden = true
     
+    LetterNodeR = adabotNode.childNode(withName: "LetterR", recursively: true)!
+    LetterNodeR.isHidden = true
+    
+    LetterNodeS = adabotNode.childNode(withName: "LetterS", recursively: true)!
+    LetterNodeS.isHidden = true
+    
     videoNode = adabotNode.childNode(withName: "plane", recursively: true)!
     videoNode.isHidden = true
   
@@ -743,8 +749,73 @@ extension ViewController {
         
     }
     
+    func addLetterR() {
+        
+        LetterNodeR.isHidden = false
+        
+        let scale: Float = 0.0009
+        let letterRotation = Rotation(time: 5)
+        LetterNodeR.scale = SCNVector3(x: scale, y: scale, z: scale)
+        
+        let scaleAction = SCNAction.scale(to: CGFloat(0.33), duration: 2.5)
+        scaleAction.timingMode = .linear
+        
+        // Use a custom timing function
+        scaleAction.timingFunction = { (p: Float) in
+            return self.easeOutElastic(p)
+        }
+        
+        randomColor(LetterNodeR)
+        LetterNodeR.name = "LetterR"
+        
+        LetterNodeR.runAction(letterRotation, forKey: "rotation")
+        LetterNodeR.runAction(scaleAction)
+        
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            
+            self.animateLetterToParent(to: self.sphereR.position, node: self.LetterNodeR)
+            
+        })
+        
+        print("LetterNodeR - was loaded into the sceneView")
+        
+    }
     
-    
+    func addLetterS() {
+        
+        LetterNodeS.isHidden = false
+        
+        let scale: Float = 0.0009
+        let letterRotation = Rotation(time: 5)
+        LetterNodeS.scale = SCNVector3(x: scale, y: scale, z: scale)
+        
+        let scaleAction = SCNAction.scale(to: CGFloat(0.05), duration: 2.5)
+        scaleAction.timingMode = .linear
+        
+        // Use a custom timing function
+        scaleAction.timingFunction = { (p: Float) in
+            return self.easeOutElastic(p)
+        }
+        
+        randomColor(LetterNodeS)
+        LetterNodeS.name = "LetterS"
+        
+        LetterNodeS.runAction(letterRotation, forKey: "rotation")
+        LetterNodeS.runAction(scaleAction)
+        
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            
+            self.animateLetterToParent(to: self.sphereS.position, node: self.LetterNodeS)
+            
+        })
+        
+        print("LetterNodeS - was loaded into the sceneView")
+        
+    }
     
   //Mark:- Create a animation loader -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   
@@ -876,6 +947,12 @@ extension ViewController {
     
     sphereQ = adabotNode.childNode(withName: "Sphere16", recursively: true)!
     sphereQ.isHidden = true
+    
+    sphereR = adabotNode.childNode(withName: "Sphere17", recursively: true)!
+    sphereR.isHidden = true
+    
+    sphereS = adabotNode.childNode(withName: "Sphere18", recursively: true)!
+    sphereS.isHidden = true
     
   }
   

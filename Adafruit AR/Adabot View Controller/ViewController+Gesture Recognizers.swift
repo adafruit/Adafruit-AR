@@ -189,7 +189,24 @@ extension ViewController {
             print("Letter Q was tapped.")
             
             
-        }else if (SKVideoNode).self == SKVideoNode.self {
+        }else if (node.name) == "LetterR"{
+            
+            playVideo(URL(string: "https://s3.amazonaws.com/adafruit-ar/video/circuit_playground/q_is_for_quartz.mp4")!)
+            
+            fadeOutAllLetters()
+            print("Letter R was tapped.")
+            
+            
+        }else if (node.name) == "LetterS"{
+            
+            playVideo(URL(string: "https://s3.amazonaws.com/adafruit-ar/video/circuit_playground/q_is_for_quartz.mp4")!)
+            
+            fadeOutAllLetters()
+            print("Letter S was tapped.")
+            
+            
+        }
+        else if (SKVideoNode).self == SKVideoNode.self {
         
           if videoNodeIsPlaying == false {
          
@@ -296,6 +313,8 @@ extension ViewController {
     self.LetterNodeO.runAction(fadeOut, forKey: "fadeOut")
     self.LetterNodeP.runAction(fadeOut, forKey: "fadeOut")
     self.LetterNodeQ.runAction(fadeOut, forKey: "fadeOut")
+    self.LetterNodeR.runAction(fadeOut, forKey: "fadeOut")
+    self.LetterNodeS.runAction(fadeOut, forKey: "fadeOut")
   }
   
   
@@ -320,7 +339,8 @@ extension ViewController {
     LetterNodeO.runAction(longerFadeIn, forKey: "fadeIn2")
     LetterNodeP.runAction(longerFadeIn, forKey: "fadeIn2")
     LetterNodeQ.runAction(longerFadeIn, forKey: "fadeIn2")
-    
+    LetterNodeR.runAction(longerFadeIn, forKey: "fadeIn2")
+    LetterNodeS.runAction(longerFadeIn, forKey: "fadeIn2")
   }
   
   
@@ -342,6 +362,8 @@ extension ViewController {
     LetterNodeO.removeAction(forKey: "fadeOut")
     LetterNodeP.removeAction(forKey: "fadeOut")
     LetterNodeQ.removeAction(forKey: "fadeOut")
+    LetterNodeR.removeAction(forKey: "fadeOut")
+    LetterNodeS.removeAction(forKey: "fadeOut")
     
     LetterNodeA.removeAction(forKey: "fadeIn")
     LetterNodeB.removeAction(forKey: "fadeIn")
@@ -359,7 +381,8 @@ extension ViewController {
     LetterNodeO.removeAction(forKey: "fadeIn")
     LetterNodeP.removeAction(forKey: "fadeIn")
     LetterNodeQ.removeAction(forKey: "fadeIn")
-    
+    LetterNodeR.removeAction(forKey: "fadeIn")
+    LetterNodeS.removeAction(forKey: "fadeIn")
   }
   
 }
