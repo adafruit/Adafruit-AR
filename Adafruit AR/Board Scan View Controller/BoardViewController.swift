@@ -91,6 +91,38 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     
     var cpxStandAloneLabel = SCNNode()
     
+    
+    var CPBButtons = [SCNNode]()
+    var CPBDisplays = [SCNNode]()
+    //CPX Interative model
+    
+    //Circuit Playground Bluefruit
+    var CPBneopixelButton = SCNNode()
+    var CPBneopixelInfo = SCNNode()
+    var CPBneopixelSwitch = false
+    
+    var CPBATSButton = SCNNode()
+    var CPBATSInfo = SCNNode()
+    var CPBATSSwitch = false
+    
+    var CPBcrocButton = SCNNode()
+    var CPBcrocInfo = SCNNode()
+    var CPBcrocSwitch = false
+    
+    var CPBtemperatureButton = SCNNode()
+    var CPBtemperatureInfo = SCNNode()
+    var CPBtempSwitch = false
+    
+    var CPBspeakButton = SCNNode()
+    var CPBspeakInfo = SCNNode()
+    var CPBspeakSwitch = false
+    
+    var CPBmicButton = SCNNode()
+    var CPBmicInfo = SCNNode()
+    var CPBmicSwitch = false
+    
+    var CPBStandAloneLabel = SCNNode()
+    
     //Funtion Array for PyPortal Interactive Buttons
     var PygamerButtons = [SCNNode]()
     var PygamerDisplays = [SCNNode]()
@@ -183,7 +215,63 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     var clueUSBButton = SCNNode()
     var clueUSBInfo = SCNNode()
     var clueUSBSwitch = false
+
+// Edge Badge
+    var edgeDisplays = [SCNNode]()
+    var edgeButtons = [SCNNode]()
+    var edgeStandAloneLabel = SCNNode()
     
+    var edgeATSButton = SCNNode()
+    var edgeATSInfo = SCNNode()
+    var edgeATSSwitch = false
+    
+    var edgeAccelButton = SCNNode()
+    var edgeAccelInfo = SCNNode()
+    var edgeAccelSwitch = false
+    
+    var edgeLightButton = SCNNode()
+    var edgeLightInfo = SCNNode()
+    var edgeLightSwitch = false
+    
+    var edgeSpeakerButton = SCNNode()
+    var edgeSpeakerInfo = SCNNode()
+    var edgeSpeakerSwitch = false
+    
+
+    var edgeFeatherButton = SCNNode()
+    var edgeFeatherInfo = SCNNode()
+    var edgeFeatherSwitch = false
+        
+
+    
+    // Monster M4SK
+    var mmDisplays = [SCNNode]()
+    var mmButtons = [SCNNode]()
+    var mmStandAloneLabel = SCNNode()
+    
+    var mmATSInfo = SCNNode()
+    var mmATSButton = SCNNode()
+    var mmATSSwitch = false
+    
+    var mmSeesawInfo = SCNNode()
+    var mmSeesawButton = SCNNode()
+    var mmSeesawSwitch = false
+    
+    var mmAccelInfo = SCNNode()
+    var mmAccelButton = SCNNode()
+    var mmAccelSwitch = false
+    
+    var mmLightInfo = SCNNode()
+    var mmLightButton = SCNNode()
+    var mmLightSwitch = false
+    
+    var mmTactileInfo = SCNNode()
+    var mmTactileButton = SCNNode()
+    var mmTactileSwitch = false
+    
+    
+    
+    // Fading
     var fadeOut = SCNAction()
     var fadeIn = SCNAction()
     
@@ -398,6 +486,10 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    
+    
+    
+    
     // MARK: - ARSCNViewDelegate
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         //This node is used to place the Plane used to plant the AR models
@@ -415,7 +507,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 
                 
                 
-          /*  case "cpx":
+            case "cpx":
                 
 //                var cpxLayers = SCNNode()
 //                var cpxCopperTop = SCNNode()
@@ -436,28 +528,28 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 
                 let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/CPX_Displays.scn")!
                 
-                let cpx_copper_bottom = SCNScene(named: "art.scnassets/CPX_Copper-Bottom.scn")!
+//                let cpx_copper_bottom = SCNScene(named: "art.scnassets/CPX_Copper-Bottom.scn")!
+//
+//
+//
+//
+//                for i in cpx_copper_bottom.rootNode.childNodes{
+//                    cpxLayers.addChildNode(i)
+//                }
                 
                 
-                
-                
-                for i in cpx_copper_bottom.rootNode.childNodes{
-                    cpxLayers.addChildNode(i)
-                }
-                
-                
-                
-                cpxLayers.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
-                cpxLayers.scale = SCNVector3(x: silkscreenLabel, y: silkscreenLabel, z: silkscreenLabel)
-                
-                cpxSolderPaste = cpxLayers.childNode(withName: "cpx_solder_paste", recursively: true)!
-                
-                cpxSolderMask = cpxLayers.childNode(withName: "cpx_solder_mask", recursively: true)!
-                
-                cpxCopperTop = cpxLayers.childNode(withName: "cpx_copper_top", recursively: true)!
-                
-                cpxProfile = cpxLayers.childNode(withName: "cpx_profile", recursively: true)!
-                
+//
+//                cpxLayers.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+//                cpxLayers.scale = SCNVector3(x: silkscreenLabel, y: silkscreenLabel, z: silkscreenLabel)
+//
+//                cpxSolderPaste = cpxLayers.childNode(withName: "cpx_solder_paste", recursively: true)!
+//
+//                cpxSolderMask = cpxLayers.childNode(withName: "cpx_solder_mask", recursively: true)!
+//
+//                cpxCopperTop = cpxLayers.childNode(withName: "cpx_copper_top", recursively: true)!
+//
+//                cpxProfile = cpxLayers.childNode(withName: "cpx_profile", recursively: true)!
+//
                 
                 
                 for child in circuitPlaygroundLabelScene.rootNode.childNodes {
@@ -514,63 +606,65 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 
                 micInfo.isHidden = true
                 
-                cpxSolderPaste.opacity = 0
-                cpxCopperTop.opacity = 0
-                cpxProfile.opacity = 0
-                cpxSolderMask.opacity = 0
+//                cpxSolderPaste.opacity = 0
+//                cpxCopperTop.opacity = 0
+//                cpxProfile.opacity = 0
+//                cpxSolderMask.opacity = 0
+//
+//
+//                cpxProfile.runAction(.sequence([
+//                    .wait(duration: 2),
+//                    .fadeOpacity(to: 1, duration: 1),
+//                    .moveBy(x: 0, y: 0, z: 0.5, duration: 0.5),
+//                    .wait(duration: 2),
+//                    .fadeOpacity(to: 1, duration: 0.8),
+//                    ])
+//                )
+//
+//                cpxCopperTop.runAction(.sequence([
+//                    .wait(duration: 4),
+//                    .fadeOpacity(to: 0.8, duration: 1),
+//                    .moveBy(x: 0, y: 0, z: 0.5, duration: 0.5)
+//                    ])
+//                )
+//
+//                cpxSolderPaste.runAction(.sequence([
+//                    .wait(duration: 6),
+//                    .fadeOpacity(to: 1, duration: 1),
+//                    .moveBy(x: 0, y: 0, z: 0.7, duration: 0.5),
+//                    .wait(duration: 2),
+//                    .fadeOpacity(to: 0.7, duration: 0.8),
+//                    ])
+//                )
+//
+//
+//                cpxSolderMask.runAction(.sequence([
+//                    .wait(duration: 8),
+//                    .fadeOpacity(to: 1, duration: 1),
+//                    .moveBy(x: 0, y: 0, z: 0.9, duration: 0.5),
+//                    .wait(duration: 2),
+//                    .fadeOpacity(to: 0.8, duration: 0.8),
+//                    ])
+//                )
+//
+//
+//
+//
+//
+//
+//                planeNode.addChildNode(cpxLayers)
                 
                 
-                cpxProfile.runAction(.sequence([
-                    .wait(duration: 2),
-                    .fadeOpacity(to: 1, duration: 1),
-                    .moveBy(x: 0, y: 0, z: 0.5, duration: 0.5),
-                    .wait(duration: 2),
-                    .fadeOpacity(to: 1, duration: 0.8),
-                    ])
-                )
-                
-                cpxCopperTop.runAction(.sequence([
-                    .wait(duration: 4),
-                    .fadeOpacity(to: 0.8, duration: 1),
-                    .moveBy(x: 0, y: 0, z: 0.5, duration: 0.5)
-                    ])
-                )
-                
-                cpxSolderPaste.runAction(.sequence([
-                    .wait(duration: 6),
-                    .fadeOpacity(to: 1, duration: 1),
-                    .moveBy(x: 0, y: 0, z: 0.7, duration: 0.5),
-                    .wait(duration: 2),
-                    .fadeOpacity(to: 0.7, duration: 0.8),
-                    ])
-                )
-                
-                
-                cpxSolderMask.runAction(.sequence([
-                    .wait(duration: 8),
-                    .fadeOpacity(to: 1, duration: 1),
-                    .moveBy(x: 0, y: 0, z: 0.9, duration: 0.5),
-                    .wait(duration: 2),
-                    .fadeOpacity(to: 0.8, duration: 0.8),
-                    ])
-                )
-
-               
-                
-                
-                
-                
-                planeNode.addChildNode(cpxLayers)
                 planeNode.addChildNode(cpxStandAloneLabel)
                 
                 
                 
-                
-                cpxLayers.runAction(.sequence([
-                    .wait(duration: 2),
-                    .fadeOpacity(to: 1, duration: 1)
-                    ])
-                )
+//
+//                cpxLayers.runAction(.sequence([
+//                    .wait(duration: 2),
+//                    .fadeOpacity(to: 1, duration: 1)
+//                    ])
+//                )
                 
                 
                 node.addChildNode(planeNode)
@@ -578,9 +672,14 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 DispatchQueue.main.async {
                     self.scanLabel.isHidden = true
                     self.sampleMask.isHidden = true
-                    
+                   
                 }
-*/
+
+
+               
+
+
+
             case "portal2":
               
                 print("Recognize Meow")
@@ -796,60 +895,62 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                 let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/CPB_Displays.scn")!
 
                 for child in circuitPlaygroundLabelScene.rootNode.childNodes {
-                    cpxStandAloneLabel.addChildNode(child)
+                    CPBStandAloneLabel.addChildNode(child)
                 }
 
-                cpxStandAloneLabel.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+                print("CPB Recognized.")
+                
+                CPBStandAloneLabel.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
 
-                cpxStandAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+                CPBStandAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
 
                 //For Interactive Test
 
                 //NeoPixels
-                neoPixelButton = cpxStandAloneLabel.childNode(withName: "neopixel_Button", recursively: true)!
+                CPBneopixelButton = CPBStandAloneLabel.childNode(withName: "CPBneopixel_Button", recursively: true)!
 
-                neoPixelInfo = cpxStandAloneLabel.childNode(withName: "neopixel_Info", recursively: true)!
+                CPBneopixelInfo = CPBStandAloneLabel.childNode(withName: "CPBneopixel_Info", recursively: true)!
 
-                neoPixelInfo.isHidden = true
+                CPBneopixelInfo.isHidden = true
 
                 //ATSAMD21
-                ATSButton = cpxStandAloneLabel.childNode(withName: "ATSAMD21_Micro_button", recursively: true)!
+                CPBATSButton = CPBStandAloneLabel.childNode(withName: "CPBATSAMD21_Micro_Button", recursively: true)!
 
-                ATSInfo = cpxStandAloneLabel.childNode(withName: "ATSAMD_info", recursively: true)!
+                CPBATSInfo = CPBStandAloneLabel.childNode(withName: "CPBATSAMD_Info", recursively: true)!
 
 
-                ATSInfo.isHidden = true
+                CPBATSInfo.isHidden = true
 
 
                 //Croc/Alligator Clip Pads
-                crocButton = cpxStandAloneLabel.childNode(withName: "Croc_Button", recursively: true)!
+                CPBcrocButton = CPBStandAloneLabel.childNode(withName: "CPBCroc_Button", recursively: true)!
 
-                crocInfo = cpxStandAloneLabel.childNode(withName: "Croc_info", recursively: true)!
+                CPBcrocInfo = CPBStandAloneLabel.childNode(withName: "CPBCroc_Info", recursively: true)!
 
-                crocInfo.isHidden = true
+                CPBcrocInfo.isHidden = true
 
                 //Temperature Sensor
-                temperatureButton = cpxStandAloneLabel.childNode(withName: "temp_button", recursively: true)!
+                CPBtemperatureButton = CPBStandAloneLabel.childNode(withName: "CPBtemp_Button", recursively: true)!
 
-                temperatureDisplay = cpxStandAloneLabel.childNode(withName: "temp_info", recursively: true)!
+                CPBtemperatureInfo = CPBStandAloneLabel.childNode(withName: "CPBtemp_Info", recursively: true)!
 
-                temperatureDisplay.isHidden = true
+                CPBtemperatureInfo.isHidden = true
 
                 //Speaker
-                speakButton = cpxStandAloneLabel.childNode(withName: "speaker_button", recursively: true)!
+                CPBspeakButton = CPBStandAloneLabel.childNode(withName: "CPBspeaker_Button", recursively: true)!
 
-                speakInfo = cpxStandAloneLabel.childNode(withName: "speaker_info", recursively: true)!
+                CPBspeakInfo = CPBStandAloneLabel.childNode(withName: "CPBspeaker_Info", recursively: true)!
 
-                speakInfo.isHidden = true
+                CPBspeakInfo.isHidden = true
 
                 //Mic
-                micButton = cpxStandAloneLabel.childNode(withName: "mic_button", recursively: true)!
+                CPBmicButton = CPBStandAloneLabel.childNode(withName: "CPBmic_Button", recursively: true)!
 
-                micInfo = cpxStandAloneLabel.childNode(withName: "mic_info", recursively: true)!
+                CPBmicInfo = CPBStandAloneLabel.childNode(withName: "CPBmic_Info", recursively: true)!
 
-                micInfo.isHidden = true
+                CPBmicInfo.isHidden = true
 
-                planeNode.addChildNode(cpxStandAloneLabel)
+                planeNode.addChildNode(CPBStandAloneLabel)
 
                 node.addChildNode(planeNode)
 
@@ -857,11 +958,48 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                     self.scanLabel.isHidden = true
                     self.sampleMask.isHidden = true
 
+                    self.cpxStandAloneLabel.isHidden = true
                 }
                 
                 
+                let pulseSize:CGFloat = 0.5
+                             
+                let pulsePlane = SCNPlane(width: pulseSize, height: pulseSize)
+                               
+                pulsePlane.cornerRadius = 10
                 
+                pulsePlane.firstMaterial?.isDoubleSided = true
+                               
+                pulsePlane.firstMaterial?.diffuse.contents = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                              
+                let pulseNode = SCNNode(geometry: pulsePlane)
+                             
+                pulseNode.position = CPBStandAloneLabel.position
                 
+                               
+                let pulseShaderModifier =
+                               "#pragma transparent; \n" +
+                               "vec4 originalColour = _surface.diffuse; \n" +
+                               "vec4 transformed_position = u_inverseModelTransform * u_inverseViewTransform * vec4(_surface.position, 1.0); \n" +
+                               "vec2 xy = vec2(transformed_position.x, transformed_position.y); \n" +
+                               "float xyLength = length(xy); \n" +
+                               "float xyLengthNormalised = xyLength/" + String(describing: pulseSize / 2) + "; \n" +
+                               "float speedFactor = 3; \n" +
+                               "float maxDist = fmod(u_time, speedFactor) / speedFactor; \n" +
+                               "float distbasedalpha = step(maxDist, xyLengthNormalised); \n" +
+                               "distbasedalpha = max(distbasedalpha, maxDist); \n" +
+                               "_surface.diffuse = mix(originalColour, vec4(0.0), distbasedalpha);"
+
+
+                               
+                              
+                pulseNode.eulerAngles.x = -.pi / 2
+                               
+                             
+                pulsePlane.firstMaterial?.shaderModifiers = [SCNShaderModifierEntryPoint.surface:pulseShaderModifier]
+                           
+                node.addChildNode(pulseNode)
+               
                 
                 
             case "pygamer-front":
@@ -1075,8 +1213,149 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                     
                 }
                 
-                
-            default:
+                case "MonsterMaskRef":
+
+                let labelScale: Float = 0.03
+
+                let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+
+                plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
+
+                let planeNode = SCNNode(geometry: plane)
+
+                planeNode.eulerAngles.x = -.pi / 2
+
+                let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/Monster_Mask_Display.scn")!
+
+                for child in circuitPlaygroundLabelScene.rootNode.childNodes {
+                    mmStandAloneLabel.addChildNode(child)
+                }
+
+                mmStandAloneLabel.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+
+                mmStandAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+//
+//   
+//
+
+                //Light
+                mmLightButton = mmStandAloneLabel.childNode(withName: "mmaskLight_Button", recursively: true)!
+
+                mmLightInfo = mmStandAloneLabel.childNode(withName: "mmaskLight_Info", recursively: true)!
+
+                mmLightInfo.isHidden = true
+
+                //ATSAMD21
+                mmATSButton = mmStandAloneLabel.childNode(withName: "mmaskATS_Button", recursively: true)!
+
+                mmATSInfo = mmStandAloneLabel.childNode(withName: "mmaskATS_Info", recursively: true)!
+
+                mmATSInfo.isHidden = true
+
+
+                //Tactile
+                mmTactileButton = mmStandAloneLabel.childNode(withName: "mmaskTactile_Button", recursively: true)!
+
+                mmTactileInfo = mmStandAloneLabel.childNode(withName: "mmaskTactile_Info", recursively: true)!
+
+                mmTactileInfo.isHidden = true
+
+
+                //Seesaw
+                mmSeesawButton = mmStandAloneLabel.childNode(withName: "mmaskSeesaw_Button", recursively: true)!
+
+                mmSeesawInfo = mmStandAloneLabel.childNode(withName: "mmaskSeesaw_Info", recursively: true)!
+
+                mmSeesawInfo.isHidden = true
+
+                //Mic
+                mmAccelButton = mmStandAloneLabel.childNode(withName: "mmaskAccel_Button", recursively: true)!
+
+                mmAccelInfo = mmStandAloneLabel.childNode(withName: "mmaskAccel_Info", recursively: true)!
+
+                mmAccelInfo.isHidden = true
+
+                planeNode.addChildNode(mmStandAloneLabel)
+
+                node.addChildNode(planeNode)
+
+                DispatchQueue.main.async {
+                    self.scanLabel.isHidden = true
+                    self.sampleMask.isHidden = true
+
+            }
+            
+            case "edgeBadgeRef":
+
+                           let labelScale: Float = 0.03
+
+                            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+
+                            plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
+
+                            let planeNode = SCNNode(geometry: plane)
+
+                            planeNode.eulerAngles.x = -.pi / 2
+
+                            let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/EdgeBadge_Displays.scn")!
+
+                            for child in circuitPlaygroundLabelScene.rootNode.childNodes {
+                                edgeStandAloneLabel.addChildNode(child)
+                            }
+
+                            edgeStandAloneLabel.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+
+                            edgeStandAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+
+                            //Light
+                            edgeLightButton = edgeStandAloneLabel.childNode(withName: "edgeLight_Button", recursively: true)!
+
+                            edgeLightInfo = edgeStandAloneLabel.childNode(withName: "edgeLight_Info", recursively: true)!
+
+                            edgeLightInfo.isHidden = true
+
+                            //ATSAMD21
+                            edgeATSButton = edgeStandAloneLabel.childNode(withName: "edgeATS_Button", recursively: true)!
+
+                            edgeATSInfo = edgeStandAloneLabel.childNode(withName: "edgeATS_Info", recursively: true)!
+
+                            edgeATSInfo.isHidden = true
+
+
+                            //Feather
+                            edgeFeatherButton = edgeStandAloneLabel.childNode(withName: "edgeFeather_Button", recursively: true)!
+
+                            edgeFeatherInfo = edgeStandAloneLabel.childNode(withName: "edgeFeather_Info", recursively: true)!
+
+                            edgeFeatherInfo.isHidden = true
+
+                            
+                            edgeAccelButton = edgeStandAloneLabel.childNode(withName: "edgeAccel_Button", recursively: true)!
+
+                            edgeAccelInfo = edgeStandAloneLabel.childNode(withName: "edgeAccel_Info", recursively: true)!
+
+                            edgeAccelInfo.isHidden = true
+                           
+                           
+                           edgeSpeakerButton = edgeStandAloneLabel.childNode(withName: "edgeSpeaker_Button", recursively: true)!
+
+                           edgeSpeakerInfo = edgeStandAloneLabel.childNode(withName: "edgeSpeaker_Info", recursively: true)!
+
+                           edgeSpeakerInfo.isHidden = true
+
+                            
+                           planeNode.addChildNode(edgeStandAloneLabel)
+
+                            node.addChildNode(planeNode)
+
+                            DispatchQueue.main.async {
+                                self.scanLabel.isHidden = true
+                                self.sampleMask.isHidden = true
+
+                            }
+            
+            
+        default:
                 break
             }
     

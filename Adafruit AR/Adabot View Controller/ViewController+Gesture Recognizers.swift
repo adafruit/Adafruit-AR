@@ -191,7 +191,7 @@ extension ViewController {
             
         }else if (node.name) == "LetterR"{
             
-            playVideo(URL(string: "https://s3.amazonaws.com/adafruit-ar/video/circuit_playground/q_is_for_quartz.mp4")!)
+            playVideo(URL(string: "https://adafruit-ar.s3.amazonaws.com/video/circuit_playground/R+is+for+Robot.mp4")!)
             
             fadeOutAllLetters()
             print("Letter R was tapped.")
@@ -199,7 +199,7 @@ extension ViewController {
             
         }else if (node.name) == "LetterS"{
             
-            playVideo(URL(string: "https://s3.amazonaws.com/adafruit-ar/video/circuit_playground/q_is_for_quartz.mp4")!)
+            playVideo(URL(string: "https://adafruit-ar.s3.amazonaws.com/video/circuit_playground/S+is+for+Soldering+Iron.mp4")!)
             
             fadeOutAllLetters()
             print("Letter S was tapped.")
