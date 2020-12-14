@@ -2,7 +2,7 @@
   //  Adafruit AR
   //
   //  Created by Trevor Beaton on 4/23/18.
-  //  Copyright © 2018 Vanguard Logic LLC. All rights reserved.
+  //  Copyright © Adafruit. All rights reserved.
   //
   
   import ARKit

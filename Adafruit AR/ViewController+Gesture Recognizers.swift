@@ -3,7 +3,7 @@
 //  Adafruit AR
 //
 //  Created by Trevor Beaton on 7/18/18.
-//  Copyright © 2018 Vanguard Logic LLC. All rights reserved.
+//  Copyright © 2018 Adafruit. All rights reserved.
 //
 
 import UIKit
@@ -14,16 +14,17 @@ extension ViewController {
   
   //Mark:- Gesture Recognizers --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   
-  func registerTapRecognizer() {
-    let tapGestureRecognizer =  UITapGestureRecognizer (target:self ,action : #selector (tapped))
-    let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
-    let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(rotate))
+
+    func registerTapRecognizer() {
+        let tapGestureRecognizer =  UITapGestureRecognizer (target:self ,action : #selector (tapped))
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(rotate))
+        
+        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
+        self.sceneView.addGestureRecognizer(longPressGestureRecognizer)
+    }
     
-    self.sceneView.addGestureRecognizer(tapGestureRecognizer)
-    self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
-    self.sceneView.addGestureRecognizer(longPressGestureRecognizer)
-  }
-  
   
   //Gesture Actions
   @objc func tapped(sender: UITapGestureRecognizer) {

@@ -1,14 +1,20 @@
 {
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "resources" : [
     {
       "filename" : "CPX-QRCode_v2.arreferenceimage"
     },
     {
+      "filename" : "cpx.arreferenceimage"
+    },
+    {
       "filename" : "CrickitQRCode_v2.arreferenceimage"
+    },
+    {
+      "filename" : "deathCard.arreferenceimage"
     },
     {
       "filename" : "GC-3.arreferenceimage"
@@ -17,10 +23,28 @@
       "filename" : "HallowingQRcode_v2.arreferenceimage"
     },
     {
+      "filename" : "hermitCard.arreferenceimage"
+    },
+    {
+      "filename" : "judgementCard.arreferenceimage"
+    },
+    {
       "filename" : "NeoTrellis_v2.arreferenceimage"
     },
     {
+      "filename" : "portal2.arreferenceimage"
+    },
+    {
       "filename" : "pyportal.arreferenceimage"
+    },
+    {
+      "filename" : "starCard.arreferenceimage"
+    },
+    {
+      "filename" : "temperanceCard.arreferenceimage"
+    },
+    {
+      "filename" : "WOFCard.arreferenceimage"
     }
   ]
 }
