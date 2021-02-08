@@ -4,7 +4,6 @@
 //
 //  Created by Trevor B on 4/24/19.
 //  Copyright © 2019 Adafruit. All rights reserved.
-
 //
 
 import UIKit
@@ -68,7 +67,7 @@ extension QRViewController {
                     
                     alert.addAction(UIAlertAction(title: "I Don't Like Nice Things", style: .default, handler: nil))
                     
-                    alert.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: { (nil) in
+                    alert.addAction(UIAlertAction(title: "Lets Go!", style: .default, handler: { (nil) in
                         
                         if let url = URL(string: "https://learn.adafruit.com/adafruit-crickit-creative-robotic-interactive-construction-kit") {
                             UIApplication.shared.open(url, options: [:])
@@ -95,7 +94,7 @@ extension QRViewController {
                     
                     alert.addAction(UIAlertAction(title: "I Don't Like Nice Things", style: .default, handler: nil))
                     
-                    alert.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: { (nil) in
+                    alert.addAction(UIAlertAction(title: "Lets Go!", style: .default, handler: { (nil) in
                         
                         if let url = URL(string: "https://learn.adafruit.com/adafruit-grand-central") {
                             UIApplication.shared.open(url, options: [:])
@@ -116,7 +115,7 @@ extension QRViewController {
                     
                     alert.addAction(UIAlertAction(title: "I Don't Like Nice Things", style: .default, handler: nil))
                     
-                    alert.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: { (nil) in
+                    alert.addAction(UIAlertAction(title: "Lets Go!", style: .default, handler: { (nil) in
                         
                         if let url = URL(string: "https://learn.adafruit.com/adafruit-circuit-playground-express") {
                             UIApplication.shared.open(url, options: [:])
@@ -162,30 +161,214 @@ extension QRViewController {
                 }
   
 
-                else if (node.name) == "Pygamer Learn Guide"{
+                
+                else if (node.name) == "neopixel_Button" {
                     
-                    
-                    let alert = UIAlertController(title: "Leaving Adafruit AR", message: "Would you like to visit the PyGamer Learn Guide?", preferredStyle: .alert)
-                    
-                    alert.addAction(UIAlertAction(title: "I Don't Like Nice Things", style: .default, handler: nil))
-                    
-                    alert.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: { (nil) in
+                    if cpxNeoPixelSwitch == false {
+
+                        setCpxUI(Button: neoPixelButton, Display: neoPixelInfo)
+
+                        let scale: Float = 0.0007
                         
-                        if let url = URL(string: "https://learn.adafruit.com/adafruit-pygamer") {
-                            UIApplication.shared.open(url, options: [:])
+                        neoPixelInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.1), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
                         }
+
+                        neoPixelInfo.runAction(scaleAction)
                         
-                    }))
-                    
-                    present(alert, animated: true, completion: nil)
-                    
-                    
-                    print("Launch PyGamer Learn Guide...")
-                    
+                        cpxNeoPixelSwitch = true
+                        
+                    } else if cpxNeoPixelSwitch == true {
+                        
+                        neoPixelButton.geometry!.firstMaterial?.transparency = 0.2
+                        neoPixelInfo.removeAllActions()
+                        neoPixelInfo.isHidden = true
+                        cpxNeoPixelSwitch = false
+                    }
                     
                 }
-                
-                
+
+                else if (node.name) == "ATSAMD21_Micro_button" {
+                    
+                    if cpxATSSwitch == false {
+                        
+                        let scale: Float = 0.0007
+                        
+                        ATSInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.3), duration: 1.8)
+                        scaleAction.timingMode = .linear
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+
+                        setCpxUI(Button: ATSButton, Display: ATSInfo)
+                        ATSInfo.runAction(scaleAction)
+                        cpxATSSwitch = true
+                   
+                    } else if cpxATSSwitch == true {
+                        
+                        ATSButton.geometry!.firstMaterial?.transparency = 0.2
+                        ATSInfo.removeAllActions()
+                        ATSInfo.isHidden = true
+                        cpxATSSwitch = false
+                        
+                        
+                    }
+                    
+                }
+                    
+                else if (node.name) == "Croc_Button" {
+                    
+                    if cpxCrocSwitch == false {
+
+                        let scale: Float = 0.0007
+                        
+                        crocInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.2), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        setCpxUI(Button: crocButton, Display: crocInfo)
+
+                        crocInfo.runAction(scaleAction)
+                        
+                        cpxCrocSwitch = true
+                        
+                    } else if cpxCrocSwitch == true {
+                        
+                        crocButton.geometry!.firstMaterial?.transparency = 0.2
+                        crocInfo.removeAllActions()
+                        crocInfo.isHidden = true
+                        cpxCrocSwitch = false
+                        
+                        
+                    }
+                    
+                }
+                    
+                    
+                else if (node.name) == "temp_button" {
+                    
+                    if cpxTempSwitch == false {
+
+                        let scale: Float = 0.0007
+                        
+                        temperatureDisplay.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.1), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        setCpxUI(Button: temperatureButton, Display: temperatureDisplay)
+
+                        temperatureDisplay.runAction(scaleAction)
+                       
+                        cpxTempSwitch = true
+                        
+                        
+                    } else if cpxTempSwitch == true {
+
+                        temperatureButton.geometry!.firstMaterial?.transparency = 0.2
+                        temperatureDisplay.removeAllActions()
+                        temperatureDisplay.isHidden = true
+                        cpxTempSwitch = false
+                        
+                    }
+                    
+                }
+                    
+
+                else if (node.name) == "speaker_button" {
+                    
+                    if cpxSpeakSwitch == false {
+                        
+                        let scale: Float = 0.0007
+                        
+                        speakInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.1), duration: 2.2)
+                        
+                        scaleAction.timingMode = .linear
+  
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+
+                        speakInfo.runAction(scaleAction)
+                        
+                        setCpxUI(Button: speakButton, Display: speakInfo)
+
+                        cpxSpeakSwitch = true
+
+                    } else if cpxSpeakSwitch == true {
+                        
+                        speakButton.geometry!.firstMaterial?.transparency = 0.2
+                        speakInfo.removeAllActions()
+                        speakInfo.isHidden = true
+                        cpxSpeakSwitch = false
+                        
+                        
+                    }
+                    
+                }
+                    
+                    
+                    
+                else if (node.name) == "mic_button" {
+                    
+                    if cpxMicSwitch == false {
+
+                        let scale: Float = 0.0007
+                        
+                        micInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.2), duration: 2.2)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        setCpxUI(Button: micButton, Display: micInfo)
+
+                        micInfo.runAction(scaleAction)
+
+                        cpxMicSwitch = true
+   
+                    } else if cpxMicSwitch == true {
+                        
+                        micButton.geometry!.firstMaterial?.transparency = 0.2
+                        micInfo.removeAllActions()
+                        micInfo.isHidden = true
+                        cpxMicSwitch = false
+                        
+                        
+                    }
+                    
+                }
                     
                     
                     
@@ -196,7 +379,7 @@ extension QRViewController {
                     
                     alert.addAction(UIAlertAction(title: "I Don't Like Nice Things", style: .default, handler: nil))
                     
-                    alert.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: { (nil) in
+                    alert.addAction(UIAlertAction(title: "Lets Go!", style: .default, handler: { (nil) in
                         
                         if let url = URL(string: "https://learn.adafruit.com/adafruit-hallowing?view=all") {
                             UIApplication.shared.open(url, options: [:])
@@ -270,36 +453,6 @@ extension QRViewController {
                     }
                 }
                     
-                else if (node.name) == "4H Circuit video button"{
-                    
-                    
-                    if KcpxVidSwitch == false {
-                        
-                        
-                        KcpxPlayText.isHidden = true
-                        KcpxStopText.isHidden = false
-                        KcpxLabelDescription.isHidden = true
-                        KcpxVideo.isHidden = false
-                        play4HCPXVideo()
-                        KcpxVidSwitch = true
-                        
-                    } else if KcpxVidSwitch == true {
-                        
-                        KcpxPlayText.isHidden = false
-                        KcpxStopText.isHidden = true
-                        KcpxLabelDescription.isHidden = false
-                        self.KcpxPlayer.seek(to: kCMTimeZero)
-                        KcpxPlayerNode.pause()
-                        KcpxVideo.geometry?.firstMaterial?.diffuse.contents = nil
-                        
-                        
-                        KcpxVidSwitch = false
-                        KcpxVideo.isHidden = true
-                    }
-                }
-                    
-                    
-                    
                     //- 2
                 else if (node.name) == "Assembly Plane2"{
                     
@@ -340,7 +493,7 @@ extension QRViewController {
                     
                     alert.addAction(UIAlertAction(title: "I Don't Like Nice Things", style: .default, handler: nil))
                     
-                    alert.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: { (nil) in
+                    alert.addAction(UIAlertAction(title: "Lets Go!", style: .default, handler: { (nil) in
                         
                         if let url = URL(string: "https://learn.adafruit.com/adafruit-neotrellis-m4/overview") {
                             UIApplication.shared.open(url, options: [:])
@@ -937,7 +1090,7 @@ extension QRViewController {
                     
                     alert.addAction(UIAlertAction(title: "I Don't Like Nice Things", style: .default, handler: nil))
                     
-                    alert.addAction(UIAlertAction(title: "Let's Go!", style: .default, handler: { (nil) in
+                    alert.addAction(UIAlertAction(title: "Lets Go!", style: .default, handler: { (nil) in
                         
                         if let url = URL(string: "https://learn.adafruit.com/adafruit-pyportal") {
                             UIApplication.shared.open(url, options: [:])
@@ -977,7 +1130,244 @@ extension QRViewController {
                     }
                     
                     
-                }       
+                }
+                    
+                    
+                else if (node.name) == "py_Sensor_Button" {
+                    
+                    if pySensorSwitch == false {
+                        
+                        setPy(Button: pySensorButton, Display: pySensorInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pySensorInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.1), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pySensorInfo.runAction(scaleAction)
+                        
+                        pySensorSwitch = true
+                        
+                    } else if pySensorSwitch == true {
+                        
+                        pySensorButton.geometry!.firstMaterial?.transparency = 0.2
+                        pySensorInfo.removeAllActions()
+                        pySensorInfo.isHidden = true
+                        pySensorSwitch = false
+                    }
+                    
+                }
+                    
+                else if (node.name) == "py_Wifi_Button" {
+                    
+                    if pyWifiSwitch == false {
+                        
+                        setPy(Button: pyWifiButton, Display: pyWifiInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pyWifiInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.1), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pyWifiInfo.runAction(scaleAction)
+                        
+                        pyWifiSwitch = true
+                        
+                    } else if pyWifiSwitch == true {
+                        
+                        pyWifiButton.geometry!.firstMaterial?.transparency = 0.2
+                        pyWifiInfo.removeAllActions()
+                        pyWifiInfo.isHidden = true
+                        pyWifiSwitch = false
+                    }
+                    
+                }
+                    
+                else if (node.name) == "py_ATSAMD_Button" {
+                    
+                    if pyATSSwitch == false {
+                        
+                        setPy(Button: pyATSButton, Display: pyATSInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pyATSInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.1), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pyATSInfo.runAction(scaleAction)
+                        
+                        pyATSSwitch = true
+                        
+                    } else if pyATSSwitch == true {
+                        
+                        pyATSButton.geometry!.firstMaterial?.transparency = 0.2
+                        pyATSInfo.removeAllActions()
+                        pyATSInfo.isHidden = true
+                        pyATSSwitch = false
+                    }
+                    
+                }
+                    
+                else if (node.name) == "py_Speaker_Button" {
+                    
+                    if pySpeakerSwitch == false {
+                        
+                        setPy(Button: pySpeakerButton, Display: pySpeakerInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pySpeakerInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.1), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pySpeakerInfo.runAction(scaleAction)
+                        
+                        pySpeakerSwitch = true
+                        
+                    } else if pySpeakerSwitch == true {
+                        
+                        pySpeakerButton.geometry!.firstMaterial?.transparency = 0.2
+                        pySpeakerInfo.removeAllActions()
+                        pySpeakerInfo.isHidden = true
+                        pySpeakerSwitch = false
+                    }
+                    
+                }
+                    
+                else if (node.name) == "py_Connector_Button" {
+                    
+                    if pyConnectorSwitch == false {
+                        
+                        setPy(Button: pyConnectorButton, Display: pyConnectorInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pyConnectorInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.1), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pyConnectorInfo.runAction(scaleAction)
+                        
+                        pyConnectorSwitch = true
+                        
+                    } else if pyConnectorSwitch == true {
+                        
+                        pyConnectorButton.geometry!.firstMaterial?.transparency = 0.2
+                        pyConnectorInfo.removeAllActions()
+                        pyConnectorInfo.isHidden = true
+                        pyConnectorSwitch = false
+                    }
+                    
+                }
+                    
+                    
+                else if (node.name) == "py_IC2_Button" {
+                    
+                    if pyIC2Switch == false {
+                        
+                        setPy(Button: pyIC2Button, Display: pyIC2Info)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pyIC2Info.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.1), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pyIC2Info.runAction(scaleAction)
+                        
+                        pyIC2Switch = true
+                        
+                    } else if pyIC2Switch == true {
+                        
+                        pyIC2Button.geometry!.firstMaterial?.transparency = 0.2
+                        pyIC2Info.removeAllActions()
+                        pyIC2Info.isHidden = true
+                        pyIC2Switch = false
+                    }
+                    
+                }
+                    
+                    
+                else if (node.name) == "py_D_A_Button" {
+                    
+                    if pyDASwitch == false {
+                        
+                        setPy(Button: pyDAButton, Display: pyDAInfo)
+                        
+                        let scale: Float = 0.0007
+                        
+                        pyDAInfo.scale = SCNVector3(x: scale, y: scale, z: scale)
+                        
+                        let scaleAction = SCNAction.scale(to: CGFloat(1.1), duration: 1.8)
+                        
+                        scaleAction.timingMode = .linear
+                        
+                        // Use a custom timing function
+                        scaleAction.timingFunction = { (p: Float) in
+                            return self.easeOutElastic(p)
+                        }
+                        
+                        pyDAInfo.runAction(scaleAction)
+                        
+                        pyDASwitch = true
+                        
+                    } else if pyDASwitch == true {
+                        
+                        pyDAButton.geometry!.firstMaterial?.transparency = 0.2
+                        pyDAInfo.removeAllActions()
+                        pyDAInfo.isHidden = true
+                        pyDASwitch = false
+                    }
+                    
+                }
+                    
+                    
+                    
                     
                 else {
                     print("Nothing Detected.")
@@ -1087,8 +1477,7 @@ extension QRViewController {
                  halloWingNode.eulerAngles.z = self.newAngleY
                  neoTrellis.eulerAngles.z = self.newAngleY
                  pyNode.eulerAngles.z = self.newAngleY
-                 pygamerNode.eulerAngles.z = self.newAngleY
-                KcpxNode.eulerAngles.z = self.newAngleY
+                
             }
             
         }
@@ -1118,8 +1507,8 @@ extension QRViewController {
             halloWingNode.runAction(pinchAction)
             pyNode.runAction(pinchAction)
             neoTrellis.runAction(pinchAction)
-            pygamerNode.runAction(pinchAction)
-            KcpxNode.runAction(pinchAction)
+
+
 
         }
     }

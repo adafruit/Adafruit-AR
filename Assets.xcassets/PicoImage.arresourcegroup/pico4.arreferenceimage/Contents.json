@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "pico4.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "width" : 0.23999999999999999
+  }
+}
