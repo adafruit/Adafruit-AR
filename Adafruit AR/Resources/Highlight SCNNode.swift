@@ -3,8 +3,7 @@
 //  Adafruit AR
 //
 //  Created by Trevor Beaton on 1/28/19.
-//  Copyright © 2019 Adafruit. All rights reserved.
-
+//  Copyright © 2019 Vanguard Logic LLC. All rights reserved.
 //
 
 import SceneKit

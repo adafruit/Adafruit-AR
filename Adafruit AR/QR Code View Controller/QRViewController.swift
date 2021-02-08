@@ -3,8 +3,7 @@
 //  Adafruit AR
 //
 //  Created by Trevor Beaton on 9/4/18.
-//  Copyright © 2019 Adafruit. All rights reserved.
-
+//  Copyright © 2018 Adafruit. All rights reserved.
 //
 
 import UIKit
@@ -13,6 +12,7 @@ import ARKit
 import AVFoundation
 
 class QRViewController: UIViewController, ARSCNViewDelegate {
+    
     
     // AR Objects
 
@@ -37,26 +37,6 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     var cpxLoaded = Bool()
     //Product image tracking test
     
-    // For 4-H Circuit Playground Express Model
-    var KcpxNode = SCNNode()
-    var KcpxLabel = SCNNode()
-    
-    var KcpxLabelDescription = SCNNode()
-    var KcpxPlayText = SCNNode()
-    var KcpxStopText = SCNNode()
-    var KcpxVidSwitch = Bool()
-    var KcpxLoaded = Bool()
-    
-    
-    var KcpxStandAloneLabel = SCNNode()
-    
-    var KcpxLabelDescriptionStandAlone = SCNNode()
-    var KcpxPlayTextStandAlone = SCNNode()
-    var KcpxStopTextStandAlone = SCNNode()
-    var KcpxVidSwitchStandAlone = Bool()
-    //Product image tracking test
-    
-
     // For Circuit Playground Express Model
 
     var cpxStandAloneLabel = SCNNode()
@@ -65,8 +45,6 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     var cpxPlayTextStandAlone = SCNNode()
     var cpxStopTextStandAlone = SCNNode()
     var cpxVidSwitchStandAlone = Bool()
-    
-    
     var crickitLoaded = Bool()
     
     // For Crickit w/ CPX Model
@@ -86,14 +64,8 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     
     
 
-    //For Pygamer AR Model
-    var pygamerNode = SCNNode()
-    var pygamerLabel = SCNNode()
-    var pygamerDescription = SCNNode()
     
-    var pygamerSwitch = Bool()
-    var pygamerLoaded = Bool()
-
+    
     //For Grand Central M4 AR Model
     var grandCentralNode = SCNNode()
     var grandCentralLabel = SCNNode()
@@ -223,11 +195,6 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     var cpxPlayerNode = SKVideoNode()
     
     // Variables for Circuit Playground Express Product Video
-    var KcpxVideo = SCNNode()
-    var KcpxPlayer = AVPlayer()
-    var KcpxPlayerNode = SKVideoNode()
-    
-    // Variables for Circuit Playground Express Product Video
     var grandCentralVideo = SCNNode()
     var grandCentralPlayer = AVPlayer()
     var grandCentralPlayerNode = SKVideoNode()
@@ -303,7 +270,18 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     var pyConnectorSwitch = false
     
     
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // URL's for Product Videos
     let crickitVideoURL = URL(string: "https://s3.amazonaws.com/adafruit-ar/video/product_videos/crickit.mp4")
     
@@ -389,30 +367,26 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var homeButton: UIButton!
     
-
+    @IBOutlet weak var qrInfoDisplayButton: UIButton!
+    
     @IBOutlet weak var addedBlurEffect: UIVisualEffectView!
     
     @IBOutlet weak var touchLightButton: UIButton!
     
     @IBOutlet weak var scanLabel: UILabel!
     
-    @IBOutlet weak var qrInfoView: UIView!
-    
+    @IBOutlet var qrCodeInfoDisplay: UIView!
     
     // Interface Builder Actions
-//    @IBAction func qrInfoButtonAction(_ sender: UIButton) {
-//        animateOut()
-//        addedBlurEffect.isUserInteractionEnabled = false
-//    }
+    @IBAction func qrInfoButtonAction(_ sender: UIButton) {
+        animateOut()
+        addedBlurEffect.isUserInteractionEnabled = false
+    }
     
     @IBAction func qrInfoIcon(_ sender: UIButton) {
         animateIn()
     }
     
-    @IBAction func qrInfoDismissal(_ sender: Any) {
-        animateOut()
-        addedBlurEffect.isUserInteractionEnabled = false
-    }
     @IBAction func torchAction(_ sender: UIButton) {
         toggleButtonSelected = !toggleButtonSelected
         toggleTorch()
@@ -432,9 +406,13 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
         // Set the scene to the view
         qrSceneView.scene = scene
         
-        qrInfoView.layer.cornerRadius = 10
+        qrCodeInfoDisplay.layer.cornerRadius = 10
         
         addedBlurEffect.isUserInteractionEnabled = false
+        
+        effect = addedBlurEffect.effect
+        
+        addedBlurEffect.effect = nil
         
         registerTapRecognizer()
         
@@ -477,12 +455,7 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
         
         boolArray = [nodeLit1, nodeLit2, nodeLit3, nodeLit4, nodeLit5, nodeLit6, nodeLit7, nodeLit8, nodeLit9, nodeLit11,nodeLit12, nodeLit12, nodeLit13, nodeLit14, nodeLit15, nodeLit16, nodeLit17, nodeLit18, nodeLit19, nodeLit20, nodeLit21, nodeLit22, nodeLit23, nodeLit24, nodeLit25, nodeLit26, nodeLit27, nodeLit28, nodeLit29, nodeLit30, nodeLit31, nodeLit32]
 
-                effect = addedBlurEffect.effect
         
-                addedBlurEffect.effect = nil
-        
-        
-        animateIn()
     }
     
     
@@ -520,42 +493,28 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         qrSceneView.session.pause()
-        exitVideos()
-    
+        
     }
-    
-    
-    func exitVideos(){
-        pyPlayer.pause()
-        crickitPlayer.pause()
-        halloWingPlayer.pause()
-        cpxPlayer.pause()
-        KcpxPlayer.pause()
-    }
-
-    
     
     //UI Animation
     func animateIn() {
-        self.view.addSubview(qrInfoView)
-        qrInfoView.center = self.view.center
-        qrInfoView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        qrInfoView.alpha =  0
+        self.view.addSubview(qrCodeInfoDisplay)
+        qrCodeInfoDisplay.center = self.view.center
+        qrCodeInfoDisplay.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        qrCodeInfoDisplay.alpha =  0
         
         UIView.animate(withDuration: 0.4) {
             self.addedBlurEffect.effect = self.effect
-            self.qrInfoView.alpha = 1
-            self.qrInfoView.transform = CGAffineTransform.identity
-        
-        
+            self.qrCodeInfoDisplay.alpha = 1
+            self.qrCodeInfoDisplay.transform = CGAffineTransform.identity
         }
     }
     
     func animateOut() {
         UIView.animate(withDuration: 1, animations: {
             
-            self.qrInfoView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-            self.qrInfoView.alpha = 0
+            self.qrCodeInfoDisplay.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.qrCodeInfoDisplay.alpha = 0
             self.addedBlurEffect.effect = nil
         }) { (success:Bool) in
             
@@ -592,15 +551,29 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-
+    
+    
+    
+    
+    
+    
+    
     
     // MARK: - ARSCNViewDelegate
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         //This node is used to place the Plane used to plant the AR models
         let node = SCNNode()
-
+    
+        
+        
+        
+        
         if let imageAnchor = anchor as? ARImageAnchor {
-          
+
+            let physicalWidth = imageAnchor.referenceImage.physicalSize.width
+            let physicalHeight = imageAnchor.referenceImage.physicalSize.height
+                
+                
             switch imageAnchor.referenceImage.name {
    
             //HalloWing QR Code Reference
@@ -739,7 +712,89 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
                     
                 }
           
-               
+                case "cpx":
+
+                    let labelScale: Float = 0.03
+
+                    let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+
+                    plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
+
+                    let planeNode = SCNNode(geometry: plane)
+
+                    planeNode.eulerAngles.x = -.pi / 2
+
+                    let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/CPX_Displays.scn")!
+
+                    for child in circuitPlaygroundLabelScene.rootNode.childNodes {
+                        cpxStandAloneLabel.addChildNode(child)
+                    }
+
+                    cpxStandAloneLabel.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+
+                    cpxStandAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+
+                    
+                    //For Interactive Test
+                    
+                    //NeoPixels
+                    neoPixelButton = cpxStandAloneLabel.childNode(withName: "neopixel_Button", recursively: true)!
+                    
+                    neoPixelInfo = cpxStandAloneLabel.childNode(withName: "neopixel_Info", recursively: true)!
+                    
+                    neoPixelInfo.isHidden = true
+                    
+                    //ATSAMD21
+                    ATSButton = cpxStandAloneLabel.childNode(withName: "ATSAMD21_Micro_button", recursively: true)!
+                    
+                    ATSInfo = cpxStandAloneLabel.childNode(withName: "ATSAMD_info", recursively: true)!
+                    
+                    
+                    ATSInfo.isHidden = true
+                    
+                    
+                    //Croc/Alligator Clip Pads
+                    crocButton = cpxStandAloneLabel.childNode(withName: "Croc_Button", recursively: true)!
+                    
+                    crocInfo = cpxStandAloneLabel.childNode(withName: "Croc_info", recursively: true)!
+                    
+                    
+                    crocInfo.isHidden = true
+                    
+                    
+                    //Temperature Sensor
+                    temperatureButton = cpxStandAloneLabel.childNode(withName: "temp_button", recursively: true)!
+                    
+                    temperatureDisplay = cpxStandAloneLabel.childNode(withName: "temp_info", recursively: true)!
+                    
+                    
+                    temperatureDisplay.isHidden = true
+                    
+                    //Speaker
+                    speakButton = cpxStandAloneLabel.childNode(withName: "speaker_button", recursively: true)!
+                    
+                    speakInfo = cpxStandAloneLabel.childNode(withName: "speaker_info", recursively: true)!
+                    
+                    speakInfo.isHidden = true
+                    
+                    //Mic
+                    micButton = cpxStandAloneLabel.childNode(withName: "mic_button", recursively: true)!
+                    
+                    micInfo = cpxStandAloneLabel.childNode(withName: "mic_info", recursively: true)!
+                    
+                    micInfo.isHidden = true
+                    
+                    planeNode.addChildNode(cpxStandAloneLabel)
+
+                    node.addChildNode(planeNode)
+
+                    DispatchQueue.main.async {
+                        self.scanLabel.isHidden = true
+                        self.sampleMask.isHidden = true
+                        
+                }
+
+                
             //Newer Crickit QR Code Reference
             case "CrickitQRCode_v2":
                 crickitLoaded = true
@@ -814,6 +869,7 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
                 DispatchQueue.main.async {
                     self.scanLabel.isHidden = true
                     self.sampleMask.isHidden = true
+                    
                 }
                 
             case "NeoTrellis_v2":
@@ -1047,14 +1103,9 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
                     
                 }
 
-            
+            case "portal2":
                 
-            case "pygamer-1":
-                pygamerLoaded = true
-                print("Test")
-                let scale: Float = 0.05
-                
-                let labelScale: Float = 0.07
+                let labelScale: Float = 0.03
                 
                 let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
                 
@@ -1064,116 +1115,94 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
                 
                 planeNode.eulerAngles.x = -.pi / 2
                 
-                let pygamerLabelScene = SCNScene(named: "art.scnassets/pygamerLabel.scn")!
+                let pyLabelScene = SCNScene(named: "art.scnassets/Py_Display.scn")!
                 
-                for child in pygamerLabelScene.rootNode.childNodes {
-                    pygamerLabel.addChildNode(child)
+                for child in pyLabelScene.rootNode.childNodes {
+                    pyStaneAloneLabel.addChildNode(child)
                 }
                 
-                pygamerLabel.position = SCNVector3Zero
+                pyStaneAloneLabel.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
                 
-                pygamerLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
+                pyStaneAloneLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
                 
-                let pyScene = SCNScene(named: "art.scnassets/Pygamer.dae")!
+                //ATSAMD21
+                pyATSButton = pyStaneAloneLabel.childNode(withName: "py_ATSAMD_Button", recursively: true)!
                 
-                for child in pyScene.rootNode.childNodes {
-                    pygamerNode.addChildNode(child)
-                }
+                pyATSInfo = pyStaneAloneLabel.childNode(withName: "py_ATSAMD_Display", recursively: true)!
                 
-                pygamerNode.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z)
+                pyATSInfo.isHidden = true
                 
-                pygamerNode.eulerAngles.x = 0
+
+                pyIC2Button = pyStaneAloneLabel.childNode(withName: "py_IC2_Button", recursively: true)!
                 
-                pygamerNode.scale = SCNVector3(x: scale, y: scale, z: scale)
+                pyIC2Info = pyStaneAloneLabel.childNode(withName: "py_IC2_Display", recursively: true)!
                 
-               // pygamerDescription =  pygamerLabel.childNode(withName: "pyLabel", recursively: true)!
+                pyIC2Info.isHidden = true
+
                 
-                planeNode.addChildNode(pygamerLabel)
+                pySensorButton = pyStaneAloneLabel.childNode(withName: "py_Sensor_Button", recursively: true)!
                 
-                planeNode.addChildNode(pygamerNode)
+                pySensorInfo = pyStaneAloneLabel.childNode(withName: "py_Sensor_Display", recursively: true)!
                 
-                node.addChildNode(planeNode)
-                
-                DispatchQueue.main.async {
-                    self.scanLabel.isHidden = true
-                    self.sampleMask.isHidden = true
-                    
-                }
+                pySensorInfo.isHidden = true
                 
                 
+                pyDAButton = pyStaneAloneLabel.childNode(withName: "py_D_A_Button", recursively: true)!
+                
+                pyDAInfo = pyStaneAloneLabel.childNode(withName: "py_D_A_Display", recursively: true)!
+                
+                pyDAInfo.isHidden = true
+                
+                
+                pyWifiButton = pyStaneAloneLabel.childNode(withName: "py_Wifi_Button", recursively: true)!
+                
+                pyWifiInfo = pyStaneAloneLabel.childNode(withName: "py_Wifi_Display", recursively: true)!
+                
+                pyWifiInfo.isHidden = true
+                
+                
+                pyConnectorButton = pyStaneAloneLabel.childNode(withName: "py_Connector_Button", recursively: true)!
+                
+                pyConnectorInfo = pyStaneAloneLabel.childNode(withName: "py_Connector_Display", recursively: true)!
+                
+                pyConnectorInfo.isHidden = true
+                
+                
+                pySpeakerButton = pyStaneAloneLabel.childNode(withName: "py_Speaker_Button", recursively: true)!
+                
+                pySpeakerInfo = pyStaneAloneLabel.childNode(withName: "py_Speaker_Display", recursively: true)!
+                
+                pySpeakerInfo.isHidden = true
                 
                 
 
-              
+                // Create a plane geometry to visualize the initial position of the detected image
+                let mainPlane = SCNPlane(width: physicalWidth, height: physicalHeight)
+                
+                // This bit is important. It helps us create occlusion so virtual things stay hidden behind the detected image
+                mainPlane.firstMaterial?.colorBufferWriteMask = .alpha
+                
+                // Create a SceneKit root node with the plane geometry to attach to the scene graph
+                // This node will hold the virtual UI in place
+                let mainNode = SCNNode(geometry: mainPlane)
+                mainNode.eulerAngles.x = -.pi / 2
+                mainNode.renderingOrder = -1
+                mainNode.opacity = 1
+                
+                // Add the plane visualization to the scene
+                node.addChildNode(mainNode)
+                
+                
+                    // Introduce virtual content
+                   // self.displayDetailView(on: pyStaneAloneLabel, xOffset: physicalWidth + 10)
+                    
+                    // Animate the WebView to the right
+                 //   self.displayWebView(on: pyStaneAloneLabel, xOffset: physicalWidth + 7)
+                
+                
+                
                 
                 planeNode.addChildNode(pyStaneAloneLabel)
-                
-                node.addChildNode(planeNode)
-                
-                DispatchQueue.main.async {
-                    self.scanLabel.isHidden = true
-                    self.sampleMask.isHidden = true
-                    
-                }
-                
-                
-            // CPX QR Code Reference
-            case "4HQRcode":
-                KcpxLoaded = true
-                let scale: Float = 0.02
-                
-                let labelScale: Float = 1.7
-                
-                let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
-                
-                plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
-                
-                let planeNode = SCNNode(geometry: plane)
-                
-                planeNode.eulerAngles.x = -.pi / 2
-                
-                let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/4HCPXLabel.scn")!
-                
-                for child in circuitPlaygroundLabelScene.rootNode.childNodes {
-                    KcpxLabel.addChildNode(child)
-                }
-                
-                KcpxLabel.position = SCNVector3Zero
-                
-                KcpxLabel.scale = SCNVector3(x: labelScale, y: labelScale, z: labelScale)
-                
-                KcpxVideo = KcpxLabel.childNode(withName: "cpx plane", recursively: true)!
-                
-                KcpxLabelDescription =  KcpxLabel.childNode(withName: "Circuit Label", recursively: true)!
-                
-                KcpxPlayText = KcpxLabel.childNode(withName: "CPlay video", recursively: true)!
-                
-                KcpxStopText = KcpxLabel.childNode(withName: "CStop video", recursively: true)!
-                
-                KcpxVideo.isHidden = true
-                
-                KcpxStopText.isHidden = true
-                
-                KcpxVidSwitch = false
-                
-                let KCPXScene = SCNScene(named: "art.scnassets/4H-cpx.dae")!
-                
-                
-                for child in KCPXScene.rootNode.childNodes {
-                    KcpxNode.addChildNode(child)
-                }
-                
-                
-                KcpxNode.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z + 0.05)
-                
-                KcpxNode.eulerAngles.x = 90
-                
-                KcpxNode.scale = SCNVector3(x: scale, y: scale, z: scale)
-                
-                
-                planeNode.addChildNode(KcpxNode)
-                
-                planeNode.addChildNode(KcpxLabel)
                 
                 node.addChildNode(planeNode)
                 

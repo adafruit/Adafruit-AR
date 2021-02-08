@@ -1,23 +1,11 @@
 {
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "resources" : [
     {
-      "filename" : "4HQRcode.arreferenceimage"
-    },
-    {
-      "filename" : "clover.arreferenceimage"
-    },
-    {
-      "filename" : "clue_back-ref.arreferenceimage"
-    },
-    {
-      "filename" : "clue-ref.arreferenceimage"
-    },
-    {
-      "filename" : "CPB.arreferenceimage"
+      "filename" : "ChariotCard.arreferenceimage"
     },
     {
       "filename" : "CPX-QRCode_v2.arreferenceimage"
@@ -29,7 +17,19 @@
       "filename" : "CrickitQRCode_v2.arreferenceimage"
     },
     {
-      "filename" : "edgeBadgeRef.arreferenceimage"
+      "filename" : "DevilCard.arreferenceimage"
+    },
+    {
+      "filename" : "EmperorCard.arreferenceimage"
+    },
+    {
+      "filename" : "EmpressCard.arreferenceimage"
+    },
+    {
+      "filename" : "FOCCard.arreferenceimage"
+    },
+    {
+      "filename" : "FoolCard.arreferenceimage"
     },
     {
       "filename" : "GC-3.arreferenceimage"
@@ -38,25 +38,67 @@
       "filename" : "HallowingQRcode_v2.arreferenceimage"
     },
     {
-      "filename" : "MonsterMaskRef.arreferenceimage"
+      "filename" : "HeirophantCard.arreferenceimage"
+    },
+    {
+      "filename" : "HermitCard.arreferenceimage"
+    },
+    {
+      "filename" : "JudgementCard.arreferenceimage"
+    },
+    {
+      "filename" : "JusticeCard.arreferenceimage"
+    },
+    {
+      "filename" : "LoversCard.arreferenceimage"
+    },
+    {
+      "filename" : "MagicianCard.arreferenceimage"
+    },
+    {
+      "filename" : "MoonCard.arreferenceimage"
     },
     {
       "filename" : "NeoTrellis_v2.arreferenceimage"
     },
     {
+      "filename" : "pico4.arreferenceimage"
+    },
+    {
+      "filename" : "picoBoard.arreferenceimage"
+    },
+    {
       "filename" : "portal2.arreferenceimage"
     },
     {
-      "filename" : "pygamer-1.arreferenceimage"
-    },
-    {
-      "filename" : "pygamer-front.arreferenceimage"
-    },
-    {
-      "filename" : "pygamer.arreferenceimage"
+      "filename" : "PriestessCard.arreferenceimage"
     },
     {
       "filename" : "pyportal.arreferenceimage"
+    },
+    {
+      "filename" : "StarCard.arreferenceimage"
+    },
+    {
+      "filename" : "StrengthCard.arreferenceimage"
+    },
+    {
+      "filename" : "SunCard.arreferenceimage"
+    },
+    {
+      "filename" : "TemperanceCard.arreferenceimage"
+    },
+    {
+      "filename" : "THMCard.arreferenceimage"
+    },
+    {
+      "filename" : "TowerCard.arreferenceimage"
+    },
+    {
+      "filename" : "WOFCard.arreferenceimage"
+    },
+    {
+      "filename" : "WorldCard.arreferenceimage"
     }
   ]
 }

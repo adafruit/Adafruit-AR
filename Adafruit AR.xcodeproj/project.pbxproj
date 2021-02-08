@@ -8,11 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		290439F02292E34200979BAD /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290439EF2292E34200979BAD /* BoardViewController.swift */; };
+		2917003925858C3900E39853 /* BoardViewController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2917003825858C3900E39853 /* BoardViewController+Audio.swift */; };
+		29546B5B2585B51000002715 /* BoardViewController+HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29546B5A2585B51000002715 /* BoardViewController+HostingController.swift */; };
+		297574E025A612E4001991E7 /* SwiftUITarotCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297574DF25A612E4001991E7 /* SwiftUITarotCardView.swift */; };
+		29897A482569E8330080F4BF /* ARScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29897A472569E8330080F4BF /* ARScenes.swift */; };
+		29897A58256CA76F0080F4BF /* ARWorldAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29897A57256CA76F0080F4BF /* ARWorldAnchor.swift */; };
 		298FD3F62270B4D9007E2F4C /* QRViewController+GestureRec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298FD3F52270B4D9007E2F4C /* QRViewController+GestureRec.swift */; };
 		298FD3F82270B7A5007E2F4C /* QRViewController+Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298FD3F72270B7A5007E2F4C /* QRViewController+Video.swift */; };
+		29A07E9725C0CB9F006219C9 /* PICOBoardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A07E9625C0CB9F006219C9 /* PICOBoardOverlay.swift */; };
+		29AA121D25A9717E0037003B /* ListOfTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA121C25A9717E0037003B /* ListOfTexts.swift */; };
 		29B109C922933CE9004D6D58 /* BoardViewController+Gesture Recognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B109C822933CE9004D6D58 /* BoardViewController+Gesture Recognizers.swift */; };
+		29D096292559C71D0032654B /* ClickableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D096282559C71D0032654B /* ClickableView.swift */; };
 		D515BADA21FF5826001E7079 /* Highlight SCNNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D515BAD921FF5826001E7079 /* Highlight SCNNode.swift */; };
-		D516FDB0222DB2D2004D151B /* Adafruit_QR_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D516FDAF222DB2D2004D151B /* Adafruit_QR_Tests.swift */; };
 		D54801CE217E12E700170412 /* hallowing_eye.mov in Resources */ = {isa = PBXBuildFile; fileRef = D54801CB217E118B00170412 /* hallowing_eye.mov */; };
 		D54E995B20E155DF0021A2E5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54E995A20E155DF0021A2E5 /* Extensions.swift */; };
 		D55B075B20FF8DD40066976C /* ViewController+Gesture Recognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55B075A20FF8DD40066976C /* ViewController+Gesture Recognizers.swift */; };
@@ -41,13 +48,6 @@
 			remoteGlobalIDString = D5F2F4DD208E190D00B0790B;
 			remoteInfo = "Adafruit AR";
 		};
-		D516FDB2222DB2D2004D151B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5F2F4D6208E190D00B0790B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D5F2F4DD208E190D00B0790B;
-			remoteInfo = "Adafruit AR";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,14 +65,19 @@
 
 /* Begin PBXFileReference section */
 		290439EF2292E34200979BAD /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		2917003825858C3900E39853 /* BoardViewController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardViewController+Audio.swift"; sourceTree = "<group>"; };
+		29546B5A2585B51000002715 /* BoardViewController+HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardViewController+HostingController.swift"; sourceTree = "<group>"; };
+		297574DF25A612E4001991E7 /* SwiftUITarotCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITarotCardView.swift; sourceTree = "<group>"; };
+		29897A472569E8330080F4BF /* ARScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScenes.swift; sourceTree = "<group>"; };
+		29897A57256CA76F0080F4BF /* ARWorldAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARWorldAnchor.swift; sourceTree = "<group>"; };
 		298FD3F52270B4D9007E2F4C /* QRViewController+GestureRec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QRViewController+GestureRec.swift"; sourceTree = "<group>"; };
 		298FD3F72270B7A5007E2F4C /* QRViewController+Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QRViewController+Video.swift"; sourceTree = "<group>"; };
+		29A07E9625C0CB9F006219C9 /* PICOBoardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PICOBoardOverlay.swift; sourceTree = "<group>"; };
+		29AA121C25A9717E0037003B /* ListOfTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfTexts.swift; sourceTree = "<group>"; };
 		29B109C822933CE9004D6D58 /* BoardViewController+Gesture Recognizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardViewController+Gesture Recognizers.swift"; sourceTree = "<group>"; };
+		29D096282559C71D0032654B /* ClickableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableView.swift; sourceTree = "<group>"; };
 		D515BAD921FF5826001E7079 /* Highlight SCNNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Highlight SCNNode.swift"; sourceTree = "<group>"; };
 		D516FD8A222482DC004D151B /* Adafruit ARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adafruit ARTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D516FDAD222DB2D2004D151B /* Adafruit QR Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adafruit QR Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D516FDAF222DB2D2004D151B /* Adafruit_QR_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adafruit_QR_Tests.swift; sourceTree = "<group>"; };
-		D516FDB1222DB2D2004D151B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D54801CB217E118B00170412 /* hallowing_eye.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = hallowing_eye.mov; sourceTree = "<group>"; };
 		D54E995A20E155DF0021A2E5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D55B075A20FF8DD40066976C /* ViewController+Gesture Recognizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Gesture Recognizers.swift"; sourceTree = "<group>"; };
@@ -103,13 +108,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D516FDAA222DB2D2004D151B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5F2F4DB208E190D00B0790B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,17 +118,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		29176F0E22CA35B100AA827D /* Adabot View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D5F2F4E5208E190D00B0790B /* ViewController.swift */,
-				D55B075A20FF8DD40066976C /* ViewController+Gesture Recognizers.swift */,
-				D58A102B20FE6C39003B0E93 /* ViewController+Nodes.swift */,
-				D55B075C20FF934B0066976C /* ViewController+Audio.swift */,
-			);
-			path = "Adabot View Controller";
-			sourceTree = "<group>";
-		};
 		291E63D9227C6E0E00F77AB5 /* QR Code View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				D515BAD921FF5826001E7079 /* Highlight SCNNode.swift */,
+				29897A57256CA76F0080F4BF /* ARWorldAnchor.swift */,
 				D55F682E20BF2CA3005219D9 /* FocusSquare.swift */,
 				D55F682F20BF2CA4005219D9 /* Utilities.swift */,
 				D55B076020FF99230066976C /* WorldPosition.swift */,
@@ -153,32 +141,29 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		291E63DB227CA33700F77AB5 /* Onboarding Pages */ = {
+		291E63DB227CA33700F77AB5 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
 				D56ED485213EE255000E62F0 /* MainViewController.swift */,
 				D583C69C215BF2DB00256EB1 /* pageThree.swift */,
 				D5ABE2902146BB2A00AB8237 /* RootPageViewController.swift */,
 			);
-			path = "Onboarding Pages";
+			path = Pages;
 			sourceTree = "<group>";
 		};
 		29F7FDE62295B25600F15B0E /* Board Scan View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				290439EF2292E34200979BAD /* BoardViewController.swift */,
+				297574DF25A612E4001991E7 /* SwiftUITarotCardView.swift */,
+				29A07E9625C0CB9F006219C9 /* PICOBoardOverlay.swift */,
+				2917003825858C3900E39853 /* BoardViewController+Audio.swift */,
+				29546B5A2585B51000002715 /* BoardViewController+HostingController.swift */,
+				29AA121C25A9717E0037003B /* ListOfTexts.swift */,
+				29897A472569E8330080F4BF /* ARScenes.swift */,
 				29B109C822933CE9004D6D58 /* BoardViewController+Gesture Recognizers.swift */,
 			);
 			path = "Board Scan View Controller";
-			sourceTree = "<group>";
-		};
-		D516FDAE222DB2D2004D151B /* Adafruit QR Tests */ = {
-			isa = PBXGroup;
-			children = (
-				D516FDAF222DB2D2004D151B /* Adafruit_QR_Tests.swift */,
-				D516FDB1222DB2D2004D151B /* Info.plist */,
-			);
-			path = "Adafruit QR Tests";
 			sourceTree = "<group>";
 		};
 		D53C6F1C20D2D1A70051A030 /* Frameworks */ = {
@@ -204,7 +189,6 @@
 				D5F2F4EC208E190E00B0790B /* LaunchScreen.storyboard */,
 				D5F2F4EF208E190E00B0790B /* Info.plist */,
 				D54801CD217E12C200170412 /* Video */,
-				D516FDAE222DB2D2004D151B /* Adafruit QR Tests */,
 				D5F2F4DF208E190D00B0790B /* Products */,
 				D53C6F1C20D2D1A70051A030 /* Frameworks */,
 			);
@@ -215,7 +199,6 @@
 			children = (
 				D5F2F4DE208E190D00B0790B /* Adafruit AR.app */,
 				D516FD8A222482DC004D151B /* Adafruit ARTests.xctest */,
-				D516FDAD222DB2D2004D151B /* Adafruit QR Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,11 +207,15 @@
 			isa = PBXGroup;
 			children = (
 				D5F2F4E1208E190D00B0790B /* AppDelegate.swift */,
-				29176F0E22CA35B100AA827D /* Adabot View Controller */,
+				D5F2F4E5208E190D00B0790B /* ViewController.swift */,
+				D58A102B20FE6C39003B0E93 /* ViewController+Nodes.swift */,
+				D55B075C20FF934B0066976C /* ViewController+Audio.swift */,
+				D55B075A20FF8DD40066976C /* ViewController+Gesture Recognizers.swift */,
+				29D096282559C71D0032654B /* ClickableView.swift */,
 				29F7FDE62295B25600F15B0E /* Board Scan View Controller */,
 				291E63D9227C6E0E00F77AB5 /* QR Code View Controller */,
 				291E63DA227C8E9800F77AB5 /* Resources */,
-				291E63DB227CA33700F77AB5 /* Onboarding Pages */,
+				291E63DB227CA33700F77AB5 /* Pages */,
 				D5F2F4E3208E190D00B0790B /* art.scnassets */,
 				D5F2F4E7208E190D00B0790B /* Main.storyboard */,
 			);
@@ -254,24 +241,6 @@
 			name = "Adafruit ARTests";
 			productName = "Adafruit ARTests";
 			productReference = D516FD8A222482DC004D151B /* Adafruit ARTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D516FDAC222DB2D2004D151B /* Adafruit QR Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D516FDB4222DB2D2004D151B /* Build configuration list for PBXNativeTarget "Adafruit QR Tests" */;
-			buildPhases = (
-				D516FDA9222DB2D2004D151B /* Sources */,
-				D516FDAA222DB2D2004D151B /* Frameworks */,
-				D516FDAB222DB2D2004D151B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D516FDB3222DB2D2004D151B /* PBXTargetDependency */,
-			);
-			name = "Adafruit QR Tests";
-			productName = "Adafruit QR Tests";
-			productReference = D516FDAD222DB2D2004D151B /* Adafruit QR Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D5F2F4DD208E190D00B0790B /* Adafruit AR */ = {
@@ -300,19 +269,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Vanguard Logic LLC";
 				TargetAttributes = {
 					D516FD89222482DC004D151B = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
-						TestTargetID = D5F2F4DD208E190D00B0790B;
-					};
-					D516FDAC222DB2D2004D151B = {
-						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = D5F2F4DD208E190D00B0790B;
 					};
 					D5F2F4DD208E190D00B0790B = {
 						CreatedOnToolsVersion = 9.2;
@@ -340,20 +303,12 @@
 			targets = (
 				D5F2F4DD208E190D00B0790B /* Adafruit AR */,
 				D516FD89222482DC004D151B /* Adafruit ARTests */,
-				D516FDAC222DB2D2004D151B /* Adafruit QR Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D516FD88222482DC004D151B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D516FDAB222DB2D2004D151B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -399,36 +354,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D516FDA9222DB2D2004D151B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D516FDB0222DB2D2004D151B /* Adafruit_QR_Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5F2F4DA208E190D00B0790B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D54E995B20E155DF0021A2E5 /* Extensions.swift in Sources */,
+				29AA121D25A9717E0037003B /* ListOfTexts.swift in Sources */,
+				297574E025A612E4001991E7 /* SwiftUITarotCardView.swift in Sources */,
 				D5F2F4E6208E190D00B0790B /* ViewController.swift in Sources */,
 				D55F683020BF2CA4005219D9 /* FocusSquare.swift in Sources */,
 				D5ABE2912146BB2A00AB8237 /* RootPageViewController.swift in Sources */,
+				29897A482569E8330080F4BF /* ARScenes.swift in Sources */,
 				D55B075D20FF934B0066976C /* ViewController+Audio.swift in Sources */,
 				D583C69D215BF2DB00256EB1 /* pageThree.swift in Sources */,
 				D55B076120FF99230066976C /* WorldPosition.swift in Sources */,
 				298FD3F62270B4D9007E2F4C /* QRViewController+GestureRec.swift in Sources */,
+				29D096292559C71D0032654B /* ClickableView.swift in Sources */,
+				29897A58256CA76F0080F4BF /* ARWorldAnchor.swift in Sources */,
 				D515BADA21FF5826001E7079 /* Highlight SCNNode.swift in Sources */,
+				29A07E9725C0CB9F006219C9 /* PICOBoardOverlay.swift in Sources */,
 				D56ED488213EEC94000E62F0 /* QRViewController.swift in Sources */,
 				D55B075B20FF8DD40066976C /* ViewController+Gesture Recognizers.swift in Sources */,
 				290439F02292E34200979BAD /* BoardViewController.swift in Sources */,
+				29546B5B2585B51000002715 /* BoardViewController+HostingController.swift in Sources */,
 				298FD3F82270B7A5007E2F4C /* QRViewController+Video.swift in Sources */,
 				D55F683120BF2CA4005219D9 /* Utilities.swift in Sources */,
 				D5F2F4E2208E190D00B0790B /* AppDelegate.swift in Sources */,
 				D58A102C20FE6C39003B0E93 /* ViewController+Nodes.swift in Sources */,
 				29B109C922933CE9004D6D58 /* BoardViewController+Gesture Recognizers.swift in Sources */,
 				D56ED486213EE255000E62F0 /* MainViewController.swift in Sources */,
+				2917003925858C3900E39853 /* BoardViewController+Audio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,11 +394,6 @@
 			isa = PBXTargetDependency;
 			target = D5F2F4DD208E190D00B0790B /* Adafruit AR */;
 			targetProxy = D516FD8F222482DD004D151B /* PBXContainerItemProxy */;
-		};
-		D516FDB3222DB2D2004D151B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D5F2F4DD208E190D00B0790B /* Adafruit AR */;
-			targetProxy = D516FDB2222DB2D2004D151B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -470,7 +420,6 @@
 		D516FD92222482DD004D151B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -485,14 +434,12 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adafruit AR.app/Adafruit AR";
 			};
 			name = Debug;
 		};
 		D516FD93222482DD004D151B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -505,44 +452,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Adafruit AR/Adafruit ARTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adafruit AR.app/Adafruit AR";
-			};
-			name = Release;
-		};
-		D516FDB5222DB2D2004D151B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2X94RM7457;
-				INFOPLIST_FILE = "Adafruit QR Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Adafruit-Industries-LLC.Adafruit-QR-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adafruit AR.app/Adafruit AR";
-			};
-			name = Debug;
-		};
-		D516FDB6222DB2D2004D151B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2X94RM7457;
-				INFOPLIST_FILE = "Adafruit QR Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Adafruit-Industries-LLC.Adafruit-QR-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adafruit AR.app/Adafruit AR";
 			};
 			name = Release;
 		};
@@ -571,6 +480,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -596,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -630,6 +540,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -649,7 +560,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -662,15 +573,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2X94RM7457;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.9.3;
+				MARKETING_VERSION = 1.10.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adafruit.adafruit-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -683,15 +595,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2X94RM7457;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.9.3;
+				MARKETING_VERSION = 1.10.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adafruit.adafruit-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -707,15 +620,6 @@
 			buildConfigurations = (
 				D516FD92222482DD004D151B /* Debug */,
 				D516FD93222482DD004D151B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D516FDB4222DB2D2004D151B /* Build configuration list for PBXNativeTarget "Adafruit QR Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D516FDB5222DB2D2004D151B /* Debug */,
-				D516FDB6222DB2D2004D151B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
