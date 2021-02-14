@@ -127,9 +127,9 @@ struct PICOBoardOverlay: View {
             //Border
                 RoundedRectangle(cornerRadius: 3, style: .circular)
                 .fill(Color.clear)
-                .frame(width: 153, height: 260)
+                .frame(width: 162, height: 270)
                 .border(Color.gray, width: 2)
-                .offset(x: 0, y:30)
+                .offset(x: 0, y:25)
 
                 pintOutDEBUGStruct()
                     .offset(x: 0, y: 260)
@@ -141,17 +141,17 @@ struct PICOBoardOverlay: View {
                         ForEach(data) { (pinout) in
                             pintOutStruct(value: pinout.value, prefix: pinout.prefix, fgcolor: pinout.fgColor, bgcolor: pinout.bgcolor, prefix2: pinout.prefix2, bgColor2: pinout.bgColor2, prefix3: pinout.prefix3, bgColor3: pinout.bgColor3, prefix4: pinout.prefix4, bgColor4: pinout.bgColor4, prefix5: pinout.prefix5, bgColor5: pinout.bgColor5)
                             }
-                        .frame(width: 170, height: 12.7, alignment: .leading)
+                        .frame(width: 170, height: 13.5, alignment: .leading)
                     }
-                    .offset(x: 245, y: 27)
+                    .offset(x: 245, y: 23.8)
 
                     VStack(alignment: .trailing) {
                         ForEach(data2) { (pinout) in
                             pintOutStruct2(value: pinout.value, prefix: pinout.prefix, fgcolor: pinout.fgColor, bgcolor: pinout.bgcolor, prefix2: pinout.prefix2, bgColor2: pinout.bgColor2, prefix3: pinout.prefix3, bgColor3: pinout.bgColor3, prefix4: pinout.prefix4, bgColor4: pinout.bgColor4, prefix5: pinout.prefix5, bgColor5: pinout.bgColor5)
                             }
-                        .frame(width: 160, height: 12.7, alignment: .trailing)
+                        .frame(width: 150, height: 13.5, alignment: .trailing)
                     }
-                    .offset(x: -245, y: 27)
+                    .offset(x: -245, y: 25)
                 }
             }
             .rotationEffect(.degrees(-180))
