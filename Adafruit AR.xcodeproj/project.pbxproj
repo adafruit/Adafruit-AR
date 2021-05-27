@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		290439F02292E34200979BAD /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290439EF2292E34200979BAD /* BoardViewController.swift */; };
 		2917003925858C3900E39853 /* BoardViewController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2917003825858C3900E39853 /* BoardViewController+Audio.swift */; };
+		293EC85925E8092C008EB6CA /* Teensy41BoardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EC85825E8092C008EB6CA /* Teensy41BoardOverlay.swift */; };
+		2948B61A25E6D82D0013781D /* CircleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2948B61925E6D82D0013781D /* CircleLabel.swift */; };
+		295049AC25E6996D003E7484 /* CurvedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295049AB25E6996D003E7484 /* CurvedText.swift */; };
+		295049AE25E69AB0003E7484 /* BLMBoardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295049AD25E69AB0003E7484 /* BLMBoardOverlay.swift */; };
 		29546B5B2585B51000002715 /* BoardViewController+HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29546B5A2585B51000002715 /* BoardViewController+HostingController.swift */; };
 		297574E025A612E4001991E7 /* SwiftUITarotCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297574DF25A612E4001991E7 /* SwiftUITarotCardView.swift */; };
 		29897A482569E8330080F4BF /* ARScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29897A472569E8330080F4BF /* ARScenes.swift */; };
@@ -16,6 +20,7 @@
 		298FD3F62270B4D9007E2F4C /* QRViewController+GestureRec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298FD3F52270B4D9007E2F4C /* QRViewController+GestureRec.swift */; };
 		298FD3F82270B7A5007E2F4C /* QRViewController+Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298FD3F72270B7A5007E2F4C /* QRViewController+Video.swift */; };
 		29A07E9725C0CB9F006219C9 /* PICOBoardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A07E9625C0CB9F006219C9 /* PICOBoardOverlay.swift */; };
+		29A83D2525EEC3F60018BEAB /* Pi400Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A83D2425EEC3F60018BEAB /* Pi400Overlay.swift */; };
 		29AA121D25A9717E0037003B /* ListOfTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA121C25A9717E0037003B /* ListOfTexts.swift */; };
 		29B109C922933CE9004D6D58 /* BoardViewController+Gesture Recognizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B109C822933CE9004D6D58 /* BoardViewController+Gesture Recognizers.swift */; };
 		29D096292559C71D0032654B /* ClickableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D096282559C71D0032654B /* ClickableView.swift */; };
@@ -40,16 +45,6 @@
 		D5F2F4EE208E190E00B0790B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F2F4EC208E190E00B0790B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D516FD8F222482DD004D151B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5F2F4D6208E190D00B0790B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D5F2F4DD208E190D00B0790B;
-			remoteInfo = "Adafruit AR";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		D53C6F1A20D2B93C0051A030 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -66,6 +61,10 @@
 /* Begin PBXFileReference section */
 		290439EF2292E34200979BAD /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		2917003825858C3900E39853 /* BoardViewController+Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardViewController+Audio.swift"; sourceTree = "<group>"; };
+		293EC85825E8092C008EB6CA /* Teensy41BoardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teensy41BoardOverlay.swift; sourceTree = "<group>"; };
+		2948B61925E6D82D0013781D /* CircleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLabel.swift; sourceTree = "<group>"; };
+		295049AB25E6996D003E7484 /* CurvedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedText.swift; sourceTree = "<group>"; };
+		295049AD25E69AB0003E7484 /* BLMBoardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLMBoardOverlay.swift; sourceTree = "<group>"; };
 		29546B5A2585B51000002715 /* BoardViewController+HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardViewController+HostingController.swift"; sourceTree = "<group>"; };
 		297574DF25A612E4001991E7 /* SwiftUITarotCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITarotCardView.swift; sourceTree = "<group>"; };
 		29897A472569E8330080F4BF /* ARScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScenes.swift; sourceTree = "<group>"; };
@@ -73,11 +72,11 @@
 		298FD3F52270B4D9007E2F4C /* QRViewController+GestureRec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QRViewController+GestureRec.swift"; sourceTree = "<group>"; };
 		298FD3F72270B7A5007E2F4C /* QRViewController+Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QRViewController+Video.swift"; sourceTree = "<group>"; };
 		29A07E9625C0CB9F006219C9 /* PICOBoardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PICOBoardOverlay.swift; sourceTree = "<group>"; };
+		29A83D2425EEC3F60018BEAB /* Pi400Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pi400Overlay.swift; sourceTree = "<group>"; };
 		29AA121C25A9717E0037003B /* ListOfTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfTexts.swift; sourceTree = "<group>"; };
 		29B109C822933CE9004D6D58 /* BoardViewController+Gesture Recognizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardViewController+Gesture Recognizers.swift"; sourceTree = "<group>"; };
 		29D096282559C71D0032654B /* ClickableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickableView.swift; sourceTree = "<group>"; };
 		D515BAD921FF5826001E7079 /* Highlight SCNNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Highlight SCNNode.swift"; sourceTree = "<group>"; };
-		D516FD8A222482DC004D151B /* Adafruit ARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adafruit ARTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54801CB217E118B00170412 /* hallowing_eye.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = hallowing_eye.mov; sourceTree = "<group>"; };
 		D54E995A20E155DF0021A2E5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D55B075A20FF8DD40066976C /* ViewController+Gesture Recognizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Gesture Recognizers.swift"; sourceTree = "<group>"; };
@@ -101,13 +100,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D516FD87222482DC004D151B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5F2F4DB208E190D00B0790B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -157,7 +149,12 @@
 				290439EF2292E34200979BAD /* BoardViewController.swift */,
 				297574DF25A612E4001991E7 /* SwiftUITarotCardView.swift */,
 				29A07E9625C0CB9F006219C9 /* PICOBoardOverlay.swift */,
+				293EC85825E8092C008EB6CA /* Teensy41BoardOverlay.swift */,
+				29A83D2425EEC3F60018BEAB /* Pi400Overlay.swift */,
+				295049AB25E6996D003E7484 /* CurvedText.swift */,
+				295049AD25E69AB0003E7484 /* BLMBoardOverlay.swift */,
 				2917003825858C3900E39853 /* BoardViewController+Audio.swift */,
+				2948B61925E6D82D0013781D /* CircleLabel.swift */,
 				29546B5A2585B51000002715 /* BoardViewController+HostingController.swift */,
 				29AA121C25A9717E0037003B /* ListOfTexts.swift */,
 				29897A472569E8330080F4BF /* ARScenes.swift */,
@@ -198,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				D5F2F4DE208E190D00B0790B /* Adafruit AR.app */,
-				D516FD8A222482DC004D151B /* Adafruit ARTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,24 +221,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D516FD89222482DC004D151B /* Adafruit ARTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D516FD91222482DD004D151B /* Build configuration list for PBXNativeTarget "Adafruit ARTests" */;
-			buildPhases = (
-				D516FD86222482DC004D151B /* Sources */,
-				D516FD87222482DC004D151B /* Frameworks */,
-				D516FD88222482DC004D151B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D516FD90222482DD004D151B /* PBXTargetDependency */,
-			);
-			name = "Adafruit ARTests";
-			productName = "Adafruit ARTests";
-			productReference = D516FD8A222482DC004D151B /* Adafruit ARTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		D5F2F4DD208E190D00B0790B /* Adafruit AR */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5F2F4F2208E190E00B0790B /* Build configuration list for PBXNativeTarget "Adafruit AR" */;
@@ -272,11 +250,6 @@
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Vanguard Logic LLC";
 				TargetAttributes = {
-					D516FD89222482DC004D151B = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
-						ProvisioningStyle = Automatic;
-					};
 					D5F2F4DD208E190D00B0790B = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -302,19 +275,11 @@
 			projectRoot = "";
 			targets = (
 				D5F2F4DD208E190D00B0790B /* Adafruit AR */,
-				D516FD89222482DC004D151B /* Adafruit ARTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D516FD88222482DC004D151B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5F2F4DC208E190D00B0790B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,13 +312,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D516FD86222482DC004D151B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5F2F4DA208E190D00B0790B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,14 +331,19 @@
 				29897A58256CA76F0080F4BF /* ARWorldAnchor.swift in Sources */,
 				D515BADA21FF5826001E7079 /* Highlight SCNNode.swift in Sources */,
 				29A07E9725C0CB9F006219C9 /* PICOBoardOverlay.swift in Sources */,
+				29A83D2525EEC3F60018BEAB /* Pi400Overlay.swift in Sources */,
+				295049AC25E6996D003E7484 /* CurvedText.swift in Sources */,
+				2948B61A25E6D82D0013781D /* CircleLabel.swift in Sources */,
 				D56ED488213EEC94000E62F0 /* QRViewController.swift in Sources */,
 				D55B075B20FF8DD40066976C /* ViewController+Gesture Recognizers.swift in Sources */,
 				290439F02292E34200979BAD /* BoardViewController.swift in Sources */,
 				29546B5B2585B51000002715 /* BoardViewController+HostingController.swift in Sources */,
 				298FD3F82270B7A5007E2F4C /* QRViewController+Video.swift in Sources */,
+				295049AE25E69AB0003E7484 /* BLMBoardOverlay.swift in Sources */,
 				D55F683120BF2CA4005219D9 /* Utilities.swift in Sources */,
 				D5F2F4E2208E190D00B0790B /* AppDelegate.swift in Sources */,
 				D58A102C20FE6C39003B0E93 /* ViewController+Nodes.swift in Sources */,
+				293EC85925E8092C008EB6CA /* Teensy41BoardOverlay.swift in Sources */,
 				29B109C922933CE9004D6D58 /* BoardViewController+Gesture Recognizers.swift in Sources */,
 				D56ED486213EE255000E62F0 /* MainViewController.swift in Sources */,
 				2917003925858C3900E39853 /* BoardViewController+Audio.swift in Sources */,
@@ -388,14 +351,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D516FD90222482DD004D151B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D5F2F4DD208E190D00B0790B /* Adafruit AR */;
-			targetProxy = D516FD8F222482DD004D151B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D5F2F4E7208E190D00B0790B /* Main.storyboard */ = {
@@ -417,44 +372,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D516FD92222482DD004D151B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2X94RM7457;
-				INFOPLIST_FILE = "Adafruit ARTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Adafruit-Industries-LLC.Adafruit-ARTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Adafruit AR/Adafruit ARTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		D516FD93222482DD004D151B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2X94RM7457;
-				INFOPLIST_FILE = "Adafruit ARTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Adafruit-Industries-LLC.Adafruit-ARTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Adafruit AR/Adafruit ARTests-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		D5F2F4F0208E190E00B0790B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -506,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -560,7 +477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -573,16 +490,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2X94RM7457;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.10.4;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adafruit.adafruit-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -595,16 +512,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2X94RM7457;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.10.4;
+				MARKETING_VERSION = 1.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adafruit.adafruit-AR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -615,15 +532,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D516FD91222482DD004D151B /* Build configuration list for PBXNativeTarget "Adafruit ARTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D516FD92222482DD004D151B /* Debug */,
-				D516FD93222482DD004D151B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		D5F2F4D9208E190D00B0790B /* Build configuration list for PBXProject "Adafruit AR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

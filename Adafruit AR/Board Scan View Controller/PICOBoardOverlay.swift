@@ -8,7 +8,8 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
+
+
 struct Data: Identifiable {
 let id = UUID()
 let value: String
@@ -24,12 +25,17 @@ let bgColor4: Color
 let prefix5: String
 let bgColor5: Color
 
-
-
 }
 
-@available(iOS 13.0, *)
+
+
+
 struct PICOBoardOverlay: View {
+
+
+  @State private var viewY = 0
+
+  @State private var debugY = 0
 
     var body: some View {
 
@@ -107,9 +113,9 @@ struct PICOBoardOverlay: View {
 
                     Data(value: "14", prefix: "GP10", fgColor: .black, bgcolor: .yellow, prefix2: "PWM5A", bgColor2: Color(#colorLiteral(red: 0.3326305836, green: 0.9686274529, blue: 0.6167510894, alpha: 1)), prefix3: "SCK1", bgColor3: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)), prefix4: "SDA1", bgColor4: Color(#colorLiteral(red: 0.8072112728, green: 0.6713793157, blue: 0.9686274529, alpha: 1)),prefix5: "", bgColor5: .clear),
 
-                    Data(value: "15", prefix: "GP11", fgColor: .black, bgcolor: .yellow, prefix2: "PWM2A", bgColor2: Color(#colorLiteral(red: 0.3326305836, green: 0.9686274529, blue: 0.6167510894, alpha: 1)), prefix3: "DI0", bgColor3: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)), prefix4: "SDA0", bgColor4: Color(#colorLiteral(red: 0.8072112728, green: 0.6713793157, blue: 0.9686274529, alpha: 1)),prefix5: "TX1", bgColor5: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))),
+                    Data(value: "15", prefix: "GP11", fgColor: .black, bgcolor: .yellow, prefix2: "PWM2A", bgColor2: Color(#colorLiteral(red: 0.3326305836, green: 0.9686274529, blue: 0.6167510894, alpha: 1)), prefix3: "DI0", bgColor3: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)), prefix4: "SCL1", bgColor4: Color(#colorLiteral(red: 0.8072112728, green: 0.6713793157, blue: 0.9686274529, alpha: 1)),prefix5: "TX1", bgColor5: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))),
 
-                    Data(value: "16", prefix: "GP12",  fgColor: .black, bgcolor: .yellow, prefix2: "PWM5B", bgColor2: Color(#colorLiteral(red: 0.3326305836, green: 0.9686274529, blue: 0.6167510894, alpha: 1)), prefix3: "D01", bgColor3: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)), prefix4: "SCL1", bgColor4: Color(#colorLiteral(red: 0.8072112728, green: 0.6713793157, blue: 0.9686274529, alpha: 1)),prefix5: "TX0", bgColor5: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))),
+                    Data(value: "16", prefix: "GP12",  fgColor: .black, bgcolor: .yellow, prefix2: "PWM5B", bgColor2: Color(#colorLiteral(red: 0.3326305836, green: 0.9686274529, blue: 0.6167510894, alpha: 1)), prefix3: "D01", bgColor3: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)), prefix4: "SDA0", bgColor4: Color(#colorLiteral(red: 0.8072112728, green: 0.6713793157, blue: 0.9686274529, alpha: 1)),prefix5: "TX0", bgColor5: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))),
 
                     Data(value: "17", prefix: "GP13", fgColor: .black, bgcolor: .yellow, prefix2: "PWM6B", bgColor2: Color(#colorLiteral(red: 0.3326305836, green: 0.9686274529, blue: 0.6167510894, alpha: 1)), prefix3: "CS1", bgColor3: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)), prefix4: "SCL0", bgColor4: Color(#colorLiteral(red: 0.8072112728, green: 0.6713793157, blue: 0.9686274529, alpha: 1)),prefix5: "RX0", bgColor5: Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))),
 
@@ -122,17 +128,19 @@ struct PICOBoardOverlay: View {
 
 
 
-        if #available(iOS 14.0, *) {
+        
             ZStack{
             //Border
-                RoundedRectangle(cornerRadius: 3, style: .circular)
+              RoundedRectangle(cornerRadius: 1, style: .continuous)
                 .fill(Color.clear)
-                .frame(width: 162, height: 270)
+                .frame(width: 167, height: 272)
                 .border(Color.gray, width: 2)
-                .offset(x: 0, y:25)
+                .position(x: 250, y: CGFloat(viewY))
+//.position(x: 250, y: 250)
 
                 pintOutDEBUGStruct()
-                    .offset(x: 0, y: 260)
+                  .position(x: 250, y: CGFloat(debugY))
+
 
 
                 HStack{
@@ -143,26 +151,44 @@ struct PICOBoardOverlay: View {
                             }
                         .frame(width: 170, height: 13.5, alignment: .leading)
                     }
-                    .offset(x: 245, y: 23.8)
+
+                    .position(x: 418, y: CGFloat(viewY))
+                    //.offset(x: 245, y: 23.8)
 
                     VStack(alignment: .trailing) {
                         ForEach(data2) { (pinout) in
                             pintOutStruct2(value: pinout.value, prefix: pinout.prefix, fgcolor: pinout.fgColor, bgcolor: pinout.bgcolor, prefix2: pinout.prefix2, bgColor2: pinout.bgColor2, prefix3: pinout.prefix3, bgColor3: pinout.bgColor3, prefix4: pinout.prefix4, bgColor4: pinout.bgColor4, prefix5: pinout.prefix5, bgColor5: pinout.bgColor5)
                             }
-                        .frame(width: 150, height: 13.5, alignment: .trailing)
+                        .frame(width: 150, height: 13.4, alignment: .trailing)
+                      
                     }
-                    .offset(x: -245, y: 25)
+                    .position(x: -161, y: CGFloat(viewY))
+                    //.offset(x: -245, y: 25)
                 }
             }
+            .onAppear(perform: {
+
+              if UIDevice.current.userInterfaceIdiom == .phone {
+                //iPhone
+                viewY = 217
+                debugY = 370
+              }else {
+                //iPad
+                viewY = 250
+                debugY = 400
+              }
+
+
+               })
             .rotationEffect(.degrees(-180))
-        }
+
 
     }
 
 }
 
 
-@available(iOS 13.0, *)
+
 struct pintOutDEBUGStruct: View {
 
 
@@ -173,16 +199,15 @@ var body: some View {
             .font(.system(size: 7))
             .fontWeight(.black)
             .foregroundColor(.black)
-
             .background(Color.gray)
-            .padding(0.1)
+            .padding(0.2)
 
         Text("GND")
-              .font(.system(size: 7))
+              .font(.system(size: 8))
             .fontWeight(.black)
             .foregroundColor(Color.white)
             .background(Color.black)
-            .padding(0.1)
+            .padding(0.2)
 
 
         Text("SWDI0")
@@ -190,10 +215,9 @@ var body: some View {
             .fontWeight(.black)
             .foregroundColor(Color.black)
             .background(Color.gray)
-
+            .padding(0.2)
     }
 
-    .offset(x: 85, y: 0)
     .rotationEffect(.degrees(-90))
 
 }
@@ -201,7 +225,7 @@ var body: some View {
 }
 
 
-@available(iOS 13.0, *)
+
 struct pintOutStruct: View {
 
 let value: String
@@ -268,7 +292,7 @@ var body: some View {
 }
 
 
-@available(iOS 13.0, *)
+
 struct pintOutStruct2: View {
 
 let value: String
@@ -294,12 +318,14 @@ var body: some View {
             .fontWeight(.black)
           .foregroundColor(fgcolor)
           .background(bgColor5)
+      
 
         Text(prefix4)
-              .font(.system(size: 8))
+            .font(.system(size: 8))
             .fontWeight(.black)
             .foregroundColor(fgcolor)
             .background(bgColor4)
+            .cornerRadius(25)
 
         Text(prefix3)
               .font(.system(size: 8))
@@ -327,17 +353,19 @@ var body: some View {
             .foregroundColor(.black)
             .background(Color.gray)
     }
+
 }
+
 }
 
 
 
 struct PICOBoardOverlay_Previews: PreviewProvider {
 
-@available(iOS 13.0, *)
+
 static var previews: some View {
     PICOBoardOverlay()
-    .previewDevice(PreviewDevice(rawValue: "iPhone 11 Max"))
+    .previewDevice(PreviewDevice(rawValue: "iPad Pro (11-inch) (2nd generation)"))
     .previewDisplayName("iPhone 11 Max")
 }
 }

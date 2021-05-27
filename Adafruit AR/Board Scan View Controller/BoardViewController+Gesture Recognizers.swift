@@ -11,7 +11,7 @@ import ARKit
 import SceneKit
 
 
-@available(iOS 13.0, *)
+
 extension BoardViewController {
     
     //Gesture Recognizers & Actions

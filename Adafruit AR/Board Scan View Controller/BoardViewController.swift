@@ -8,13 +8,38 @@
 
 import UIKit
 import ARKit
+import SwiftUI
 import RealityKit
 
 
-@available(iOS 13.0, *)
+
 class BoardViewController: UIViewController, ARSCNViewDelegate {
-    
-    
+    //Pico
+  let arVC = UIHostingController(rootView: PICOBoardOverlay())
+  let blmVC = UIHostingController(rootView: BLMBoardOverlay())
+  let teensyVC = UIHostingController(rootView: Teensy41BoardOverlay())
+  let pi400VC = UIHostingController(rootView: Pi400Overlay())
+
+
+  func removeContentController(content: UIViewController) {
+    DispatchQueue.main.async {
+      content.willMove(toParentViewController: nil)
+      content.view.removeFromSuperview()
+      content.removeFromParentViewController()
+    }
+  }
+
+
+
+  //  func presentSwiftUIView() {
+//      let swiftUIView = SwiftUIView()
+//      let hostingController = UIHostingController(rootView: swiftUIView)
+//      present(hostingController, animated: true, completion: nil)
+//  }
+
+
+  // Create a session configuration
+    let configuration = ARImageTrackingConfiguration()
     var audioPlayer : AVAudioPlayer?
 
     //For Minerva AR
@@ -116,7 +141,9 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     var cpxMicSwitch = false
     
     var cpxStandAloneLabel = SCNNode()
-    
+
+    var BLMLabel = SCNNode()
+
     var fadeOut = SCNAction()
     var fadeIn = SCNAction()
     
@@ -137,6 +164,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var boardInfoButton: UIButton!
     
+  @IBOutlet weak var homeButton: UIButton!
 
     @IBAction func boardInfoAction(_ sender: Any) {
     animateIn()
@@ -154,7 +182,19 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBOutlet weak var boardItemView: UIView!
+
+
+//  let newViewController = NewViewController()
+//  self.navigationController?.pushViewController(newViewController, animated: true)
+
+  @IBAction func homeButtonAction(_ sender: Any) {
+    //self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     
+  }
+
+  @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
+
+
     func animateIn() {
         
         self.view.addSubview(boardItemView)
@@ -242,35 +282,34 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
 
         boardSceneView.session.delegate = self as? ARSessionDelegate
 
-
-
-
-
-//        let worldAnchor = ARWorldAnchor(column3: [0, 0,-4, 1])
-//        boardSceneView.session.add(anchor: worldAnchor)
-        // Set the scene to the view
         boardSceneView.scene = scene
         
         sampleMaskSetup()
         
         loadMinervaModel()
         
-        
-        
     }
-    
+
+
+  func removeAllFromScene(){
+    print("Removing all from scene")
+    boardSceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        }
+
+   
+
+  }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
 
     }
 
 
 
     func startImageTracking (){
-        // Create a session configuration
-        let configuration = ARImageTrackingConfiguration()
-
-
 
         guard let trackedImages = ARReferenceImage.referenceImages(inGroupNamed: "Photos", bundle: Bundle.main) else {
             print("No images available")
@@ -282,16 +321,32 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         configuration.isAutoFocusEnabled = true
 
         // Run the view's session
-        boardSceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+      boardSceneView.session.run(configuration, options: [.resetTracking,.removeExistingAnchors])
     }
+//  private lazy var myFunction: Void = {
+//      // Do something once
+//  }()
 
+  private lazy var restartImageTracking: Void = {
+    boardSceneView.session.run(configuration, options: [.resetTracking,.removeExistingAnchors])
+  }()
 
+  override func viewDidDisappear(_ animated: Bool) {
+
+//    print("Gone")
+//    DispatchQueue.main.async {
+//      self.willMove(toParentViewController: nil)
+//      self.arVC.view.removeFromSuperview()
+//      self.removeFromParentViewController()
+//    }
+   // removeAllFromScene()
+  }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+      
         // Pause the view's session
-        boardSceneView.session.pause()
+       // boardSceneView.session.pause()
         
     }
     
@@ -447,8 +502,9 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     
     //Create AR Plane
     func ARPlaneAnchor(imageReferenceAnchor: ARImageAnchor, mainNode: SCNNode) {
-        
-        let plane = SCNPlane(width: imageReferenceAnchor.referenceImage.physicalSize.width, height: imageReferenceAnchor.referenceImage.physicalSize.height)
+      print("Function: \(#function),File: \(#file),Line: \( #line)")
+
+      let plane = SCNPlane(width: imageReferenceAnchor.referenceImage.physicalSize.width, height: imageReferenceAnchor.referenceImage.physicalSize.height)
 
         plane.firstMaterial?.diffuse.contents = UIColor(white: 0.0, alpha: 0.0)
         
@@ -458,7 +514,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         mainNode.addChildNode(planeNode)
         
         DispatchQueue.main.async {
-           
+          print(#line)
             self.scanLabel.isHidden = true
             self.sampleMask.isHidden = true
             
@@ -470,10 +526,10 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     
     //Create AR Plane
     func SwiftUIARPlaneAnchor(imageReferenceAnchor: ARImageAnchor, mainNode: SCNNode) {
-        
+      print("Function: \(#function),File: \(#file),Line: \( #line)")
         _ = SCNMaterial()
         
-        let plane = SCNPlane(width: imageReferenceAnchor.referenceImage.physicalSize.width + 0.5, height: imageReferenceAnchor.referenceImage.physicalSize.height  + 0.5)
+        let plane = SCNPlane(width: imageReferenceAnchor.referenceImage.physicalSize.width + 0.5, height: imageReferenceAnchor.referenceImage.physicalSize.height + 0.5)
 
         plane.firstMaterial?.diffuse.contents = UIColor(white: 0, alpha: 0)
         
@@ -497,7 +553,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
-    // MARK: - ARSCNViewDelegate
+
    
 
     
@@ -528,11 +584,12 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     }
   
     
-    
+
     
     
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        //This node is used to place the Plane used to plant AR models.
+      print("Function: \(#function),File: \(#file),Line: \( #line)")
+      //This node is used to place the Plane used to plant AR models.
         let node = SCNNode()
 
         if let imageAnchor = anchor as? ARImageAnchor {
@@ -1714,18 +1771,69 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                               
                 arHostingController(for: planeNode, textForDialogue: ListOfTexts.heirophantText)
 
-
+            //MARK:- PICO
             case "pico4":
-
+              DispatchQueue.main.async {
                print("Recognized PICO Board.")
 
-                ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+                self.ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
 
-                SwiftUIARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+                self.SwiftUIARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
 
-                arPICOHostingController(for: planeNode)
+                self.arPICOHostingController(for: planeNode)
+              }
+            //MARK:- Teensy
+            case "teensy":
+              DispatchQueue.main.async {
+
+               //  _ = self.restartImageTracking
+               print("Recognized teensy Board.")
+
+                self.ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+
+                self.SwiftUIARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+
+                self.arTeensy41HostingController(for: planeNode)
+              }
+
+            //MARK:- pi400
+            case "pi400":
+              DispatchQueue.main.async {
+               print("Recognized pi400 Board.")
+
+                self.ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+
+                  self.SwiftUIARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+
+                    self.arpi400HostingController(for: planeNode)
+              }
+            //MARK:- BLM
+            case "backBLM":
+             // _ = restartImageTracking
+              DispatchQueue.main.async {
+               print("Recognized BLM - Back Board.")
+
+                self.ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+
+                self.ARObjectToScene(ARObject: self.BLMLabel, ARScene: ARScenes.blmLabelScene, planeNode: node, size: SCNVector3(0.03,0.03,0.03))
+
+              }
+            case "fist":
+
+          //    _ = restartImageTracking
+              //removeContentController(content: blmVC)
 
 
+              DispatchQueue.main.async {
+              print("Recognized BLM Board.")
+
+                self.ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+
+                self.SwiftUIARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+
+                self.arBLMHostingController(for: planeNode)
+
+              }
             case "cpx":
                 
                 ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
@@ -1878,34 +1986,33 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
 
 }
 
-extension Notification.Name {
-    static let notifTest = Notification.Name(rawValue: "Test")
-}
+extension BoardViewController {
+ 
+    /// Add a SwiftUI `View` as a child of the input `UIView`.
+    /// - Parameters:
+    ///   - swiftUIView: The SwiftUI `View` to add as a child.
+    ///   - view: The `UIView` instance to which the view should be added.
+    func addSubSwiftUIView<Content>(_ swiftUIView: Content, to view: UIView) where Content : View {
+        let hostingController = UIHostingController(rootView: swiftUIView)
 
-//@available(iOS 13.0, *)
-//extension BoardViewController {
-//    func renderer(_ renderer: SCNSceneRenderer,didAdd node: SCNNode,for anchor: ARAnchor) {
-//
-//        guard let worldAnchor = anchor as? ARWorldAnchor
-//        else { return }
-//
-//        print(worldAnchor.isKind(of: ARWorldAnchor.self))
-//
-//        // it prints "true"
-//
-//        let earthNode = SCNNode()
-//        earthNode.geometry = SCNSphere(radius: 0.8)
-//
-//       // let path = "art.scnassets/earthAlbedo.jpg"
-//
-//        if #available(iOS 14.0, *) {
-//            earthNode.geometry?.firstMaterial?.diffuse.contents = UIColor(Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)))
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//
-//        node.position = minervaModel.position
-//
-//        node.addChildNode(earthNode)
-//    }
-//}
+        /// Add as a child of the current view controller.
+      addChildViewController(hostingController)
+
+        /// Add the SwiftUI view to the view controller view hierarchy.
+        view.addSubview(hostingController.view)
+
+        /// Setup the contraints to update the SwiftUI view boundaries.
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingController.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+            view.bottomAnchor.constraint(equalTo: hostingController.view.bottomAnchor),
+            view.rightAnchor.constraint(equalTo: hostingController.view.rightAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+
+        /// Notify the hosting controller that it has been moved to the current view controller.
+        hostingController.didMove(toParent: self)
+    }
+}

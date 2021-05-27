@@ -6,14 +6,19 @@
 //  Copyright © 2018 Vanguard Logic LLC. All rights reserved.
 //
 
-import Foundation
+import ARKit
 import UIKit
 
 
-class MainViewController: UIViewController {
+
+class MainViewController: UIViewController, ARSCNViewDelegate {
   
  let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] 
-    
+
+
+ 
+  @IBOutlet weak var boardView: ARSCNView!
+  
   @IBOutlet weak var qrModeIcon: UIButton!
   
   @IBOutlet weak var qrLabel: UILabel!
@@ -32,7 +37,16 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     versionString()
+
+    let scene = SCNScene()
+    // Set the view's delegate
+    boardView.delegate = self
+
+    boardView.session.delegate = self as? ARSessionDelegate
+
+    boardView.scene = scene
+
   }
-  
+
 
 }

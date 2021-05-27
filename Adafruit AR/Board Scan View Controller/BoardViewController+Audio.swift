@@ -7,7 +7,7 @@
 //
 
 import AVFoundation
-@available(iOS 13.0, *)
+
 
 extension BoardViewController {
 

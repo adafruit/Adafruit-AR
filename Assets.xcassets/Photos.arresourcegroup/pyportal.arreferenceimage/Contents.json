@@ -1,13 +1,13 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "filename" : "pyportal.png"
+      "filename" : "pyportal.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
     "width" : 0.32000000000000001

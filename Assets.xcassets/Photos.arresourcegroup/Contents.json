@@ -5,6 +5,9 @@
   },
   "resources" : [
     {
+      "filename" : "backBLM.arreferenceimage"
+    },
+    {
       "filename" : "ChariotCard.arreferenceimage"
     },
     {
@@ -24,6 +27,9 @@
     },
     {
       "filename" : "EmpressCard.arreferenceimage"
+    },
+    {
+      "filename" : "fist.arreferenceimage"
     },
     {
       "filename" : "FOCCard.arreferenceimage"
@@ -62,6 +68,9 @@
       "filename" : "NeoTrellis_v2.arreferenceimage"
     },
     {
+      "filename" : "pi400.arreferenceimage"
+    },
+    {
       "filename" : "pico4.arreferenceimage"
     },
     {
@@ -84,6 +93,9 @@
     },
     {
       "filename" : "SunCard.arreferenceimage"
+    },
+    {
+      "filename" : "teensy.arreferenceimage"
     },
     {
       "filename" : "TemperanceCard.arreferenceimage"
