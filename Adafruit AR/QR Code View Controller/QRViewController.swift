@@ -369,7 +369,7 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var qrInfoDisplayButton: UIButton!
     
-    @IBOutlet weak var addedBlurEffect: UIVisualEffectView!
+    //@IBOutlet weak var addedBlurEffect: UIVisualEffectView!
     
     @IBOutlet weak var touchLightButton: UIButton!
     
@@ -380,7 +380,7 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
     // Interface Builder Actions
     @IBAction func qrInfoButtonAction(_ sender: UIButton) {
         animateOut()
-        addedBlurEffect.isUserInteractionEnabled = false
+    //    addedBlurEffect.isUserInteractionEnabled = false
     }
     
     @IBAction func qrInfoIcon(_ sender: UIButton) {
@@ -408,11 +408,11 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
         
         qrCodeInfoDisplay.layer.cornerRadius = 10
         
-        addedBlurEffect.isUserInteractionEnabled = false
+       // addedBlurEffect.isUserInteractionEnabled = false
         
-        effect = addedBlurEffect.effect
+       // effect = addedBlurEffect.effect
         
-        addedBlurEffect.effect = nil
+      //  addedBlurEffect.effect = nil
         
         registerTapRecognizer()
         
@@ -504,7 +504,7 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
         qrCodeInfoDisplay.alpha =  0
         
         UIView.animate(withDuration: 0.4) {
-            self.addedBlurEffect.effect = self.effect
+      //      self.addedBlurEffect.effect = self.effect
             self.qrCodeInfoDisplay.alpha = 1
             self.qrCodeInfoDisplay.transform = CGAffineTransform.identity
         }
@@ -515,14 +515,14 @@ class QRViewController: UIViewController, ARSCNViewDelegate {
             
             self.qrCodeInfoDisplay.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.qrCodeInfoDisplay.alpha = 0
-            self.addedBlurEffect.effect = nil
+         //   self.addedBlurEffect.effect = nil
         }) { (success:Bool) in
             
-            for subview in self.addedBlurEffect.subviews {
-                if subview is UIVisualEffectView {
-                    subview.removeFromSuperview()
-                }
-            }
+//            for subview in self.addedBlurEffect.subviews {
+//                if subview is UIVisualEffectView {
+//                    subview.removeFromSuperview()
+//                }
+//            }
         }
     }
     
