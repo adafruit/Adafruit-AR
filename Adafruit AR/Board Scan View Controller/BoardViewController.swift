@@ -19,6 +19,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
   let blmVC = UIHostingController(rootView: BLMBoardOverlay())
   let teensyVC = UIHostingController(rootView: Teensy41BoardOverlay())
   let pi400VC = UIHostingController(rootView: Pi400Overlay())
+  let picoWVC = UIHostingController(rootView: PicoWOverlay())
 
 
   func removeContentController(content: UIViewController) {
@@ -1795,7 +1796,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
 
                 self.SwiftUIARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
 
-                self.arPICOHostingController(for: planeNode)
+                self.arPICOWHostingController(for: planeNode)
               }
                 
             //MARK:- Teensy

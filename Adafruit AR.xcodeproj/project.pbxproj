@@ -38,6 +38,7 @@
 		D58A102C20FE6C39003B0E93 /* ViewController+Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58A102B20FE6C39003B0E93 /* ViewController+Nodes.swift */; };
 		D5ABE2912146BB2A00AB8237 /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ABE2902146BB2A00AB8237 /* RootPageViewController.swift */; };
 		D5AD52C42136E617007A373F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5AD52C32136E617007A373F /* Assets.xcassets */; };
+		D5B022B3287D0CBF00598D5E /* PicoWOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B022B2287D0CBF00598D5E /* PicoWOverlay.swift */; };
 		D5F2F4E2208E190D00B0790B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F2F4E1208E190D00B0790B /* AppDelegate.swift */; };
 		D5F2F4E4208E190D00B0790B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D5F2F4E3208E190D00B0790B /* art.scnassets */; };
 		D5F2F4E6208E190D00B0790B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F2F4E5208E190D00B0790B /* ViewController.swift */; };
@@ -90,6 +91,7 @@
 		D58A102B20FE6C39003B0E93 /* ViewController+Nodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Nodes.swift"; sourceTree = "<group>"; };
 		D5ABE2902146BB2A00AB8237 /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		D5AD52C32136E617007A373F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5B022B2287D0CBF00598D5E /* PicoWOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicoWOverlay.swift; sourceTree = "<group>"; };
 		D5F2F4DE208E190D00B0790B /* Adafruit AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adafruit AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F2F4E1208E190D00B0790B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5F2F4E3208E190D00B0790B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				297574DF25A612E4001991E7 /* SwiftUITarotCardView.swift */,
 				29A07E9625C0CB9F006219C9 /* PICOBoardOverlay.swift */,
 				293EC85825E8092C008EB6CA /* Teensy41BoardOverlay.swift */,
+				D5B022B2287D0CBF00598D5E /* PicoWOverlay.swift */,
 				29A83D2425EEC3F60018BEAB /* Pi400Overlay.swift */,
 				295049AB25E6996D003E7484 /* CurvedText.swift */,
 				295049AD25E69AB0003E7484 /* BLMBoardOverlay.swift */,
@@ -333,6 +336,7 @@
 				29A07E9725C0CB9F006219C9 /* PICOBoardOverlay.swift in Sources */,
 				29A83D2525EEC3F60018BEAB /* Pi400Overlay.swift in Sources */,
 				295049AC25E6996D003E7484 /* CurvedText.swift in Sources */,
+				D5B022B3287D0CBF00598D5E /* PicoWOverlay.swift in Sources */,
 				2948B61A25E6D82D0013781D /* CircleLabel.swift in Sources */,
 				D56ED488213EEC94000E62F0 /* QRViewController.swift in Sources */,
 				D55B075B20FF8DD40066976C /* ViewController+Gesture Recognizers.swift in Sources */,
