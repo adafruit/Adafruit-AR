@@ -66,7 +66,7 @@ extension BoardViewController {
          // self.addChildViewController(self.arVC)
 
             // set the pixel size of the Card View
-          self.arVC.view.frame = CGRect(x: 0, y: 0, width: 500, height: 500)
+          self.arVC.view.frame = CGRect(x: 0, y: -13, width: 510, height: 500)
 
             // add the ar card view as a subview to the main view
           self.view.addSubview(self.arVC.view)

@@ -54,6 +54,9 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     var minervaPartsLoaded = false
 
     
+    // Test
+    var picoPinout = SCNNode()
+    
     //MARK:- Tarot Cards
     
     var starCard = SCNNode()
@@ -494,7 +497,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
         
         ARObject.position = SCNVector3(planeNode.position.x, planeNode.position.y, planeNode.position.z )
         ARObject.scale = SCNVector3(x: size.x, y: size.y, z: size.z)
-        ARObject.eulerAngles.x = -.pi / 2
+       // ARObject.eulerAngles.x = -.pi / 2
         
         planeNode.addChildNode(ARObject)
         
@@ -529,7 +532,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
       print("Function: \(#function),File: \(#file),Line: \( #line)")
         _ = SCNMaterial()
         
-        let plane = SCNPlane(width: imageReferenceAnchor.referenceImage.physicalSize.width + 0.5, height: imageReferenceAnchor.referenceImage.physicalSize.height + 0.5)
+        let plane = SCNPlane(width: imageReferenceAnchor.referenceImage.physicalSize.width + 1, height: imageReferenceAnchor.referenceImage.physicalSize.height + 1)
 
         plane.firstMaterial?.diffuse.contents = UIColor(white: 0, alpha: 0)
         
@@ -601,7 +604,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
             
             let planeNode = SCNNode(geometry: plane)
             planeNode.eulerAngles.x = -.pi / 2
-            
+            //planeNode.position = SCNVector3(x: 0, y: 0, z: 0)
             node.addChildNode(planeNode)
             
             switch (imageAnchor.referenceImage.name) {
@@ -1771,7 +1774,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
                               
                 arHostingController(for: planeNode, textForDialogue: ListOfTexts.heirophantText)
 
-            //MARK:- PICO
+            //MARK: - PICO
             case "pico4":
               DispatchQueue.main.async {
                print("Recognized PICO Board.")
@@ -1782,6 +1785,19 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
 
                 self.arPICOHostingController(for: planeNode)
               }
+                
+                //MARK: PICO-W
+            case "pico W":
+              DispatchQueue.main.async {
+               print("Recognized PICO Board.")
+
+                self.ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+
+                self.SwiftUIARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+
+                self.arPICOHostingController(for: planeNode)
+              }
+                
             //MARK:- Teensy
             case "teensy":
               DispatchQueue.main.async {
@@ -1823,15 +1839,26 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
           //    _ = restartImageTracking
               //removeContentController(content: blmVC)
 
+                
+                
 
               DispatchQueue.main.async {
               print("Recognized BLM Board.")
+//                  self.ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+//
+//                  self.ARObjectToScene(ARObject: self.picoPinout, ARScene: ARScenes.blmLabelScene, planeNode: node, size: SCNVector3(0.5,0.5,0.5))
+//
+                  
+                 // picoPinout
+                  
+                  
+                  self.ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
 
-                self.ARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+                  self.SwiftUIARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
 
-                self.SwiftUIARPlaneAnchor(imageReferenceAnchor: imageAnchor, mainNode: node)
+                  self.arBLMHostingController(for: planeNode)
 
-                self.arBLMHostingController(for: planeNode)
+                  
 
               }
             case "cpx":

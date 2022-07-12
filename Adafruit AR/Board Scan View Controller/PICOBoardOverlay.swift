@@ -134,36 +134,45 @@ struct PICOBoardOverlay: View {
               RoundedRectangle(cornerRadius: 1, style: .continuous)
                 .fill(Color.clear)
                 .frame(width: 167, height: 272)
-                .border(Color.gray, width: 2)
+                .border(Color.clear, width: 2)
                 .position(x: 250, y: CGFloat(viewY))
 //.position(x: 250, y: 250)
 
-                pintOutDEBUGStruct()
-                  .position(x: 250, y: CGFloat(debugY))
+//                pintOutDEBUGStruct()
+//                  .position(x: 250, y: CGFloat(debugY))
 
 
 
                 HStack{
 
-                    VStack(alignment: .leading) {
-                        ForEach(data) { (pinout) in
-                            pintOutStruct(value: pinout.value, prefix: pinout.prefix, fgcolor: pinout.fgColor, bgcolor: pinout.bgcolor, prefix2: pinout.prefix2, bgColor2: pinout.bgColor2, prefix3: pinout.prefix3, bgColor3: pinout.bgColor3, prefix4: pinout.prefix4, bgColor4: pinout.bgColor4, prefix5: pinout.prefix5, bgColor5: pinout.bgColor5)
-                            }
-                        .frame(width: 170, height: 13.5, alignment: .leading)
+                    VStack {
+                        Image("PicoPinout20201")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 600, height: 395, alignment: .center)
+                        
                     }
-
-                    .position(x: 418, y: CGFloat(viewY))
-                    //.offset(x: 245, y: 23.8)
-
-                    VStack(alignment: .trailing) {
-                        ForEach(data2) { (pinout) in
-                            pintOutStruct2(value: pinout.value, prefix: pinout.prefix, fgcolor: pinout.fgColor, bgcolor: pinout.bgcolor, prefix2: pinout.prefix2, bgColor2: pinout.bgColor2, prefix3: pinout.prefix3, bgColor3: pinout.bgColor3, prefix4: pinout.prefix4, bgColor4: pinout.bgColor4, prefix5: pinout.prefix5, bgColor5: pinout.bgColor5)
-                            }
-                        .frame(width: 150, height: 13.4, alignment: .trailing)
-                      
-                    }
-                    .position(x: -161, y: CGFloat(viewY))
-                    //.offset(x: -245, y: 25)
+                    
+                    
+//                    VStack(alignment: .leading) {
+//                        ForEach(data) { (pinout) in
+//                            pintOutStruct(value: pinout.value, prefix: pinout.prefix, fgcolor: pinout.fgColor, bgcolor: pinout.bgcolor, prefix2: pinout.prefix2, bgColor2: pinout.bgColor2, prefix3: pinout.prefix3, bgColor3: pinout.bgColor3, prefix4: pinout.prefix4, bgColor4: pinout.bgColor4, prefix5: pinout.prefix5, bgColor5: pinout.bgColor5)
+//                            }
+//                        .frame(width: 170, height: 13.5, alignment: .leading)
+//                    }
+//
+//                    .position(x: 418, y: CGFloat(viewY))
+//                    //.offset(x: 245, y: 23.8)
+//
+//                    VStack(alignment: .trailing) {
+//                        ForEach(data2) { (pinout) in
+//                            pintOutStruct2(value: pinout.value, prefix: pinout.prefix, fgcolor: pinout.fgColor, bgcolor: pinout.bgcolor, prefix2: pinout.prefix2, bgColor2: pinout.bgColor2, prefix3: pinout.prefix3, bgColor3: pinout.bgColor3, prefix4: pinout.prefix4, bgColor4: pinout.bgColor4, prefix5: pinout.prefix5, bgColor5: pinout.bgColor5)
+//                            }
+//                        .frame(width: 150, height: 1, alignment: .trailing)
+//
+//                    }
+//                    .position(x: -161, y: CGFloat(viewY))
+//                    //.offset(x: -245, y: 25)
                 }
             }
             .onAppear(perform: {

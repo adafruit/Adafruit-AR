@@ -14,7 +14,7 @@ struct ARScenes {
     static let minervaScene = SCNScene(named: "art.scnassets/Minerva.scn")!
     
     static let circuitPlaygroundLabelScene = SCNScene(named: "art.scnassets/CPX_Displays.scn")!
-    static let blmLabelScene = SCNScene(named: "art.scnassets/BLM_Display.scn")!
+    static let blmLabelScene = SCNScene(named: "art.scnassets/TestPlane.scn")!
 
     //MARK:- Tarot Cards
     
