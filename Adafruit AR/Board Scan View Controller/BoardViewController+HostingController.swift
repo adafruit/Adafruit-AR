@@ -107,7 +107,7 @@ extension BoardViewController {
          // self.addChildViewController(self.arVC)
 
             // set the pixel size of the Card View
-          self.picoWVC.view.frame = CGRect(x: 0, y: -15, width: 510, height: 500)
+          self.picoWVC.view.frame = CGRect(x: 0, y: -20, width: 510, height: 510)
 
             // add the ar card view as a subview to the main view
           self.view.addSubview(self.picoWVC.view)
@@ -115,7 +115,6 @@ extension BoardViewController {
             // render the view on the plane geometry as a material
           self.showPicoWOverlay(hostingVC: self.picoWVC, on: node)
 
-         // self.arVC.willMove(toParent: self)
           self.picoWVC.didMove(toParent: self)
         }
 

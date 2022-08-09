@@ -1788,7 +1788,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
               }
                 
                 //MARK: PICO-W
-            case "pico W":
+            case "pico-wRef":
               DispatchQueue.main.async {
                print("Recognized PICO Board.")
 

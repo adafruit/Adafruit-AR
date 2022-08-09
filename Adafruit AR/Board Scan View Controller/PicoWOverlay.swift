@@ -11,10 +11,10 @@ import SwiftUI
 struct PicoWOverlay: View {
     var body: some View {
         VStack {
-            Image("PicoWPinout")
+            Image("PicoWPinout1")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 600, height: 357, alignment: .center)
+                .frame(width: 600, height: 360, alignment: .center)
             
         }
         .rotationEffect(.degrees(-180))
