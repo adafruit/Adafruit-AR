@@ -12,8 +12,6 @@ import SwiftUI
 
 extension BoardViewController {
     
-    
-
     func arHostingController(for node: SCNNode, textForDialogue: [String]) {
         // create a hosting controller with SwiftUI view
         let arVC = UIHostingController(rootView: SwiftUITarotCardView(minervaDialogue: textForDialogue))
@@ -39,19 +37,22 @@ extension BoardViewController {
     }
     
     func show(hostingVC: UIHostingController<SwiftUITarotCardView>, on node: SCNNode) {
-        // create a new material
-        let material = SCNMaterial()
         
-        // this allows the card to render transparent parts the right way
-        hostingVC.view.isOpaque = false
-        
-        // set the diffuse of the material to the view of the Hosting View Controller
-        material.diffuse.contents = hostingVC.view
-        material.lightingModel = .constant
-        // Set the material to the geometry of the node (plane geometry)
-        node.geometry?.materials = [material]
-        
-        hostingVC.view.backgroundColor = UIColor.clear
+        DispatchQueue.main.async {
+            // create a new material
+            let material = SCNMaterial()
+            
+            // this allows the card to render transparent parts the right way
+            hostingVC.view.isOpaque = false
+            
+            // set the diffuse of the material to the view of the Hosting View Controller
+            material.diffuse.contents = hostingVC.view
+            material.lightingModel = .constant
+            // Set the material to the geometry of the node (plane geometry)
+            node.geometry?.materials = [material]
+            
+            hostingVC.view.backgroundColor = UIColor.clear
+        }
     }
 
 

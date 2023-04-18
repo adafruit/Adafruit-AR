@@ -307,8 +307,6 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-
     }
 
 
@@ -488,7 +486,7 @@ class BoardViewController: UIViewController, ARSCNViewDelegate {
     }
     
     //Create AR Object
-    func ARObjectToScene(ARObject: SCNNode, ARScene: SCNScene, planeNode: SCNNode, size: SCNVector3){
+    func ARObjectToScene(ARObject: SCNNode, ARScene: SCNScene, planeNode: SCNNode, size: SCNVector3) {
         
         for child in ARScene.rootNode.childNodes {
            

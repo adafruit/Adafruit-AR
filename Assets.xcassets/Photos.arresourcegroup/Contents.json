@@ -11,6 +11,15 @@
       "filename" : "ChariotCard.arreferenceimage"
     },
     {
+      "filename" : "Circuit Playground Bluefruit.arreferenceimage"
+    },
+    {
+      "filename" : "Cpb.arreferenceimage"
+    },
+    {
+      "filename" : "cpbtest2.arreferenceimage"
+    },
+    {
       "filename" : "CPX-QRCode_v2.arreferenceimage"
     },
     {
@@ -71,13 +80,7 @@
       "filename" : "pi400.arreferenceimage"
     },
     {
-      "filename" : "pico-wRef.arreferenceimage"
-    },
-    {
-      "filename" : "pico4.arreferenceimage"
-    },
-    {
-      "filename" : "picoBoard.arreferenceimage"
+      "filename" : "PicoW.arreferenceimage"
     },
     {
       "filename" : "portal2.arreferenceimage"
@@ -87,6 +90,9 @@
     },
     {
       "filename" : "pyportal.arreferenceimage"
+    },
+    {
+      "filename" : "RaspPi PicoW.arreferenceimage"
     },
     {
       "filename" : "StarCard.arreferenceimage"

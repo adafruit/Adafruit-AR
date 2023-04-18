@@ -16,7 +16,21 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
  let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] 
 
 
- 
+  @IBOutlet weak var testButtonRef: UIButton!
+    
+    @IBAction func testButtonAction(_ sender: UIButton) {
+        print("Button Pressed")
+        navigateToNextViewController()
+    }
+    
+    @objc func navigateToNextViewController() {
+        let nextViewController = ARViewController()
+                nextViewController.modalPresentationStyle = .fullScreen // or any other presentation style you prefer
+                self.present(nextViewController, animated: true, completion: nil)
+    }
+    
+
+    
   @IBOutlet weak var boardView: ARSCNView!
   
   @IBOutlet weak var qrModeIcon: UIButton!
