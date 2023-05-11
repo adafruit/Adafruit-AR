@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "teensy.png",
+      "filename" : "ESP32-S2 TFT Feather Pinout.png",
       "idiom" : "universal"
     }
   ],
@@ -11,6 +11,6 @@
   },
   "properties" : {
     "unit" : "inches",
-    "width" : 0.71691176470588225
+    "width" : 2
   }
 }

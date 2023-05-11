@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "teensy.png",
+      "filename" : "IMG_2190 copy.png",
       "idiom" : "universal"
     }
   ],
@@ -11,6 +11,6 @@
   },
   "properties" : {
     "unit" : "inches",
-    "width" : 0.71691176470588225
+    "width" : 2
   }
 }

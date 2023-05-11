@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "teensy.png",
+      "filename" : "Clue ref.png",
       "idiom" : "universal"
     }
   ],
@@ -10,7 +10,6 @@
     "version" : 1
   },
   "properties" : {
-    "unit" : "inches",
-    "width" : 0.71691176470588225
+    "width" : 2
   }
 }

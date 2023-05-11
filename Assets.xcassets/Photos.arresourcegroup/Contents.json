@@ -5,79 +5,31 @@
   },
   "resources" : [
     {
+      "filename" : "Adafruit Circuit Playground Bluefruit pinout.arreferenceimage"
+    },
+    {
+      "filename" : "Adafruit Reverse TFT Feather ESP32-S2 .arreferenceimage"
+    },
+    {
       "filename" : "backBLM.arreferenceimage"
     },
     {
-      "filename" : "ChariotCard.arreferenceimage"
-    },
-    {
-      "filename" : "Circuit Playground Bluefruit.arreferenceimage"
-    },
-    {
-      "filename" : "Cpb.arreferenceimage"
+      "filename" : "CLUE pinout.arreferenceimage"
     },
     {
       "filename" : "cpbtest2.arreferenceimage"
     },
     {
-      "filename" : "CPX-QRCode_v2.arreferenceimage"
-    },
-    {
       "filename" : "cpx.arreferenceimage"
     },
     {
-      "filename" : "CrickitQRCode_v2.arreferenceimage"
-    },
-    {
-      "filename" : "DevilCard.arreferenceimage"
-    },
-    {
-      "filename" : "EmperorCard.arreferenceimage"
-    },
-    {
-      "filename" : "EmpressCard.arreferenceimage"
+      "filename" : "ESP32-S2 TFT Feather Pinout.arreferenceimage"
     },
     {
       "filename" : "fist.arreferenceimage"
     },
     {
-      "filename" : "FOCCard.arreferenceimage"
-    },
-    {
-      "filename" : "FoolCard.arreferenceimage"
-    },
-    {
-      "filename" : "GC-3.arreferenceimage"
-    },
-    {
-      "filename" : "HallowingQRcode_v2.arreferenceimage"
-    },
-    {
-      "filename" : "HeirophantCard.arreferenceimage"
-    },
-    {
-      "filename" : "HermitCard.arreferenceimage"
-    },
-    {
-      "filename" : "JudgementCard.arreferenceimage"
-    },
-    {
-      "filename" : "JusticeCard.arreferenceimage"
-    },
-    {
-      "filename" : "LoversCard.arreferenceimage"
-    },
-    {
-      "filename" : "MagicianCard.arreferenceimage"
-    },
-    {
-      "filename" : "MoonCard.arreferenceimage"
-    },
-    {
-      "filename" : "NeoTrellis_v2.arreferenceimage"
-    },
-    {
-      "filename" : "pi400.arreferenceimage"
+      "filename" : "pico-pinout-2.arreferenceimage"
     },
     {
       "filename" : "PicoW.arreferenceimage"
@@ -86,40 +38,31 @@
       "filename" : "portal2.arreferenceimage"
     },
     {
-      "filename" : "PriestessCard.arreferenceimage"
+      "filename" : "ref.Circuit Playground Bluefruit.arreferenceimage"
     },
     {
-      "filename" : "pyportal.arreferenceimage"
+      "filename" : "ref.Clue.arreferenceimage"
     },
     {
-      "filename" : "RaspPi PicoW.arreferenceimage"
+      "filename" : "ref.ESP32-S2 Rev TFT.arreferenceimage"
     },
     {
-      "filename" : "StarCard.arreferenceimage"
+      "filename" : "ref.ESP32-S2 TFT.arreferenceimage"
     },
     {
-      "filename" : "StrengthCard.arreferenceimage"
+      "filename" : "ref.RaspPi Pico W.arreferenceimage"
     },
     {
-      "filename" : "SunCard.arreferenceimage"
+      "filename" : "ref.RaspPi Pico.arreferenceimage"
+    },
+    {
+      "filename" : "ref.Teensy 4.1.arreferenceimage"
+    },
+    {
+      "filename" : "teensy-4.1-pinout.arreferenceimage"
     },
     {
       "filename" : "teensy.arreferenceimage"
-    },
-    {
-      "filename" : "TemperanceCard.arreferenceimage"
-    },
-    {
-      "filename" : "THMCard.arreferenceimage"
-    },
-    {
-      "filename" : "TowerCard.arreferenceimage"
-    },
-    {
-      "filename" : "WOFCard.arreferenceimage"
-    },
-    {
-      "filename" : "WorldCard.arreferenceimage"
     }
   ]
 }
