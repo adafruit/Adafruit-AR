@@ -20,7 +20,7 @@
       "filename" : "cpbtest2.arreferenceimage"
     },
     {
-      "filename" : "cpx.arreferenceimage"
+      "filename" : "CPX-Pinouts.arreferenceimage"
     },
     {
       "filename" : "ESP32-S2 TFT Feather Pinout.arreferenceimage"
@@ -39,6 +39,9 @@
     },
     {
       "filename" : "ref.Circuit Playground Bluefruit.arreferenceimage"
+    },
+    {
+      "filename" : "ref.Circuit Playground Express.arreferenceimage"
     },
     {
       "filename" : "ref.Clue.arreferenceimage"

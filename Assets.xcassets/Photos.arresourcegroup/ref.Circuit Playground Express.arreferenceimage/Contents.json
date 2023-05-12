@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "cpx.png",
+      "filename" : "cpx copy.png",
       "idiom" : "universal"
     }
   ],
@@ -10,6 +10,7 @@
     "version" : 1
   },
   "properties" : {
-    "width" : 0.20000000000000001
+    "unit" : "inches",
+    "width" : 2.0635696821515892
   }
 }

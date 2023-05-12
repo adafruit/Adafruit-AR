@@ -11,7 +11,7 @@ import UIKit
 class ARImageCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     // Replace with your image names in the "Photos" folder.
-    let images: [String] = ["Circuit Playground Bluefruit", "Clue", "RaspPi Pico", "RaspPi Pico W", "ESP32-S2 TFT", "ESP32-S2 Rev TFT", "Teensy 4.1"]
+    let images: [String] = ["Circuit Playground Express","Circuit Playground Bluefruit", "Clue", "RaspPi Pico", "RaspPi Pico W", "ESP32-S2 TFT", "ESP32-S2 Rev TFT", "Teensy 4.1"]
 
     weak var delegate: PhotosViewControllerDelegate?
     

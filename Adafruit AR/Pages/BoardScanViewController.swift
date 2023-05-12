@@ -318,7 +318,11 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
                         return
                     }
                     
+                    
                     arObjectScene = scene
+                    
+                case "ref.Circuit Playground Express":
+                    arObjectScene = SCNScene(named: "art.scnassets/CircuitPlaygroundExpress.scn")!
                     
                 case "ref.RaspPi Pico W":
                     arObjectScene = SCNScene(named: "art.scnassets/PiCow.scn")!
