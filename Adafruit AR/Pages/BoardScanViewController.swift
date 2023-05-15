@@ -24,7 +24,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         super.viewDidLoad()
         sceneView = ARSCNView(frame: view.bounds)
         arViewSetup()
-        setupConfig()
+        initialConfigurationSetup()
         addSubViews()
     }
     
@@ -52,7 +52,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         sceneView.addGestureRecognizer(pinchGesture)
     }
    
-    func setupConfig() {
+    func initialConfigurationSetup() {
         let backgroundQueue = DispatchQueue(label: "com.Using_Sequence.configQueue", qos: .default, attributes: .concurrent)
         
         DispatchQueue.main.async {
@@ -129,8 +129,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         view.addSubview(sceneView)
         view.addSubview(homeButton)
         view.addSubview(modalPresentButton)
-       // view.addSubview(spinner)
-        view.addSubview(stackView)  // Add the stack view instead of the label
+        view.addSubview(stackView)
 
         // Constraints
         NSLayoutConstraint.activate([
@@ -138,10 +137,6 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
             homeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             homeButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor),
             
-//            spinner.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-//            spinner.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-//            spinner.trailingAnchor.constraint(lessThanOrEqualTo: view.leadingAnchor),
-
             modalPresentButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -20),
             modalPresentButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
 
@@ -173,7 +168,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         
         let originalImage = UIImage(systemName: "chevron.backward")
         let templateImage = originalImage?.withRenderingMode(.alwaysTemplate)
-        let newImageSize = CGSize(width: 20, height: 25)
+        let newImageSize = CGSize(width: 15, height: 20)
         let resizedImage = templateImage?.withTintColor(.white).resizableImage(withCapInsets: .zero, resizingMode: .stretch).withRenderingMode(.alwaysOriginal)
         let finalImage = UIGraphicsImageRenderer(size: newImageSize).image { _ in
             resizedImage!.draw(in: CGRect(origin: .zero, size: newImageSize))
