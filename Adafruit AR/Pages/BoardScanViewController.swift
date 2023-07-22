@@ -19,6 +19,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
     let configuration = ARImageTrackingConfiguration()
     private var collectionViewIsPresented: Bool = false
     
+    let loadingService = ARImageLoadingService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         arViewSetup()
         initialConfigurationSetup()
         addSubViews()
+        registerTapRecognizer()
     }
     
     @objc func handlePinchGesture(sender: UIPinchGestureRecognizer) {
@@ -36,6 +38,89 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         let scale = max(min(sender.scale, 2.0), 0.5)
         cameraNode.camera?.fieldOfView = Double(originalFov * scale)
     }
+    
+    func registerTapRecognizer() {
+        let tapGestureRecognizer =  UITapGestureRecognizer (target:self ,action : #selector (tapped))
+        self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func tapped(sender: UITapGestureRecognizer) {
+        guard let sceneView = sender.view as? ARSCNView else { return }
+
+        // Get the location of the tap in the view.
+        let tapLocation = sender.location(in: sceneView)
+
+        // Perform a hit test on the ARSCNView.
+        guard let hitResult = performHitTest(sceneView: sceneView, at: tapLocation) else {
+            print("No object detected")
+            return
+        }
+
+        // Identify the AR object.
+        if let nodeName = identifyARObject(node: hitResult.node) {
+            print("\(nodeName) touched")
+
+            // Show the UISheetPresentationController.
+            presentSheetController(named: nodeName)
+        }
+    }
+
+    func performHitTest(sceneView: ARSCNView, at point: CGPoint) -> SCNHitTestResult? {
+        // Perform a hit test on the ARSCNView to find any 3D objects that correspond to the 2D tap location.
+        let hitTestResults = sceneView.hitTest(point, options: nil)
+        return hitTestResults.first
+    }
+
+    func identifyARObject(node: SCNNode) -> String? {
+        // If the node's name is "plane" or if it's nil, return nil
+        if node.name == "plane" || node.name == nil {
+            return nil
+        } else {
+            // If the node has a name and it's not "plane", return the name
+            return node.name
+        }
+    }
+   
+    
+    let arObjectTexts: [String: String] = [
+        "Metro M7 1011 with AirLift" : ListOfTexts.MetroM7.overview,
+        "Debug Interface": ListOfTexts.MetroM7.debugInterface,
+        "Boot Mode Switches": ListOfTexts.MetroM7.bootModeSwitches,
+        "STEMMA QT" : ListOfTexts.MetroM7.stemmaQT,
+        "i.MX RT1011 Processor" : ListOfTexts.MetroM7.iMXRT1011Processor,
+        "USB-C port" : ListOfTexts.MetroM7.usbcport,
+        "ESP32 WiFi Co-Processor" : ListOfTexts.MetroM7.esp32,
+        "DC Jack" : ListOfTexts.MetroM7.dcJack
+    ]
+
+    func presentSheetController(named name: String) {
+        let sheetController = ARNodeDetailedViewController()
+        sheetController.modalPresentationStyle = .pageSheet
+
+        let customId = UISheetPresentationController.Detent.Identifier("customDetent")
+        let customDetent = UISheetPresentationController.Detent.custom(identifier: customId) { context in
+            return 300
+        }
+        
+        
+        sheetController.sheetPresentationController?.detents = [customDetent]
+        sheetController.sheetPresentationController?.prefersGrabberVisible = true
+        sheetController.sheetPresentationController?.preferredCornerRadius = 30.0
+        sheetController.sheetPresentationController?.prefersScrollingExpandsWhenScrolledToEdge = false
+        
+        // Use the dictionary to look up the text for the AR object
+        if let textBody = arObjectTexts[name] {
+            sheetController.setText(textHeader: name, textBody: textBody)
+        } else {
+            // If the AR object is not in the dictionary, use a default text
+            sheetController.setText(textHeader: name, textBody: "No information available for this object.")
+        }
+        
+        self.present(sheetController, animated: true, completion: nil)
+    }
+
+
+    
     
     override func viewDidAppear(_ animated: Bool) {
         presentModal(isPresented: true)
@@ -159,6 +244,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "SELECT A BOARD BELOW"
         label.font = UIFont(name: "AvenirNext-DemiBold", size: 18)
+        label.textColor = .white
         label.textAlignment = .center
 
         return label
@@ -208,7 +294,6 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func buttonTapped() {
         navigateBack()
-        // Perform any actions you want when the button is tapped
     }
     
     @objc func navigateBack() {
@@ -313,7 +398,6 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
                         return
                     }
                     
-                    
                     arObjectScene = scene
                     
                 case "ref.Circuit Playground Express":
@@ -336,7 +420,9 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
                 
                 case "ref.Teensy 4.1":
                     arObjectScene = SCNScene(named: "art.scnassets/Teensy4.1.scn")!
-                    
+                    //Metro M7 1011 with AirLift
+                case "ref.Metro M7 1011 with AirLift":
+                    arObjectScene = SCNScene(named: "art.scnassets/Metro M7 1011 with AirLift.scn")!
                 default:
                     return
                 }
@@ -392,7 +478,7 @@ extension BoardScanViewController: PhotosViewControllerDelegate {
         
         DispatchQueue.main.async {
             self.appTitleLabel.isHidden = false
-            self.appTitleLabel.text = ("Scanning for \(imageName)")
+            self.appTitleLabel.text = ("Scanning for the \(imageName)")
             self.spinner.startAnimating()
         }
         

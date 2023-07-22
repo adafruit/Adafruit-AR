@@ -9,58 +9,80 @@
 import Foundation
 
 struct ListOfTexts {
-    
-    //MARK:- Text For Update #3
-    
-    static let foolText = ["Ah! Looks like you have a tarot card!","Ah yes. The Fool Card.","Some new beginnings also brings struggle, but just remember...","The process is more important than the end result of goals.","That was fun! Do you have another?", ""]
-    
-    static let priestessText = ["Hehe! Looks like you have a tarot card!","Hmmm....The Priestess Card.","Trust your instinct...even if you build mistakes.", "Sometime building a mistake...is better than not building at all.","That was fun! Do you have another?", ""]
-    
-    static let strengthText = ["Ah! Looks like you have a tarot card!","Ah yes. The Strength Card.","You will be called upon to show up...", "Showing up on time, is just as important as arriving prepared.","That was fun! Do you have another?", ""]
-    
-    static let magicianText = ["Ah! Looks like you have a tarot card!","Hmmm. The Magician Card.","This card has a way of changing your mood for the better! But...","Sometimes it's not going to change...unless you do.","That was fun! Do you have another?", ""]
-    
-    static let chariotText = ["Ah! Looks like you have a tarot card!","Ah yes. The Chariot Card.","Now is a time to go for what you really want.", "There may be many obstacles in your path but if you stay focused, you'll be successful!","That was fun! Do you have another?", ""]
-    
-    static let emperorText = ["Ah! Looks like you have a tarot card!"," The Emperor Card.","This card represents a powerful leader who demands respect and authority.","You create law and order by applying principles or guidelines to a specific situation.","That was fun! Do you have another?", ""]
-    
-    static let empressText = ["Ah! Looks like you have a tarot card!","Ah yes. The Empress Card.","This card signifies a strong connection to your creative expressions.", "Connect with your senses through taste, touch, sound, smell and sight.","That was fun! Do you have another?", ""]
-    
-    static let heirophantText = ["Ah! Looks like you have a tarot card!","Ah yes. The Hierophant Card.","This card represents a necessity to follow existing conventions and rules.","Rather than breaking norms, be familiar with different traditions and beliefs.","That was fun! Do you have another?", ""]
-    
-    
-    //MARK:- Text For Update #2
-    
-    static let tHMText = ["Ah! Looks like you have a tarot card!","The card of The Hanged Man.","Only you can release the power within.", "Footprints are not always reliable...make your own!","That was fun! Do you have another?", ""]
-    
-    static let towerText = ["Ah! Looks like you have a tarot card!","The card of the Tower.","Be very mindful of your safety.", "Misinformation...is more dangerous than no information.","That was fun! Do you have another?", ""]
-    
-    static let loversText = ["Ah! Looks like you have a tarot card!","The card of the Lovers!"," This card represents seeking  balance behind the gates within.", "Just because there is a gate...doesn't mean it locked...","That was fun! Do you have another?", ""]
-    
-    static let sunText = ["Ah! Looks like you have a tarot card!","Ah card of the Sun!"," You will find that people are drawn to the happy vibes and positive energy you are giving out.", "Why not make a megaphone! To whisper into.","That was fun! Do you have another?", ""]
-    
-    static let justiceText = ["Ah! Looks like you have a tarot card!","The card of Justice!","Think about your actions towards others. ", "Not every container is static free...","That was fun! Do you have another?", ""]
-    
-    static let moonText = ["Ah! Looks like you have a tarot card!","The card of the Moon!","This card tells me that you should pay attention to your dreams!", "Motion is noise. Stay still when possible.","That was fun! Do you have another?", ""]
-    
-    static let worldText = ["Ah! Looks like you have a tarot card!","The card of the Hermit!","Looks like you will have the world at your feet!", "The power to change, is not the power to charge...","That was fun! Do you have another?", ""]
-    
-    static let devilText = ["Ah! Looks like you have a tarot card!","Oh! The Devil Card!","You control of your own destiny and are not bound by anything.", "You've got the power!...as long as it doesn't go off the rails...","That was fun! Do you have another?", ""]
-    
-    //MARK:- Text For Update #1
-    
-    static let temperanceText = ["Ah! Looks like you have a tarot card!","Hoho! This is the card of Temperance.","When things are easy, prepare for the hard things...", "...be sure to keep balance in life.","That was fun! Do you have another?", ""]
-    
-    static let starText = ["Ah! Looks like you have a tarot card!","Hmmm...This is the Star card!", "Today, why is more important than what.","That was fun! Do you have another?", ""]
-    
-    static let deathText = ["Ah! Looks like you have a tarot card!","Oh! The Death Card.","Don’t fear! This card symbolizes the end of a long journey.", "Use great caution with things at their lifespan.","That was fun! Do you have another?", ""]
-    
-    static let WOFText = ["Ah! Looks like you have a tarot card!","This card is the Wheel Of Fortune!","A good gauge, can also be a bind.", "As the wheel of fortune turns, expect some setbacks.","That was fun! Do you have another?", ""]
-    
-    static let judgementText = ["Ah! Looks like you have a tarot card!","Hmmm...This is card of Judgement!","If the spectrum is crowded, move to another!", "If you find yourself at a crossroads, trust your judgement and know that you’re on the right path.","That was fun! Do you have another?", ""]
-    
-    static let hermitText = ["Ah! Looks like you have a tarot card!","The card of the Hermit!","At times, we filter out noise for clarity...", "...filtering out noise is the start, not the end.","That was fun! Do you have another?", ""]
-    
-    static let fourOfCoinText = ["Ah! Looks like you have a tarot card!","Ah...The Four Of Coin.","The best listeners hear the best things...","Fortune comes to those who listen.","That was fun! Do you have another?", ""]
-    
+   
+    struct MetroM7 {
+        static func getAttributedString() -> NSAttributedString {
+            let url = URL(string: "https://www.apple.com")!
+            
+            let attributedString = NSMutableAttributedString(string: "Installing the Bootloader page")
+            attributedString.addAttribute(.link, value: url, range: NSMakeRange(5, 10))
+            
+            return attributedString
+        }
+        
+        static let overview = """
+Our fastest Metro ever - the NXP i.MX RT1011 microcontroller powers this board with a 500 MHz ARM Cortex M7 processor. There's 4 MB of execute-in-place QSPI for firmware + disk storage and 128KB of SRAM in-chip.
+
+Currently there we have support for using this board with CircuitPython. There is no Arduino support at this time.
+"""
+        
+        static let debugInterface = "If you'd like to do more advanced development, trace-debugging, or not use the bootloader, we have the SWD interface exposed. You can use any 2x5 0.05 pitch SWD interface to connect. We suggest a J-Link."
+        
+        static let bootModeSwitches = """
+The boot mode switches (labeled BOOT SEL on the board silk) are used to get into the ROM bootloader. The switch has two individual switches: B0 and B1. The photo shows both switches in the OFF position, but for normal operation B0 should be OFF and B1 should be ON.
+
+The individual switches are set to ON (or 1) when they are moved next to the ON text on the switch housing and OFF (or 0) when they are moved next to their labels on the board silk. You can find more information on entering the bootloader with these switches on the Installing the Bootloader page in this guide.
+"""
+        
+        static let stemmaQT = """
+This JST SH 4-pin STEMMA QT connector breaks out I2C (SCL, SDA, 3.3V, GND). It allows you to connect to various breakouts and sensors with STEMMA QT connectors or to other things using assorted associated accessories. It works great with any STEMMA QT or Qwiic sensor/device. You can also use it with Grove I2C devices thanks to this handy cable.
+
+In CircuitPython, this port can be accessed with board.STEMMA_I2C().
+"""
+        
+        static let iMXRT1011Processor = """
+The Metro M7 1011 is powered by the NXP i.MX RT1011 processor. This is an ARM Cortex M7 processor running at 500 MHz. It has 128KB of SRAM in-chip, along with high speed USB.
+"""
+        static let usbcport = """
+This is used for both powering and programming the board. You can power it with any USB C cable. When USB is plugged in it will charge the Lipoly battery.
+
+The following pins are related to power on the Metro M7 1011:
+
+3.3V - this is the output from the 3.3V regulator, it can supply 500mA peak.
+
+5V - this is the output from the 5V regulator (when DC jack is used), or from USB. It can supply ~500mA peak from USB and ~800mA peak from DC.
+
+GND - this is the common ground for all power and logic.
+
+VIN - this is the higher of the DC jack or USB voltage. So if the DC jack is plugged in and 9V, Vin is 9V. If only USB connected, this will be 5V.
+"""
+        static let esp32 = """
+The WiFi capability uses an Espressif ESP32 Wi-Fi coprocessor, aka the AirLift, with TLS/SSL support built-in. Communication is over SPI and it has CircuitPython library support ready to go for fast wireless integration with the following pins:
+
+- MOSI pin (board.ESP_MOSI)
+- MISO pin (board.ESP_MISO)
+- SCK pin (board.ESP_SCK)
+- CS pin (board.ESP_CS)
+- Ready/Busy pin (board.ESP_BUSY)
+- Reset pin (board.ESP_RESET)
+- ESP RX/TX pins (board.ESP_RX and board.ESP_TX) are shared with the M7 RX/TX pins. There's a resistor between the M7's RX line and the ESP32 module so that a device connected on the RX pin will override the communication from the ESP32 module.
+- You can also connect to the ESP32 RTS pin (used in some serial contexts) on board.ESP_RTS
+- The ESP32 GPIO0 pin for bootloader enable is connected to board.ESP_GPIO0
+"""
+        static let dcJack = """
+The DC Jack is a 5.5mm/2.1mm center-positive DC connector, which is the most common available. Provide about 6V-12V here to power the Metro M7 1011.
+
+The following pins are related to power on the Metro M7 1011:
+
+3.3V - this is the output from the 3.3V regulator, it can supply 500mA peak.
+
+5V - this is the output from the 5V regulator (when DC jack is used), or from USB. It can supply ~500mA peak from USB and ~800mA peak from DC.
+
+GND - this is the common ground for all power and logic.
+
+VIN - this is the higher of the DC jack or USB voltage. So if the DC jack is plugged in and 9V, Vin is 9V. If only USB connected, this will be 5V.
+"""
+        
+        
+    }
 }

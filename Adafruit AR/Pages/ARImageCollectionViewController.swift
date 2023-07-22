@@ -11,7 +11,7 @@ import UIKit
 class ARImageCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     // Replace with your image names in the "Photos" folder.
-    let images: [String] = ["Circuit Playground Express","Circuit Playground Bluefruit", "Clue", "RaspPi Pico", "RaspPi Pico W", "ESP32-S2 TFT", "ESP32-S2 Rev TFT", "Teensy 4.1"]
+    let images: [String] = ["Circuit Playground Express","Circuit Playground Bluefruit", "Clue", "RaspPi Pico", "RaspPi Pico W", "ESP32-S2 TFT", "ESP32-S2 Rev TFT", "Teensy 4.1", "Metro M7 1011 with AirLift"]
 
     weak var delegate: PhotosViewControllerDelegate?
     
@@ -20,6 +20,7 @@ class ARImageCollectionViewController: UIViewController, UICollectionViewDataSou
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "SELECT A BOARD"
         label.font = UIFont(name: "AvenirNext-DemiBold", size: 32)
+        label.textColor = .white
         return label
     }()
     

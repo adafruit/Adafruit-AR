@@ -24,6 +24,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont(name: "AvenirNext-Regular", size: 14)
+        label.textColor = .white
         return label
     }()
     
