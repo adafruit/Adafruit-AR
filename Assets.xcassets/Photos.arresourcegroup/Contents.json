@@ -29,7 +29,10 @@
       "filename" : "fist.arreferenceimage"
     },
     {
-      "filename" : "Metro M7 1011 with AirLift 2.arreferenceimage"
+      "filename" : "Metro M7 NXPComp.arreferenceimage"
+    },
+    {
+      "filename" : "MetroM7_OG_pinout.arreferenceimage"
     },
     {
       "filename" : "pico-pinout-2.arreferenceimage"
@@ -56,7 +59,16 @@
       "filename" : "ref.ESP32-S2 TFT.arreferenceimage"
     },
     {
+      "filename" : "ref.Metro M7 1011 with AirLift 2.arreferenceimage"
+    },
+    {
       "filename" : "ref.Metro M7 1011 with AirLift.arreferenceimage"
+    },
+    {
+      "filename" : "ref.Metro M7 NXP.arreferenceimage"
+    },
+    {
+      "filename" : "ref.Metro M7 NXP2.arreferenceimage"
     },
     {
       "filename" : "ref.RaspPi Pico W.arreferenceimage"

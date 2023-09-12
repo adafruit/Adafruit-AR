@@ -1,0 +1,14 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "resources" : [
+    {
+      "filename" : "ref.Metro M7 NXP.arreferenceimage"
+    },
+    {
+      "filename" : "ref.Metro M7 NXP2.arreferenceimage"
+    }
+  ]
+}

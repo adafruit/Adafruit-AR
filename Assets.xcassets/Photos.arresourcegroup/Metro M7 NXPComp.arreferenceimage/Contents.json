@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Metro M7 1011 with AirLift copy 2.png",
+      "filename" : "Metro M7 NXPComp.png",
       "idiom" : "universal"
     }
   ],
@@ -10,7 +10,6 @@
     "version" : 1
   },
   "properties" : {
-    "unit" : "inches",
-    "width" : 2
+    "width" : 0
   }
 }

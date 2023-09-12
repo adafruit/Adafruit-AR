@@ -30,6 +30,7 @@ class ARNodeDetailedViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false // Use AutoLayout
         textView.backgroundColor = .clear
         textView.textColor = .white
+        textView.isEditable = false
         return textView
     }()
 

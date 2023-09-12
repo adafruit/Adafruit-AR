@@ -13,6 +13,7 @@ protocol PhotosViewControllerDelegate: AnyObject {
     func didSelectImage(imageName: String)
 }
 
+
 class BoardScanViewController: UIViewController, ARSCNViewDelegate {
     
     private var sceneView: ARSCNView!
@@ -20,6 +21,10 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
     private var collectionViewIsPresented: Bool = false
     
     let loadingService = ARImageLoadingService()
+    
+    var isFrontFaced = true
+    var activeArObjectTexts: [String: String] = [:]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,16 +86,29 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         }
     }
    
+
     
-    let arObjectTexts: [String: String] = [
-        "Metro M7 1011 with AirLift" : ListOfTexts.MetroM7.overview,
-        "Debug Interface": ListOfTexts.MetroM7.debugInterface,
-        "Boot Mode Switches": ListOfTexts.MetroM7.bootModeSwitches,
-        "STEMMA QT" : ListOfTexts.MetroM7.stemmaQT,
-        "i.MX RT1011 Processor" : ListOfTexts.MetroM7.iMXRT1011Processor,
-        "USB-C port" : ListOfTexts.MetroM7.usbcport,
-        "ESP32 WiFi Co-Processor" : ListOfTexts.MetroM7.esp32,
-        "DC Jack" : ListOfTexts.MetroM7.dcJack
+    let metroM7arObjectTexts: [String: String] = [
+        "Metro M7 1011 with AirLift" : MetroM7.overview,
+        "Debug Interface": MetroM7.debugInterface,
+        "Boot Mode Switches": MetroM7.bootModeSwitches,
+        "STEMMA QT" : MetroM7.stemmaQT,
+        "i.MX RT1011 Processor" : MetroM7.iMXRT1011Processor,
+        "USB-C port" : MetroM7.usbcport,
+        "ESP32 WiFi Co-Processor" : MetroM7.esp32,
+        "DC Jack" : MetroM7.dcJack,
+        ]
+    
+    let metroM7NXParObjectTexts: [String: String] = [
+        "Metro M7 with microSD - NXP iMX RT1011" : MetroM7NXP.overview,
+        "Debug Interface": MetroM7NXP.debugInterface,
+        "Boot Mode Switches": MetroM7NXP.bootModeSwitches,
+        "STEMMA QT" : MetroM7NXP.stemmaQT,
+        "i.MX RT1011 Processor" : MetroM7NXP.iMXRT1011Processor,
+        "USB-C port" : MetroM7NXP.usbcport,
+        "Micro SD Card Slot" : MetroM7NXP.microSDCardSlot,
+        "DC Jack" : MetroM7NXP.dcJack
+        
     ]
 
     func presentSheetController(named name: String) {
@@ -102,26 +120,28 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
             return 300
         }
         
+        let mediumId = UISheetPresentationController.Detent.Identifier("mediumDetent")
+        let mediumDetent = UISheetPresentationController.Detent.custom(identifier: mediumId) { context in
+            return 500
+        }
         
-        sheetController.sheetPresentationController?.detents = [customDetent]
+        sheetController.sheetPresentationController?.detents = [customDetent, mediumDetent]
         sheetController.sheetPresentationController?.prefersGrabberVisible = true
         sheetController.sheetPresentationController?.preferredCornerRadius = 30.0
-        sheetController.sheetPresentationController?.prefersScrollingExpandsWhenScrolledToEdge = false
+        sheetController.sheetPresentationController?.prefersScrollingExpandsWhenScrolledToEdge = true
+        
+        
         
         // Use the dictionary to look up the text for the AR object
-        if let textBody = arObjectTexts[name] {
-            sheetController.setText(textHeader: name, textBody: textBody)
-        } else {
-            // If the AR object is not in the dictionary, use a default text
-            sheetController.setText(textHeader: name, textBody: "No information available for this object.")
-        }
+        if let textBody = activeArObjectTexts[name] {
+                  sheetController.setText(textHeader: name, textBody: textBody)
+              } else {
+                  sheetController.setText(textHeader: name, textBody: "No information available for this object.")
+              }
         
         self.present(sheetController, animated: true, completion: nil)
     }
 
-
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         presentModal(isPresented: true)
     }
@@ -164,7 +184,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         backgroundQueue.async {
             
             guard let trackedImages = ARReferenceImage.referenceImages(inGroupNamed: "Photos", bundle: Bundle.main) else {
-                print("No images available")
+                print("No images for \(imageName) available in Photos folder")
                 return
             }
             
@@ -180,7 +200,16 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
                        return
                    }
             
+            print("Caught: \(imageName)")
            
+            if imageName == "ref.Metro M7 NXP" {
+                self.activeArObjectTexts = self.metroM7NXParObjectTexts
+            }
+            
+            if imageName == "ref.Metro M7 1011 with AirLift" {
+                self.activeArObjectTexts = self.metroM7arObjectTexts
+            }
+            
             
             let referenceImage = ARReferenceImage(imageCG, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.05) // Replace 0.1 with your image's physical width in meters
             referenceImage.name = imageName
@@ -192,6 +221,55 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
             }
         }
     }
+    
+    
+    func configureForMetros(withImageName imageName: String) {
+        
+        print("Searching for... a \(imageName)")
+        let backgroundQueue = DispatchQueue(label: "com.AdafruitAR.configureForMetros", qos: .background, attributes: .concurrent)
+        
+        backgroundQueue.async {
+            
+            guard let trackedImages = ARReferenceImage.referenceImages(inGroupNamed: "MetroNXP", bundle: Bundle.main) else {
+                print("No images for \(imageName) available in Photos folder")
+                return
+            }
+            
+            var referenceImages: [ARReferenceImage] = []
+            
+            for trackedImage in trackedImages {
+                guard let image = UIImage(named: trackedImage.name ?? "") else {
+                    print("Image not found: \(String(describing: trackedImage.name))")
+                    continue
+                }
+
+                guard let imageCG = image.cgImage else {
+                    print("Failed to get CGImage from UIImage")
+                    continue
+                }
+                
+                let referenceImage = ARReferenceImage(imageCG, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.05) // Replace 0.05 with your image's actual physical width in meters
+                referenceImage.name = trackedImage.name
+                referenceImages.append(referenceImage)
+            }
+            
+            self.configuration.trackingImages = Set(referenceImages)
+            self.configuration.maximumNumberOfTrackedImages = 2
+            self.configuration.isAutoFocusEnabled = true
+            
+            if imageName == "ref.Metro M7 NXP" {
+                self.activeArObjectTexts = self.metroM7NXParObjectTexts
+            }
+            
+            if imageName == "ref.Metro M7 1011 with AirLift" {
+                self.activeArObjectTexts = self.metroM7arObjectTexts
+            }
+            
+            // Run the view's session
+            self.sceneView.session.run(self.configuration, options: [.resetTracking,.removeExistingAnchors])
+        }
+    }
+    
     
     func resetARView() {
         sceneView.session.run(configuration, options: [.resetTracking,.removeExistingAnchors])
@@ -287,6 +365,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         return button
     }()
     
+
     
     @objc func presentCollectionViewModal() {
         presentModal(isPresented: true)
@@ -306,6 +385,11 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         print("\(#function) - \(isPresented)")
         print("is collectionViewIsPresented?? - \(collectionViewIsPresented)")
         
+        let mediumId = UISheetPresentationController.Detent.Identifier("mediumDetent")
+        let mediumDetent = UISheetPresentationController.Detent.custom(identifier: mediumId) { context in
+            return 300
+        }
+        
         let smallId = UISheetPresentationController.Detent.Identifier("small")
         let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallId) { context in
             return 150
@@ -321,7 +405,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
                 sheet.prefersGrabberVisible = true
                 sheet.preferredCornerRadius = 30.0
                 sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-                sheet.detents = [smallDetent,.medium(), .large()]
+                sheet.detents = [smallDetent,mediumDetent, .large()]
                 
             }
             // 4
@@ -332,6 +416,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         } else {
             collectionViewIsPresented = false
             detailViewController.dismiss(animated: true)
+            print("detailViewController Dismissed")
         }
         
         
@@ -368,7 +453,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
         if let imageAnchor = anchor as? ARImageAnchor {
             let backgroundQueue = DispatchQueue(label: "com.Using_Sequence.backgroundQueue", qos: .background, attributes: .concurrent)
 
-            backgroundQueue.async {
+            backgroundQueue.async { [self] in
                 
                 DispatchQueue.main.async {
                     self.appTitleLabel.isHidden = true
@@ -421,8 +506,19 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
                 case "ref.Teensy 4.1":
                     arObjectScene = SCNScene(named: "art.scnassets/Teensy4.1.scn")!
                     //Metro M7 1011 with AirLift
+               
                 case "ref.Metro M7 1011 with AirLift":
                     arObjectScene = SCNScene(named: "art.scnassets/Metro M7 1011 with AirLift.scn")!
+               
+                case "ref.Metro M7 1011 with AirLift 2":
+                    arObjectScene = SCNScene(named: "art.scnassets/Metro M7.scn")!
+                
+                case "ref.Metro M7 NXP":
+                    arObjectScene = SCNScene(named: "art.scnassets/Metro M7 NXP.scn")!
+               
+                case "ref.Metro M7 NXP2":
+                    arObjectScene = SCNScene(named: "art.scnassets/Metro M7.scn")!
+                    
                 default:
                     return
                 }
@@ -474,7 +570,18 @@ extension BoardScanViewController: PhotosViewControllerDelegate {
     
     func didSelectImage(imageName: String) {
         presentModal(isPresented: false)
-        updateConfiguration(withImageName: "ref.\(imageName)")
+        
+        print("Set to: \(imageName)")
+        
+        if imageName == "Metro M7 1011 with AirLift" {
+            configureForMetros(withImageName: "ref.\(imageName)")
+        }
+        
+        if imageName == "Metro M7 NXP" {
+            configureForMetros(withImageName: "ref.\(imageName)")
+        } else {
+            updateConfiguration(withImageName: "ref.\(imageName)")
+        }
         
         DispatchQueue.main.async {
             self.appTitleLabel.isHidden = false
