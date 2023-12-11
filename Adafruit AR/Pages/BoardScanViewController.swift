@@ -517,7 +517,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
                     arObjectScene = SCNScene(named: "art.scnassets/Metro M7 NXP.scn")!
                
                 case "ref.Metro M7 NXP2":
-                    arObjectScene = SCNScene(named: "art.scnassets/Metro M7.scn")!
+                    arObjectScene = SCNScene(named: "art.scnassets/MetroM7NXPPinouts.scn")!
                     
                 default:
                     return
