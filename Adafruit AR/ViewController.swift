@@ -286,7 +286,7 @@
       //Call updateTeeth for every frame of video
       let dpLink = CADisplayLink(target: self, selector: #selector(self.updateTeeth))
       
-      dpLink.add(to: .current, forMode: .commonModes)
+       // dpLink.add(to: .current, forMode: .RunLoop.Mode.common)
       
       setupFocusSquare()
       screenLocation()

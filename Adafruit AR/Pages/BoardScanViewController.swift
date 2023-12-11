@@ -278,7 +278,7 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
     
     func addSubViews() {
         // Create the UIActivityIndicatorView
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .medium)
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 
         // Create the UIStackView
@@ -309,9 +309,9 @@ class BoardScanViewController: UIViewController, ARSCNViewDelegate {
     }
 
     var spinner: UIActivityIndicatorView = {
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .medium)
+        let activityIndicatorView = UIActivityIndicatorView(style: .medium)
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicatorView.activityIndicatorViewStyle = .medium
+        activityIndicatorView.style = .medium
         activityIndicatorView.hidesWhenStopped = true
         activityIndicatorView.stopAnimating()
         return activityIndicatorView
